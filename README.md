@@ -1,6 +1,6 @@
 # SUITS Member Point Tracking
 
-Requirements: Ruby 3.0.0, rails gem, pg gem, and postgresql set up on your machinee
+Requirements: Ruby 3.0.0, rails gem, pg gem, and postgresql set up on your machine
  
 To set up on your local machine, first create a postgres user called suitsapp with:
 

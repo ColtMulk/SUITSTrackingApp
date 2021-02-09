@@ -35,3 +35,47 @@ rails server
 ```
 
 and visiting http://127.0.0.1:3000. You should be taken to a list of users where you can create a new one to verify the db setup was successful.
+
+```
+first mess with the database.yml in default if not there
+username: suitsapp
+password: suitsapp
+host: localhost
+port: 5432
+```
+```
+sudo service postgresql start
+```
+```
+$ sudo -u postgres createuser <username>   
+```
+```
+$ sudo -u postgres createdb <dbname> 
+```
+```
+$ sudo -u postgres psql
+```
+```
+psql=# alter user <username> with encrypted password '<password>';
+```
+```
+psql=# grant all privileges on database <dbname> to <username> ;
+```
+```
+psql=# \q; to quit or exit server
+```
+```
+rails db:setup
+```
+```
+rails db:migrate
+```
+```
+bundle install
+```
+```
+rails server
+```
+```
+rails webpacker:install (if webpacker error run this command)
+```

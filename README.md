@@ -1,8 +1,10 @@
 # SUITS Member Point Tracking
 
+
 For MacOS:
 
 Requirements: Ruby 3.0.0, rails gem, pg gem, and postgresql set up on your machinee
+
  
 To set up on your local machine, first create a postgres user called suitsapp with:
 
@@ -37,6 +39,7 @@ rails server
 ```
 
 and visiting http://127.0.0.1:3000. You should be taken to a list of users where you can create a new one to verify the db setup was successful.
+
 
 For Unix (work in progress):
 

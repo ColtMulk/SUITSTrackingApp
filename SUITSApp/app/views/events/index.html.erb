@@ -1,0 +1,30 @@
+
+
+<div>
+  <h2> Events </h2>
+
+    <%= link_to("Add New Event", {:action => 'new'})%>
+
+    <table class="listing">
+      <tr class="header">
+        <th>Event Name</th>
+        <th>Event Location</th>
+        <th>EventDate</th>
+        <th>Event Descripition</th>
+        <th>Action</th>
+      </tr>
+      <% @events.each do |event| %>
+      <tr>
+        <td><%= event.event_name %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date %></td>
+        <td><%= event.event_descripition %></td>
+        <td class = actions>
+          <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+          <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
+        </td>
+      </tr>
+
+      <% end %>
+    </table>
+</div>

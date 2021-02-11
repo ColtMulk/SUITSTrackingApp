@@ -3,7 +3,16 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   get 'home/index'
   devise_for :users
-  
+
+  resources :events do
+    member do
+      get :delete
+    end
+  end
+
+  get 'events/new'
+  get 'events/index'
+
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

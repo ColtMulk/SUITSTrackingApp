@@ -1,0 +1,30 @@
+<div>
+  <h2>Create Event</h2>
+
+  <%= form_for(@event) do |e| %>
+
+    <table>
+      <tr>
+        <th>Event Name</th>
+        <td><%= e.text_field(:event_name)%></td>
+      </tr>
+      <tr>
+        <th>Event Location</th>
+        <td><%= e.text_field(:location)%></td>
+      </tr>
+      <tr>
+        <th>Event Date</th>
+        <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+      </tr>
+      <tr>
+        <th>Event Descripition</th>
+        <td><%= e.text_field(:event_descripition)%></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= e.submit("Add Event") %>
+    </div>
+
+  <% end %>
+</div>

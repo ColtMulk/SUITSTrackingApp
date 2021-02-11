@@ -1,0 +1,11 @@
+<div>
+  <h2 Delete Event </h2>
+    <%= form_for(@event, :method => 'delete') do |e| %>
+      <p> Are you sure you want to delete <% e.object.event_name %>? </p>
+
+      <div>
+        <%= e.submit("Delete Event") %>
+      </div>
+    <% end %>
+
+</div>

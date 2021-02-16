@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'
+  get 'dashboard/rosterview'
   get 'home/index'
   devise_for :users
   

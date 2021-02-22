@@ -1,0 +1,21 @@
+
+  <div>
+
+
+    <h1> Attendances for event <%= @event.event_name %></h1>
+
+
+
+
+        <table>
+          <tr>
+            <th>User Name</th>
+          </tr>
+        <% @event.attendances.each do |event| %>
+          <tr>
+            <td><%= event.user.email %></td>
+          </tr>
+
+          <% end %>
+          </table>
+  </div>

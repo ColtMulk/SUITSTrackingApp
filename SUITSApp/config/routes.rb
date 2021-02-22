@@ -4,7 +4,17 @@ Rails.application.routes.draw do
   get 'dashboard/rosterview'
   get 'home/index'
   devise_for :users
-  
+
+  resources :events do
+    member do
+      get :delete
+    end
+  end
+
+  get 'events/new'
+  get 'events/index'
+  #get 'events/:id/attendances'
+
   root 'home#index'
 
   # resources :dashboard

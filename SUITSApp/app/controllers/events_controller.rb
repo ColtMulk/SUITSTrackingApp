@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   def update
     @event =Event.find(params[:id])
-    
+
     if @event.update(event_params)
       flash[:notice] = "Event Updated"
       redirect_to(events_path)

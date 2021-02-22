@@ -3,7 +3,7 @@
 <div>
   <h2> Events </h2>
 
-    <%= link_to("Add New Event", {:action => 'new'})%>
+    <%= link_to("Dashboard", dashboard_index_path)%>
 
     <table class="listing">
       <tr class="header">
@@ -20,6 +20,7 @@
         <td><%= event.date %></td>
         <td><%= event.event_descripition %></td>
         <td class = actions>
+          <%= link_to("View", event_path(event), :class => 'action view' ) %>
           <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
           <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
         </td>

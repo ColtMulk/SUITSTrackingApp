@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  event_descripition: MyString
+  date: 2021-02-10 19:00:25
+  location: MyString
+  passcode: MyString
+
+two:
+  event_name: MyString
+  event_descripition: MyString
+  date: 2021-02-10 19:00:25
+  location: MyString
+  passcode: MyString

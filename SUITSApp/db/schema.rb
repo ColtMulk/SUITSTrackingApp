@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_02_22_211057) do
 
   # These are extensions that must be enabled in order to support this database
@@ -39,6 +38,16 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
     t.string "passcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_infos", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "member_status"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

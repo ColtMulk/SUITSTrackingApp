@@ -1,6 +1,8 @@
 
   <div>
 
+    <br>
+    <%= link_to("Attendance", new_attendance_path(events_id: @event.id)) %>
 
     <h1> Attendances for event <%= @event.event_name %></h1>
 
@@ -15,7 +17,6 @@
           <tr>
             <td><%= event.user.email %></td>
           </tr>
-
           <% end %>
           </table>
   </div>

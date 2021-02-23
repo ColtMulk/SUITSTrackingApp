@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :user_infos
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'
   get 'home/index'
-  devise_for :users
+
+  devise_for :users, controllers: {registrations: 'users/registrations'}
 
   resources :events do
     member do
@@ -19,7 +21,6 @@ Rails.application.routes.draw do
   get 'events/new'
   get 'events/index'
   #get 'events/:id/attendances'
-
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

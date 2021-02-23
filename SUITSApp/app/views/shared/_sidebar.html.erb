@@ -1,28 +1,30 @@
-    <nav id="sidebar" class="sidebar">
-      <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" >
-          <span class="align-middle">AdminKit</span>
-        </a>
-        <ul class="sidebar-nav">
-          <li class="sidebar-header">
-            Pages
-          </li>
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" >
+      <span class="align-middle">SUITS App</span>
+    </a>
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">
+        Pages
+      </li>
 
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="../dashboard/">
-              <span class="align-middle">Dashboard</span>
-            </a>
-          </li>
+      <li class="sidebar-item">
+        <%= link_to 'Dashboard', dashboard_index_path, class: "sidebar-link" %>
+      </li>
 
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="../events/">
-             <span class="align-middle">Events</span>
-            </a>
-          </li>	
-            <li class="sidebar-item">
-                <span class="align-middle"><%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %></span>
-                
-            </li>
-        </ul>
-      </div>
-    </nav>
+      <li class="sidebar-item">
+        <%= link_to 'Events', events_path, class: "sidebar-link"%>
+      </li>	
+
+      <% if current_user.master? %>
+        <li class="sidebar-item">
+          <%= link_to 'Master View', rails_admin.dashboard_path, class: "sidebar-link"%>
+        </li>	
+      <% end %>
+
+      <li class="sidebar-item">
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "sidebar-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

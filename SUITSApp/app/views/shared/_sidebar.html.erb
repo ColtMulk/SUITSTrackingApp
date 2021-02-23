@@ -1,0 +1,28 @@
+    <nav id="sidebar" class="sidebar">
+      <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" >
+          <span class="align-middle">AdminKit</span>
+        </a>
+        <ul class="sidebar-nav">
+          <li class="sidebar-header">
+            Pages
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="../dashboard/">
+              <span class="align-middle">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="../events/">
+             <span class="align-middle">Events</span>
+            </a>
+          </li>	
+            <li class="sidebar-item">
+                <span class="align-middle"><%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %></span>
+                
+            </li>
+        </ul>
+      </div>
+    </nav>

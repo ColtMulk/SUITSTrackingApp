@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
+  resources :user_infos
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'
   get 'dashboard/rosterview'
   get 'home/index'
-  devise_for :users
-  
+
+  devise_for :users, controllers: {registrations: 'users/registrations'}
+
+  resources :events do
+    member do
+      get :delete
+    end
+  end
+
+  get 'events/new'
+  get 'events/index'
+  #get 'events/:id/attendances'
   root 'home#index'
 
   # resources :dashboard

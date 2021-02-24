@@ -13,11 +13,16 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance=Attendance.new(attendance_params)
+    puts @attendance.insepect
+    p "in create"
 
     if @attendance.save
       flash[:notice]="attendance added successfully"
+      p "saved"
       redirect_to(events_path)
     else
+      flash[:notice]="an error occured"
+      p "not saved"
       render('new')
     end
   end
@@ -35,6 +40,6 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance, :events_id, :users_id)
+    params.require(:attendance).permit(:events_id, :users_id)
   end
 end

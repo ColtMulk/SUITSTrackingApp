@@ -1,0 +1,25 @@
+<div>
+  <h2> attendances </h2>
+
+    <%= link_to("Dashboard", dashboard_index_path)%>
+
+    <table class="listing">
+      <tr class="header">
+        <th>User ID</th>
+        <th>Event name</th>
+        <th>Event ID</th>
+        <th>Action</th>
+      </tr>
+      <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.user.id %></td>
+        <td><%= attendance.event.event_name %></td>
+        <td><%= attendance.events_id %></td>
+        <td class = actions>
+          <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
+        </td>
+      </tr>
+
+      <% end %>
+    </table>
+</div>

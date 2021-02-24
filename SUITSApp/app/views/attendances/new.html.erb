@@ -1,0 +1,15 @@
+<div>
+  <br>
+  <h2> Submit Attendance </h2>
+    <%= form_for(@attendance) do |a| %>
+
+    <div class="form-buttons">
+      <%= a.submit("Attendance") %>
+    </div>
+
+    <div>
+      <%= a.hidden_field :users_id, :value => current_user.id %>
+    </div>
+
+    <% end %>
+</div>

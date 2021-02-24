@@ -5,6 +5,7 @@
 
     <table class="listing">
       <tr class="header">
+        <th>User Name</th>
         <th>User ID</th>
         <th>Event name</th>
         <th>Event ID</th>
@@ -12,6 +13,11 @@
       </tr>
       <% @attendances.each do |attendance| %>
       <tr>
+        <% if attendance.user_info then %>
+          <td><%= attendance.user_info.first_name + " " + attendance.user_info.last_name %></td>
+        <% else %>
+          <td> No name found </td>
+        <% end %>
         <td><%= attendance.user.id %></td>
         <td><%= attendance.events.event_name %></td>
         <td><%= attendance.events_id %></td>

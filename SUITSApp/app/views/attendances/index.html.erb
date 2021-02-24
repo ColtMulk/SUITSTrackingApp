@@ -13,6 +13,7 @@
       </tr>
       <% @attendances.each do |attendance| %>
       <tr>
+        <% puts @attendance.inspect %>
         <% if attendance.user_info then %>
           <td><%= attendance.user_info.first_name + " " + attendance.user_info.last_name %></td>
         <% else %>

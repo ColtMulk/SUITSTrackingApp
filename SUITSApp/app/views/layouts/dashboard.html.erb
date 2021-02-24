@@ -10,11 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
   </head>
-
-  <h1>SUITS App</h1>
-  
   <body>
-    <%= yield %>
     <div class="wrapper">
       <%= render 'shared/sidebar' %>
       <div class="main">
@@ -187,7 +183,7 @@
             </ul>
           </div>
         </nav>
-        <%= yield :main %>
+        <%= yield %>
       </div>
     </div>
   </body>

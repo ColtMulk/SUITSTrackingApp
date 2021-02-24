@@ -13,7 +13,7 @@
       <% @attendances.each do |attendance| %>
       <tr>
         <td><%= attendance.user.id %></td>
-        <td><%= attendance.event.event_name %></td>
+        <td><%= attendance.events.event_name %></td>
         <td><%= attendance.events_id %></td>
         <td class = actions>
           <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>

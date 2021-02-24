@@ -2,7 +2,7 @@
   <div>
 
     <br>
-    <%= link_to("Attendance", attendance_path(events_id: @event.id, users_id: current_user.id )) %>
+    <%= link_to("Attendance", new_attendance_path(events_id: @event.id, users_id: current_user.id )) %>
 
     <h1> Attendances for event <%= @event.event_name %></h1>
 

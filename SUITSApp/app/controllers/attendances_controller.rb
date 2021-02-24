@@ -8,12 +8,19 @@ class AttendancesController < ApplicationController
   end
 
   def new
-    @attendance = Attendance.new
+    @attendance = Attendance.new(:events_id => params[:events_id], :users_id => params[:users_id])
+    if @attendance.save
+      flash[:notice]="attendance added successfully"
+      redirect_to(events_path)
+    else
+      flash[:notice]="an error occured"
+      redirect_to :back
+    end
   end
 
   def create
     @attendance=Attendance.new(attendance_params)
-    puts @attendance.insepect
+    puts @attendance.inspect
     p "in create"
 
     if @attendance.save

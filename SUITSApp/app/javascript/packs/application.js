@@ -10,7 +10,7 @@ import "channels"
 import "../stylesheets/application"
 
 require('jquery')
-require('jquery_ujs')
+//require('jquery_ujs')
 
 global.toastr = require("toastr")
 

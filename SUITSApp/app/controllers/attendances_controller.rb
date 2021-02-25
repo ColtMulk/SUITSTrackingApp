@@ -8,10 +8,6 @@ class AttendancesController < ApplicationController
   end
 
   def user
-    p current_user.role
-    p params[:id]
-    p current_user.id
-    p current_user.id != params[:id]
     if current_user.gen_member? and current_user.id != params[:id].to_i
       redirect_to(:controler => "attendances", :action => "user", id: current_user)
     end

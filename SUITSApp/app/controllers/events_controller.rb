@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  layout 'dashboard'
+
   def index
     @events=Event.all
   end

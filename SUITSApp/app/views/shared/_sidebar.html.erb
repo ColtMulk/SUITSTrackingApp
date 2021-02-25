@@ -1,18 +1,16 @@
-    <nav id="sidebar" class="sidebar">
-      <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" >
-          <span class="align-middle">AdminKit</span>
-        </a>
-        <ul class="sidebar-nav">
-          <li class="sidebar-header">
-            Pages
-          </li>
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" >
+      <span class="align-middle">SUITS App</span>
+    </a>
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">
+        Pages
+      </li>
 
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="../dashboard/">
-              <span class="align-middle">Dashboard</span>
-            </a>
-          </li>
+      <li class="sidebar-item">
+        <%= link_to 'Dashboard', dashboard_index_path, class: "sidebar-link" %>
+      </li>
 
       <li class="sidebar-item">
         <%= link_to 'Events', events_path, class: "sidebar-link"%>

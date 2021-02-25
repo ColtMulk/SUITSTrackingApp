@@ -14,15 +14,23 @@
             </a>
           </li>
 
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="../events/">
-             <span class="align-middle">Events</span>
-            </a>
-          </li>	
-            <li class="sidebar-item">
-                <span class="align-middle"><%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %></span>
-                
-            </li>
-        </ul>
-      </div>
-    </nav>
+      <li class="sidebar-item">
+        <%= link_to 'Events', events_path, class: "sidebar-link"%>
+      </li>
+
+      <li class="sidebar-item">
+        <%= link_to 'Attendance', user_attendance_path(current_user), class: "sidebar-link"%>
+      </li>
+
+      <% if current_user.master? %>
+        <li class="sidebar-item">
+          <%= link_to 'Master View', rails_admin.dashboard_path, class: "sidebar-link"%>
+        </li>
+      <% end %>
+
+      <li class="sidebar-item">
+        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "sidebar-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

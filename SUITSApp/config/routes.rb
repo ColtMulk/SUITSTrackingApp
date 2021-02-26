@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :user_infos
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'
   get 'home/index'
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
 
   resources :events do
     member do

@@ -20,6 +20,14 @@
         <th>Event Descripition</th>
         <td><%= e.text_field(:event_descripition)%></td>
       </tr>
+      <tr>
+        <th>Event Passcode</th>
+        <td><%= e.text_field(:passcode)%></td>
+      </tr>
+      <tr>
+        <th>Event Open?</th>
+        <td><%= e.select :open, ["Yes", "No"] %></td>
+      </tr>
     </table>
 
     <div class="form-buttons">

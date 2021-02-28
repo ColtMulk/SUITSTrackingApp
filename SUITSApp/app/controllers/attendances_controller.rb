@@ -7,6 +7,13 @@ class AttendancesController < ApplicationController
     @attendance=Attendance.find(params[:id])
   end
 
+  def user
+    if current_user.gen_member? and current_user.id != params[:id].to_i
+      redirect_to(:controler => "attendances", :action => "user", id: current_user)
+    end
+    @attendances = Attendance.where(users_id: params[:id])
+  end
+
   def new
     @attendance = Attendance.new(:events_id => params[:events_id], :users_id => params[:users_id])
     if @attendance.save

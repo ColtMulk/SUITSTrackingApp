@@ -1,14 +1,25 @@
 <div>
   <br>
+  <%= link_to("Back to Events", events_path) %>
+
   <h2> Submit Attendance </h2>
     <%= form_for(@attendance) do |a| %>
 
+    <table>
+      <tr>
+        <th>Event Passcode</th>
+        <td><%= a.text_field(:passcode)%></td>
+      </tr>
+    </table>
+
     <div class="form-buttons">
-      <%= a.submit("Attendance") %>
+      <%= a.submit("Submit Attendance") %>
     </div>
 
     <div>
       <%= a.hidden_field :users_id, :value => current_user.id %>
+      <%= a.hidden_field :events_id, :value => @attendance.events_id %>
+      <%= a.hidden_field :events_passcode, :value => @attendance.events_passcode %>
     </div>
 
     <% end %>

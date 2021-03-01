@@ -24,16 +24,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def delete
-    @event = Event.find(params[:id])
-  end
-
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to(Events)
-  end
-
   def edit
     @event = Event.find(params[:id])
   end
@@ -56,6 +46,11 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    redirect_to(Events)
+  end
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
     flash[:notice]="'#{@event.event_name}' was deleted"
     redirect_to(events_path)
   end
@@ -63,6 +58,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_name, :location, :date, :event_descripition)
+    params.require(:event).permit(:event_name, :location, :date, :event_descripition, :passcode, :is_open)
   end
 end

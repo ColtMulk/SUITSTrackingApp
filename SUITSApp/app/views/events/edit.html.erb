@@ -25,8 +25,8 @@
         <td><%= e.text_field(:passcode)%></td>
       </tr>
       <tr>
-        <th>Event Open?</th>
-        <td><%= e.select :open, ["Yes", "No"] %></td>
+        <th>Event Open</th>
+        <td><%= e.check_box(:is_open) %></td>
       </tr>
     </table>
 

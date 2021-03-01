@@ -21,7 +21,7 @@
         <td><%= event.location %></td>
         <td><%= event.date %></td>
         <td><%= event.event_descripition %></td>
-        <td><%= event.open ? "Yes" : "No" %></td>
+        <td><%= event.is_open ? "Yes" : "No" %></td>
         <td class = actions>
           <%= link_to("View", event_path(event), :class => 'action view' ) %>
           <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>

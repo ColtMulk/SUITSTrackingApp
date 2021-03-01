@@ -4,19 +4,27 @@
     <br>
     <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode: @event.passcode, users_id: current_user.id )) %>
 
+
+    <% if !current_user.gen_member? %>
     <h1> Attendances for event <%= @event.event_name %></h1>
-
-
-
 
         <table>
           <tr>
             <th>User Name</th>
+            <th>User Email</th>
+            <th>User ID</th>
           </tr>
-        <% @event.attendances.each do |event| %>
+        <% @event.attendances.each do |attend| %>
           <tr>
-            <td><%= event.user.email %></td>
+            <% if attend.user_info then %>
+              <td><%= attend.user_info.first_name + " " + attend.user_info.last_name %></td>
+            <% else %>
+              <td> No name found </td>
+            <% end %>
+            <td><%= attend.user.email %></td>
+            <td><%= attend.user.id %></td>
           </tr>
           <% end %>
           </table>
+      <% end %>
   </div>

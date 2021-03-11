@@ -2,7 +2,8 @@
   <div>
 
     <br>
-    <h2> <%= link_to("Log Attendance", new_attendance_path(events_id: @event.id, users_id: current_user.id )) %> </h2>
+    <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode: @event.passcode, users_id: current_user.id )) %>
+
 
     <% if !current_user.gen_member? %>
     <h1> Attendances for event <%= @event.event_name %></h1>

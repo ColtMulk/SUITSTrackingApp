@@ -15,14 +15,7 @@ class AttendancesController < ApplicationController
   end
 
   def new
-    @attendance = Attendance.new(:events_id => params[:events_id], :users_id => params[:users_id])
-    if @attendance.save
-      flash[:notice]="attendance added successfully"
-      redirect_to(events_path)
-    else
-      flash[:notice]="an error occured"
-      redirect_to :back
-    end
+    @attendance = Attendance.new(:events_id => params[:events_id], :events_passcode => params[:events_passcode], :users_id => params[:users_id], :passcode => params[:passcode])
   end
 
   def create
@@ -30,15 +23,21 @@ class AttendancesController < ApplicationController
     puts @attendance.inspect
     p "in create"
 
-    if @attendance.save
+    if @attendance.save && @attendance.events_passcode == @attendance.passcode
       flash[:notice]="attendance added successfully"
       p "saved"
       redirect_to(events_path)
     else
-      flash[:notice]="an error occured"
+      flash[:notice]="error"
       p "not saved"
       render('new')
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def delete
@@ -54,6 +53,6 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit(:events_id, :users_id)
+    params.require(:attendance).permit(:events_id, :events_passcode, :users_id, :passcode)
   end
 end

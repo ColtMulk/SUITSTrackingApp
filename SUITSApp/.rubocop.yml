@@ -1,20 +1,21 @@
+require: 
 - rubocop-performance
 - rubocop-rails
 - rubocop-rspec
 
 AllCops:
-Exclude:
-- 'db/**/*'
-- 'script/**/*'
-- 'bin/**/*'
-- 'config/**/*'
-- 'script/**/*'
-- 'bin/{rails,rake}'
-- !ruby/regexp /old_and_unused\.rb$/
-- 'node_modules/**/*'
-- 'tmp/**/*'
-- 'vendor/**/*'
-- '.git/**/*'
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
 
 Metrics/LineLength:
   Max: 100

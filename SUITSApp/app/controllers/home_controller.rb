@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
-  skip_before_action :authenticate_user!, :only => [:index]
+  skip_before_action :authenticate_user!, only: [:index]
   def index
-    if current_user
-      redirect_to dashboard_index_path
-    end
+    redirect_to dashboard_index_path if current_user
   end
 end

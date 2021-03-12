@@ -1,4 +1,6 @@
 class AttendancesController < ApplicationController
+  layout 'dashboard'
+  
   def index
     @attendances = Attendance.all
   end

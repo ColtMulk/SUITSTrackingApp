@@ -1,44 +1,43 @@
 class AttendancesController < ApplicationController
   def index
-    @attendances=Attendance.all
+    @attendances = Attendance.all
   end
 
   def show
-    @attendance=Attendance.find(params[:id])
+    @attendance = Attendance.find(params[:id])
   end
 
   def user
-    if current_user.gen_member? and current_user.id != params[:id].to_i
-      redirect_to(:controler => "attendances", :action => "user", id: current_user)
+    if current_user.gen_member? && (current_user.id != params[:id].to_i)
+      redirect_to(controler: 'attendances', action: 'user', id: current_user)
     end
     @attendances = Attendance.where(users_id: params[:id])
   end
 
   def new
-    @attendance = Attendance.new(:events_id => params[:events_id], :events_passcode => params[:events_passcode], :users_id => params[:users_id], :passcode => params[:passcode])
+    @attendance = Attendance.new(events_id: params[:events_id],
+                                 events_passcode: params[:events_passcode], users_id: params[:users_id], passcode: params[:passcode])
   end
 
   def create
-    @attendance=Attendance.new(attendance_params)
+    @attendance = Attendance.new(attendance_params)
     puts @attendance.inspect
-    p "in create"
+    p 'in create'
 
     if @attendance.save && @attendance.events_passcode == @attendance.passcode
-      flash[:notice]="attendance added successfully"
-      p "saved"
+      flash[:notice] = 'attendance added successfully'
+      p 'saved'
       redirect_to(events_path)
     else
-      flash[:notice]="error"
-      p "not saved"
+      flash[:notice] = 'error'
+      p 'not saved'
       render('new')
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
   def delete
     @attendance = Attendance.find(params[:id])

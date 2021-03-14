@@ -7,7 +7,12 @@ class UserInfosController < ApplicationController
   end
 
   # GET /user_infos/1 or /user_infos/1.json
-  def show; end
+  def show
+    if current_user.gen_member? && (current_user.id != params[:id].to_i)
+      redirect_to(controller: 'user_infos', action: 'show', id: current_user)
+    end
+    @user_info = UserInfo.find_by(user: params[:id])
+  end
 
   # GET /user_infos/new
   def new
@@ -58,7 +63,7 @@ class UserInfosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user_info
-    @user_info = UserInfo.find(params[:id])
+    @user_info = UserInfo.find_by(user: params[:id])
   end
 
   # Only allow a list of trusted parameters through.

@@ -17,8 +17,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_infos do
+    member do
+      get :delete
+    end
+  end
 
   get 'attendances/user/:id', to: 'attendances#user', as: 'user_attendance'
+  get 'user_infos/user/:id', to: 'user_infos#show', as: 'user_profile'
   get 'events/new'
   get 'events/index'
   #get 'events/:id/attendances'

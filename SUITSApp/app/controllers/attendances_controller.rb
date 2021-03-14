@@ -11,7 +11,7 @@ class AttendancesController < ApplicationController
 
   def user
     if current_user.gen_member? && (current_user.id != params[:id].to_i)
-      redirect_to(controler: 'attendances', action: 'user', id: current_user)
+      redirect_to(controller: 'attendances', action: 'user', id: current_user)
     end
     @attendances = Attendance.where(users_id: params[:id])
   end

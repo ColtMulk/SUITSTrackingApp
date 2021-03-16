@@ -1,0 +1,79 @@
+
+Users::RegistrationsController
+F  should have a current user (FAILED - 1)
+
+Verifying features
+Capybara starting Puma...
+* Version 5.2.1 , codename: Fettisdagsbulle
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:51881
+.  for new user
+
+Event
+  Validations
+.    is valid with valid attributes
+.    is not valid without a name
+.    is not valid without a location
+.    is not valid without a date
+.    is not valid without a description
+.    is not valid without a passcode
+
+UserInfo
+  Validation
+.    is valid with valid attributes
+.    is not valid without first name
+.    is not valid without last name
+.    is not valid without member status
+
+User
+  Validations
+F    is valid with valid attributes (FAILED - 2)
+.    is not valid without an email
+.    is not valid without a password
+
+
+Failures:
+
+  1) Users::RegistrationsController should have a current user
+     Failure/Error: user = FactoryBot.create(:user)
+
+     ActiveRecord::RecordInvalid:
+       Validation failed: User must exist
+     # ./spec/support/controller_macros.rb:12:in `block in login_user'
+
+  2) User Validations is valid with valid attributes
+     Failure/Error: expect(subject).to be_valid
+       expected #<User id: nil, email: "test@email.com", created_at: nil, updated_at: nil, role: "gen_member", user_infos_id: nil> to be valid, but got errors: User info can't be blank
+     # ./spec/models/user_spec.rb:10:in `block (3 levels) in <main>'
+
+Failures:
+
+  1) Users::RegistrationsController should have a current user
+     Failure/Error: user = FactoryBot.create(:user)
+
+     ActiveRecord::RecordInvalid:
+       Validation failed: User must exist
+     # ./spec/support/controller_macros.rb:12:in `block in login_user'
+
+  2) User Validations is valid with valid attributes
+     Failure/Error: expect(subject).to be_valid
+       expected #<User id: nil, email: "test@email.com", created_at: nil, updated_at: nil, role: "gen_member", user_infos_id: nil> to be valid, but got errors: User info can't be blank
+     # ./spec/models/user_spec.rb:10:in `block (3 levels) in <main>'
+
+Finished in 7.52 seconds (files took 3.55 seconds to load)
+15 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/controllers/user_controller_spec.rb:6 # Users::RegistrationsController should have a current user
+rspec ./spec/models/user_spec.rb:9 # User Validations is valid with valid attributes
+
+Finished in 7.52 seconds (files took 3.55 seconds to load)
+15 examples, 2 failures
+
+Failed examples:
+
+rspec ./spec/controllers/user_controller_spec.rb:6 # Users::RegistrationsController should have a current user
+rspec ./spec/models/user_spec.rb:9 # User Validations is valid with valid attributes
+
+

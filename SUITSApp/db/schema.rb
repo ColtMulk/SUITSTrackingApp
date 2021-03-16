@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_175311) do
   create_table "attendances", force: :cascade do |t|
     t.bigint "events_id"
     t.bigint "users_id"
+    t.string "events_passcode"
+    t.string "passcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["events_id"], name: "index_attendances_on_events_id"
@@ -35,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_175311) do
   end
 
   create_table "event_types", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_175311) do
     t.datetime "date"
     t.string "location"
     t.string "passcode"
+    t.boolean "is_open"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "event_type_id", null: false

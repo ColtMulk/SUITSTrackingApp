@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= if current_user.gen_member?
+  redirect_to "dashboard", dashboard_index_path
+  end
+%>
+
 <h1>User Infos</h1>
 <noscript>
   there is no javascript

@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'member_category/index'
-  get 'member_category/show'
-  get 'member_category/new'
-  get 'member_category/create'
-  get 'member_category/edit'
-  get 'member_category/update'
-  get 'member_category/destroy'
+  resources :event_types
+  resources :member_categories
   resources :user_infos
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'

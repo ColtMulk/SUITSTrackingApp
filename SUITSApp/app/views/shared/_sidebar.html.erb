@@ -16,6 +16,12 @@
         <%= link_to 'Events', events_path, class: "sidebar-link"%>
       </li>
 
+      <% if !current_user.gen_member? %>
+      <li class="sidebar-item">
+        <%= link_to 'Users', user_infos_path, class: "sidebar-link"%>
+      </li>
+      <% end %>
+
       <li class="sidebar-item">
         <%= link_to 'Attendance', user_attendance_path(current_user), class: "sidebar-link"%>
       </li>

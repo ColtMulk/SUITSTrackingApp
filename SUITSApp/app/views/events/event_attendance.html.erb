@@ -3,10 +3,7 @@
 
     <br>
     <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode: @event.passcode, users_id: current_user.id )) %>
-    <br>
-    
-    <p>Admin add attendance</p>
-    <%= link_to("Log User", select_user_path(@event)) %>
+
 
     <% if !current_user.gen_member? %>
     <h1> Attendances for event <%= @event.event_name %></h1>
@@ -16,6 +13,7 @@
             <th>User Name</th>
             <th>User Email</th>
             <th>User ID</th>
+            <th>Log Attendance For User</th>
           </tr>
         <% @event.attendances.each do |attend| %>
           <tr>
@@ -26,6 +24,7 @@
             <% end %>
             <td><%= attend.user.email %></td>
             <td><%= attend.user.id %></td>
+            <td><%= link_to("Log Attendance", :action => :create, :method => :post, events_id: @event.id, users_id: attend.user.id ) %></td>
           </tr>
           <% end %>
           </table>

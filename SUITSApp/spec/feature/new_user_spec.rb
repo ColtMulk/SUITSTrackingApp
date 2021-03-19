@@ -20,7 +20,7 @@ RSpec.describe 'Verifying features', type: :feature do
         click_on 'Add New Event'
         fill_in 'event_event_name', with: 'TestEvent' + rand_num
         fill_in 'event_location', with: 'TAMU'
-        fill_in 'event_event_descripition', with: 'This is a TestEvent'
+        fill_in 'event_event_description', with: 'This is a TestEvent'
         fill_in 'event_passcode', with: '123456'
         check 'event_is_open'
         click_on 'Add Event'

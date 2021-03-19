@@ -34,10 +34,11 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
 
   create_table "events", force: :cascade do |t|
     t.string "event_name"
-    t.string "event_descripition"
+    t.string "event_description"
     t.datetime "date"
     t.string "location"
-    t.string "passcode"
+    t.string "passcode_hash"
+    t.string "passcode_salt"
     t.boolean "is_open"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

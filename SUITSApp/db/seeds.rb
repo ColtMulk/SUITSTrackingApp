@@ -14,7 +14,7 @@ attendance_list = [
 ]
 
 events_list.each do |name, desc, date|
-  #Event.create(event_name: name, event_descripition: desc, date: date)
+  #Event.create(event_name: name, event_description: desc, date: date)
   event = Event.find(1)
   user = User.find(1)
   a = Attendance.create(users_id: user.id, events_id: event.id )

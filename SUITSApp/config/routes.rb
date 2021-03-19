@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   get 'attendances/user/:id', to: 'attendances#user', as: 'user_attendance'
   get 'user_infos/:id', to: 'user_infos#show', as: 'user_profile'
-  get 'events/new'
-  get 'events/index'
+  # get 'events/new'
+  # get 'events/index'
   #get 'events/:id/attendances'
 
   root 'home#index'

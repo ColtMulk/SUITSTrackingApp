@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Event, :type => :model do
   subject {
-    described_class.new(event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021', event_descripition: 'this is a test event', passcode: '1234')
+    described_class.new(event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021', event_description: 'this is a test event', passcode: '1234')
   }
   describe 'Validations' do
     it 'is valid with valid attributes' do
@@ -20,7 +20,7 @@ RSpec.describe Event, :type => :model do
       expect(subject).to_not be_valid
     end
     it 'is not valid without a description' do
-      subject.event_descripition = nil
+      subject.event_description = nil
       expect(subject).to_not be_valid
     end
     it 'is not valid without a passcode' do

@@ -2,14 +2,14 @@
 
 one:
   event_name: MyString
-  event_descripition: MyString
+  event_description: MyString
   date: 2021-02-10 19:00:25
   location: MyString
   passcode: MyString
 
 two:
   event_name: MyString
-  event_descripition: MyString
+  event_description: MyString
   date: 2021-02-10 19:00:25
   location: MyString
   passcode: MyString

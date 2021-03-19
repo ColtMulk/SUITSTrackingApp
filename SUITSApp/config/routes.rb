@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   get 'attendances/user/:id', to: 'attendances#user', as: 'user_attendance'
-  get 'user_infos/user/:id', to: 'user_infos#show', as: 'user_profile'
+  get 'user_infos/:id', to: 'user_infos#show', as: 'user_profile'
   get 'events/new'
   get 'events/index'
   #get 'events/:id/attendances'

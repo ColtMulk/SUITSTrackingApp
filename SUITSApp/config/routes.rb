@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :user_infos
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'dashboard/index'
   get 'home/index'
   devise_for :users, controllers: {registrations: 'users/registrations'}
@@ -14,9 +13,12 @@ Rails.application.routes.draw do
   resources :attendances do
     member do
       get :delete
+      post :create
     end
   end
 
+  get 'user_infos/select_user/:id', to: 'user_infos#select_user', as: 'select_user'
+  get 'events/select_event/:id', to: 'events#select_event', as: 'select_event'
 
   get 'attendances/user/:id', to: 'attendances#user', as: 'user_attendance'
   get 'events/new'

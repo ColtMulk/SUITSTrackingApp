@@ -1,6 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+#require 'factory_bot'
 require_relative 'support/controller_macros'
+require 'support/factory_bot'
+require 'factories/factories.rb'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)

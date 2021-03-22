@@ -59,4 +59,5 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   config.assets.css_compressor = nil
+  config.factory_bot.definition_file_paths = ["custom/factories"]
 end

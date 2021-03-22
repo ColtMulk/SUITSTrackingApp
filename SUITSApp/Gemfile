@@ -11,8 +11,8 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'uglifier'
-gem 'yui-compressor'
+#gem 'uglifier'
+#gem 'yui-compressor'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -34,6 +34,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+
 gem 'rails_admin'#, git: 'git@github.com:sferik/rails_admin.git'
 
 gem 'cancancan'
@@ -44,7 +45,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', '>= 3.26'
   gem 'webdrivers'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 

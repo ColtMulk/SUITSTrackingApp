@@ -54,6 +54,11 @@ class UserInfosController < ApplicationController
     end
   end
 
+  def select_user
+    @event = Event.find(params[:id])
+    @user_infos = UserInfo.all
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

@@ -90,7 +90,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
     erubi (1.10.0)
-    execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -288,7 +287,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yui-compressor (0.12.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -324,11 +322,9 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
-  uglifier
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
-  yui-compressor
 
 RUBY VERSION
    ruby 2.7.2p137

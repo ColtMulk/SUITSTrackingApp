@@ -16,9 +16,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
+    @event.encrypt_passcode
     if @event.save
       flash[:notice] = 'Event added successfully'
-      redirect_to(events_show_path(@event))
+      redirect_to(events_path(@event))
     else
       flash[:notice] = 'Failure'
       @event.errors.full_messages

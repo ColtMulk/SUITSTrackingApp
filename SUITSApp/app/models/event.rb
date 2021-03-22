@@ -4,8 +4,6 @@ class Event < ApplicationRecord
   #belongs_to :event_types
 
   attr_accessor :passcode
-  validates_confirmation_of :passcode
-  before_save :encrypt_passcode
 
   def encrypt_passcode
     self.passcode_salt = BCrypt::Engine.generate_salt

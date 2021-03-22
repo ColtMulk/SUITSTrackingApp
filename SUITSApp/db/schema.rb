@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
   create_table "attendances", force: :cascade do |t|
     t.bigint "events_id"
     t.bigint "users_id"
-    t.string "events_passcode"
-    t.string "passcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["events_id"], name: "index_attendances_on_events_id"

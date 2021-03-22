@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_many :attendances, dependent: :delete_all, foreign_key: "events_id"
   validates_presence_of :event_name, :location, :date, :event_description, :passcode_hash, :passcode_salt
-  #belongs_to :event_types
+  belongs_to :event_types
 
   attr_accessor :passcode
 

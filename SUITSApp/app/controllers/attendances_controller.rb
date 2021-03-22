@@ -17,22 +17,31 @@ class AttendancesController < ApplicationController
   end
 
   def new
-    @attendance = Attendance.new(events_id: params[:events_id],
-                                 events_passcode: params[:events_passcode], users_id: params[:users_id], passcode: params[:passcode])
+    @attendance = Attendance.new(users_id: params[:users_id],
+                                 events_passcode_hash: params[:events_passcode_hash],
+                                 events_id: params[:events_id],
+                                 user_passcode: params[:user_passcode])
   end
 
   def create
     @attendance = Attendance.new(attendance_params)
+    puts attendance_params
     puts @attendance.inspect
     p 'in create'
 
-    if @attendance.save && @attendance.events_passcode == @attendance.passcode
-      flash[:notice] = 'attendance added successfully'
-      p 'saved'
-      redirect_to(events_path)
+
+    if @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+      if @attendance.save!
+        flash[:notice] = 'attendance added successfully'
+        p 'saved'
+        redirect_to(events_path)
+      else
+        flash[:notice] = 'Error: Not Saved'
+        p 'not saved'
+        render('new')
+      end
     else
-      flash[:notice] = 'error'
-      p 'not saved'
+      flash[:notice] = 'Incorrect Passcode'
       render('new')
     end
   end
@@ -54,6 +63,6 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit(:events_id, :events_passcode, :users_id, :passcode)
+    params.require(:attendance).permit(:events_id, :events_passcode_hash, :users_id, :user_passcode)
   end
 end

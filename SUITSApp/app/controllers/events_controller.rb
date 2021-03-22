@@ -2,11 +2,11 @@ class EventsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @events=Event.all
+    @events = Event.all
   end
 
   def show
-    @event=Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -14,11 +14,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event=Event.new(event_params)
+    @event = Event.new(event_params)
 
     if @event.save
-      flash[:notice]="Event added successfully"
-      redirect_to({:action => 'index'})
+      flash[:notice] = 'Event added successfully'
+      redirect_to({ action: 'index' })
     else
       render('new')
     end
@@ -29,10 +29,10 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event =Event.find(params[:id])
+    @event = Event.find(params[:id])
 
     if @event.update(event_params)
-      flash[:notice] = "Event Updated"
+      flash[:notice] = 'Event Updated'
       redirect_to(events_path)
     else
       render('edit')
@@ -48,16 +48,23 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to(Events)
   end
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    flash[:notice]="'#{@event.event_name}' was deleted"
+    flash[:notice] = "'#{@event.event_name}' was deleted"
     redirect_to(events_path)
+  end
+
+  def select_event
+    @user_info = UserInfo.find(params[:id])
+    @events = Event.all 
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:event_name, :location, :date, :event_descripition, :passcode, :is_open)
+    params.require(:event).permit(:event_name, :location, :date, :event_descripition, :passcode,
+                                  :is_open)
   end
 end

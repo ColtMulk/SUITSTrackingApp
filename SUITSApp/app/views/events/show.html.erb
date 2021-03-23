@@ -2,7 +2,7 @@
 <div class='main'>
   <main class='content'>
     <div class='col-md-6 center-items'>
-      <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode: @event.passcode, users_id: current_user.id )) %>
+      <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode_hash: @event.passcode_hash, users_id: current_user.id )) %>
 
     <% if !current_user.gen_member? %>
       <p><%= link_to("Admin add attendance", select_user_path(@event)) %></p>

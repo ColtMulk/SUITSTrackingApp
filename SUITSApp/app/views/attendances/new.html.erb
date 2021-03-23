@@ -23,7 +23,7 @@
         <div class='card-body'>
           <%= a.hidden_field :users_id, :value => current_user.id %>
           <%= a.hidden_field :events_id, :value => @attendance.events_id %>
-          <%= a.hidden_field :events_passcode, :value => @attendance.events_passcode_hash %>
+          <%= a.hidden_field :events_passcode_hash, :value => @attendance.events_passcode_hash %>
         </div>
 
         <% end %>

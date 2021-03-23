@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+ 
+ <%= simple_form_for(@member_category) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Event Type</th>
+        <th>Number Required</th>
+      </tr>
+    </thead>
+    <tbody class='categories'>
+      <%= f.simple_fields_for :category_rulesets do |builder| %>
+        <%= render 'category_ruleset_fields', f: builder %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Event Type', f, :category_rulesets, class: 'btn btn-primary', data: { association_insertion_node: '.categories', association_insertion_method: :append } %>
+  </div>
+<% end %> 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_211057) do
+ActiveRecord::Schema.define(version: 2021_03_16_175311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,19 +26,38 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
     t.index ["users_id"], name: "index_attendances_on_users_id"
   end
 
+  create_table "category_rulesets", force: :cascade do |t|
+    t.integer "points"
+    t.bigint "member_category_id", null: false
+    t.bigint "event_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_type_id"], name: "index_category_rulesets_on_event_type_id"
+    t.index ["member_category_id"], name: "index_category_rulesets_on_member_category_id"
+  end
+
   create_table "event_types", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "events", force: :cascade do |t|
     t.string "event_name"
-    t.string "event_descripition"
+    t.string "event_description"
     t.datetime "date"
     t.string "location"
-    t.string "passcode"
+    t.string "passcode_hash"
+    t.string "passcode_salt"
     t.boolean "is_open"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "event_type_id", null: false
+    t.index ["event_type_id"], name: "index_events_on_event_type_id"
+  end
+
+  create_table "member_categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "member_category_id"
+    t.index ["member_category_id"], name: "index_user_infos_on_member_category_id"
     t.index ["user_id"], name: "index_user_infos_on_user_id"
   end
 
@@ -68,6 +89,10 @@ ActiveRecord::Schema.define(version: 2021_02_22_211057) do
     t.index ["user_infos_id"], name: "index_users_on_user_infos_id"
   end
 
+  add_foreign_key "category_rulesets", "event_types"
+  add_foreign_key "category_rulesets", "member_categories"
+  add_foreign_key "events", "event_types"
+  add_foreign_key "user_infos", "member_categories"
   add_foreign_key "user_infos", "users"
   add_foreign_key "users", "user_infos", column: "user_infos_id"
 end

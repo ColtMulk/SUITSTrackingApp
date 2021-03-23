@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :event_types
+  resources :member_categories
   resources :user_infos
   get 'dashboard/index'
   get 'home/index'

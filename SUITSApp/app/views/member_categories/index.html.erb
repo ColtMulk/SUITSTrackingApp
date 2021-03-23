@@ -1,0 +1,38 @@
+<h1>Member Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Event Types</th>
+      <th>Required Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @member_categories.each do |member_category| %>
+      <tr>
+        <td><%= member_category.name %></td>
+        <td>
+          <% member_category.category_rulesets.each do |category_ruleset| %>
+            <%= EventType.find(category_ruleset.event_type_id).name %><br>
+          <% end %>
+        </td>
+        <td>
+          <% member_category.category_rulesets.each do |category_ruleset| %>
+            <%= category_ruleset.points %><br>
+          <% end %>
+          </td>
+        <td><%= link_to 'Edit', edit_member_category_path(member_category) %></td>
+        <td><%= link_to 'Destroy', member_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<%= link_to 'New Member Category', new_member_category_path %>

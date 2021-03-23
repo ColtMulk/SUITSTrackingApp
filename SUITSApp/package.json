@@ -2,11 +2,12 @@
   "name": "suits-app",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
+    "@nathanvda/cocoon": "^1.2.14",
+    "@rails/actioncable": "^6.1.3",
+    "@rails/activestorage": "^6.1.3",
+    "@rails/ujs": "^6.1.3",
     "@rails/webpacker": "5.2.1",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "toastr": "^2.1.4",
     "turbolinks": "^5.2.0"
   },

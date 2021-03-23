@@ -37,7 +37,7 @@
                 <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
                 <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
               <% end %>
-              <%= link_to_if(event.is_open, "Log Attendance", new_attendance_path(events_id: event.id, events_passcode: event.passcode, users_id: current_user.id )) %>
+              <%= link_to_if(event.is_open, "Log Attendance", new_attendance_path(events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: current_user.id )) %>
             </td>
           </tr>
 

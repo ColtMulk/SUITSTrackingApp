@@ -7,7 +7,12 @@ class UserInfosController < ApplicationController
   end
 
   # GET /user_infos/1 or /user_infos/1.json
-  def show; end
+  def show
+    if current_user.gen_member? && (current_user.id != params[:id].to_i)
+      redirect_to(controller: 'user_infos', action: 'show', id: current_user)
+    end
+    @user_info = UserInfo.find_by(user: params[:id])
+  end
 
   # GET /user_infos/new
   def new
@@ -15,14 +20,16 @@ class UserInfosController < ApplicationController
   end
 
   # GET /user_infos/1/edit
-  def edit; end
+  def edit
+    @user_info = UserInfo.find(params[:id])
+  end
 
   # POST /user_infos or /user_infos.json
   def create
     @user_info = UserInfo.new(user_info_params)
 
     respond_to do |format|
-      if @user_info.save
+      if UserInfo.save(@user_info)
         format.html { redirect_to @user_info, notice: 'User info was successfully created.' }
         format.json { render :show, status: :created, location: @user_info }
       else
@@ -35,8 +42,8 @@ class UserInfosController < ApplicationController
   # PATCH/PUT /user_infos/1 or /user_infos/1.json
   def update
     respond_to do |format|
-      if @user_info.update(user_info_params)
-        format.html { redirect_to @user_info, notice: 'User info was successfully updated.' }
+      if UserInfo.update(user_info_params)
+        format.html { redirect_to user_profile_path, notice: 'User info was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_info }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -63,7 +70,7 @@ class UserInfosController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user_info
-    @user_info = UserInfo.find(params[:id])
+    @user_info = UserInfo.find_by(user: params[:id])
   end
 
   # Only allow a list of trusted parameters through.

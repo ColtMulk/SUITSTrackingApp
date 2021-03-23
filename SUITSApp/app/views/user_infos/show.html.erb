@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<html>
+  <head>
+    <title>My Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user_info.first_name %>
-</p>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%= render 'shared/sidebar' %>
+      <div class="main">
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user_info.last_name %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Member status:</strong>
-  <%= @user_info.member_status %>
-</p>
+        <h1>My Profile</h1>
 
-<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
-<%= link_to 'Back', user_infos_path %>
+        <p>
+          <strong>First name:</strong>
+          <%= @user_info.first_name %>
+        </p>
+
+        <p>
+          <strong>Last name:</strong>
+          <%= @user_info.last_name %>
+        </p>
+
+        <p>
+          <strong>Member status:</strong>
+          <%= @user_info.member_status %>
+        </p>
+
+        <%= link_to 'Edit', edit_user_info_path(@user_info) %> 
+      </div>
+    </div>
+  </body>
+</html>

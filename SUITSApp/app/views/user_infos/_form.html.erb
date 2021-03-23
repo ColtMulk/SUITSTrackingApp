@@ -1,15 +1,5 @@
-<%= form_with(model: user_info) do |form| %>
-  <% if user_info.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
-
-      <ul>
-        <% user_info.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: @user_info) do |form| %>
+   
 
   <div class="field">
     <%= form.label :first_name %>
@@ -21,10 +11,12 @@
     <%= form.text_field :last_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :member_status %>
-    <%= form.number_field :member_status %>
-  </div>
+  <% if !current_user.gen_member? %>
+    <div class="field">
+      <%= form.label :member_status %>
+      <%= form.select  :member_status, UserInfo.member_statuses.map { |key, value| [key.humanize, key] }%>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

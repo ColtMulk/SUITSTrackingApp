@@ -1,37 +1,43 @@
-<div>
-  <h2> attendances </h2>
-
-    <%= link_to("Dashboard", dashboard_index_path)%>
-
-    <h3> Total Attendances: <%= @attendances.count %> </h3>
-
-    <table class="listing">
-      <tr class="header">
-        <th>User Name</th>
-        <th>User ID</th>
-        <th>Event name</th>
-        <th>Event ID</th>
-        <% if ! current_user.gen_member? %>
-        <th>Action</th>
-        <% end %>
-      </tr>
-      <% @attendances.each do |attendance| %>
-      <tr>
-        <% if attendance.user_info then %>
-          <td><%= attendance.user_info.first_name + " " + attendance.user_info.last_name %></td>
-        <% else %>
-          <td> No name found </td>
-        <% end %>
-        <td><%= attendance.user.id %></td>
-        <td><%= attendance.events.event_name %></td>
-        <td><%= attendance.events_id %></td>
-        <% if !current_user.gen_member? %>
-        <td class = actions>
-          <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
-        </td>
-        <% end %>
-      </tr>
-
-      <% end %>
-    </table>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-12 center-items'>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <h2> Attendances </h2>
+          <%= link_to("Dashboard", dashboard_index_path)%>
+          <h3> Total Attendances: <%= @attendances.count %> </h3>
+        </div>
+        <div class='table-responsive'>
+          <table class="table table-hover">
+            <tr class="header">
+              <th>User Name</th>
+              <th>User ID</th>
+              <th>Event name</th>
+              <th>Event ID</th>
+              <% if ! current_user.gen_member? %>
+              <th>Action</th>
+              <% end %>
+            </tr>
+            <% @attendances.each do |attendance| %>
+            <tr>
+              <% if attendance.user_info then %>
+                <td><%= attendance.user_info.first_name + " " + attendance.user_info.last_name %></td>
+              <% else %>
+                <td> No name found </td>
+              <% end %>
+              <td><%= attendance.user.id %></td>
+              <td><%= attendance.events.event_name %></td>
+              <td><%= attendance.events_id %></td>
+              <% if !current_user.gen_member? %>
+              <td class = actions>
+                <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
+              </td>
+              <% end %>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>  
+    </div>
+  </main>
 </div>

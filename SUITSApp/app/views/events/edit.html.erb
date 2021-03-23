@@ -1,38 +1,46 @@
-<div>
-  <h2>Edit Event</h2>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-6 center-items'>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <h2>Edit Event</h2>
+        </div>
+        <div class='card-body'>
+          <%= form_for(@event) do |e| %>
+            <table>
+              <tr>
+                <th>Event Name</th>
+                <td><%= e.text_field(:event_name)%></td>
+              </tr>
+              <tr>
+                <th>Event Location</th>
+                <td><%= e.text_field(:location)%></td>
+              </tr>
+              <tr>
+                <th>Event Date</th>
+                <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+              </tr>
+              <tr>
+                <th>Event Descripition</th>
+                <td><%= e.text_field(:event_descripition)%></td>
+              </tr>
+              <tr>
+                <th>Event Passcode</th>
+                <td><%= e.text_field(:passcode)%></td>
+              </tr>
+              <tr>
+                <th>Event Open</th>
+                <td><%= e.check_box(:is_open) %></td>
+              </tr>
+            </table>
 
-  <%= form_for(@event) do |e| %>
+            <div class="form-buttons">
+              <%= e.submit("Update Event") %>
+            </div>
 
-    <table>
-      <tr>
-        <th>Event Name</th>
-        <td><%= e.text_field(:event_name)%></td>
-      </tr>
-      <tr>
-        <th>Event Location</th>
-        <td><%= e.text_field(:location)%></td>
-      </tr>
-      <tr>
-        <th>Event Date</th>
-        <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
-      </tr>
-      <tr>
-        <th>Event Descripition</th>
-        <td><%= e.text_field(:event_descripition)%></td>
-      </tr>
-      <tr>
-        <th>Event Passcode</th>
-        <td><%= e.text_field(:passcode)%></td>
-      </tr>
-      <tr>
-        <th>Event Open</th>
-        <td><%= e.check_box(:is_open) %></td>
-      </tr>
-    </table>
-
-    <div class="form-buttons">
-      <%= e.submit("Update Event") %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-  <% end %>
+  </main>
 </div>

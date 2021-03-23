@@ -1,11 +1,20 @@
-<div>
-  <h2 Delete Event </h2>
-    <%= form_for(@event, :method => 'delete') do |e| %>
-      <p> Are you sure you want to delete <% e.object.event_name %>? </p>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-6 center-items'>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <h2 Delete Event </h2>
+        </div>
+        <div class='card-body'>
+          <%= form_for(@event, :method => 'delete') do |e| %>
+            <p> Are you sure you want to delete <% e.object.event_name %>? </p>
 
-      <div>
-        <%= e.submit("Delete Event") %>
+            <div>
+              <%= e.submit("Delete Event") %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
+    </div>
+  </main>
 </div>

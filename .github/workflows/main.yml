@@ -9,8 +9,8 @@ jobs:
         image: postgres:13
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: suitsapp
-          POSTGRES_PASSWORD: suitsapp
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -35,8 +35,8 @@ jobs:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
-          POSTGRES_USER: suitsapp
-          POSTGRES_PASSWORD: suitsapp
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         run: |
           cd SUITSApp/
           sudo apt-get -yqq install libpq-dev

@@ -41,6 +41,10 @@ gem 'cancancan'
 
 gem 'jquery-rails'
 
+gem 'simple_form'
+
+gem "cocoon"
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', '>= 3.26'

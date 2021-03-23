@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_175311) do
     t.string "passcode_hash"
     t.string "passcode_salt"
     t.boolean "is_open"
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "event_type_id", null: false
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_175311) do
 
   create_table "member_categories", force: :cascade do |t|
     t.string "name"
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

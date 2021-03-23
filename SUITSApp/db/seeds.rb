@@ -23,7 +23,7 @@ event_type_list.each do |type|
 end
 
 events_list.each do |name, desc, date, event_type_id|
-  Event.create!(event_name: name, event_descripition: desc, date: date, event_type_id: event_type_id)
+  Event.create!(event_name: name, event_description: desc, date: date, event_type_id: event_type_id)
 end
 
 events_list.each do |name, desc, date|

@@ -2,9 +2,10 @@
 
 <h1>User Infos</h1>
 
-<%= if current_user.gen_member?
-  redirect_to "dashboard", dashboard_index_path
-%>
+<% if current_user.gen_member? %>
+  <% redirect_to "dashboard", dashboard_index_path %>
+<% end %>
+
 
 <table>
   <thead>

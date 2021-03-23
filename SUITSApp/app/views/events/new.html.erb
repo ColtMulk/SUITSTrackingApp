@@ -1,6 +1,46 @@
-<div>
-  <h2>Create Event</h2>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-6 center-items'>
+      <div class='card'>
+        <div class='card-header'>
+          <h2>Create Event</h2>
+        </div>
+        <div class='card-body'>
+          <%= form_for(@event) do |e| %>
+          <table>
+            <tr>
+              <th>Event Name</th>
+              <td><%= e.text_field(:event_name)%></td>
+            </tr>
+            <tr>
+              <th>Event Location</th>
+              <td><%= e.text_field(:location)%></td>
+            </tr>
+            <tr>
+              <th>Event Date</th>
+              <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+            </tr>
+            <tr>
+              <th>Event Descripition</th>
+              <td><%= e.text_field(:event_descripition)%></td>
+            </tr>
+            <tr>
+              <th>Event Passcode</th>
+              <td><%= e.text_field(:passcode)%></td>
+            </tr>
+            <tr>
+              <th>Event Open</th>
+              <td><%= e.check_box(:is_open) %></td>
+            </tr>
+          </table>
 
-  <%= render 'form' %>
+          <div class="form-buttons">
+            <%= e.submit("Add Event") %>
+          </div>
 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>

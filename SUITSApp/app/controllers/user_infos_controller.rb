@@ -1,5 +1,6 @@
 class UserInfosController < ApplicationController
-  layout "dashboard"
+  layout 'dashboard'
+  
   before_action :set_user_info, only: %i[show edit update destroy]
 
   # GET /user_infos or /user_infos.json

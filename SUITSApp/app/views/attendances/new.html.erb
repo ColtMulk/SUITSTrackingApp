@@ -1,28 +1,33 @@
-<div>
-  <br>
-  <%= link_to("Back to Events", events_path) %>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-4 center-items'>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <%= link_to("Back to Events", events_path) %>
+          <h2> Submit Attendance </h2>
+          <%= form_for(@attendance) do |a| %>
+        </div>
+        <div class='table-responsive'>
+          <table class='table table-hover table-stripped'>
+            <tr>
+              <th>Event Passcode</th>
+              <td><%= a.text_field(:user_passcode)%></td>
+            </tr>
+          </table>
+        </div>
 
-  <h2> Submit Attendance </h2>
-    <%= form_for(@attendance) do |a| %>
+        <div class="form-buttons">
+          <%= a.submit("Submit Attendance") %>
+        </div>
 
-    <table>
-      <tr>
-        <th>Event Passcode</th>
-        <td><%= a.text_field(:user_passcode)%></td>
-      </tr>
-    </table>
+        <div class='card-body'>
+          <%= a.hidden_field :users_id, :value => current_user.id %>
+          <%= a.hidden_field :events_id, :value => @attendance.events_id %>
+          <%= a.hidden_field :events_passcode_hash, :value => @attendance.events_passcode_hash %>
+        </div>
 
-    
-
-    <div>
-      <%= a.hidden_field :users_id, :value => current_user.id %>
-      <%= a.hidden_field :events_id, :value => @attendance.events_id %>
-      <%= a.hidden_field :events_passcode_hash, :value => @attendance.events_passcode_hash %>
+        <% end %>
+      </div>
     </div>
-    
-    <div class="form-buttons">
-      <%= a.submit("Submit Attendance") %>
-    </div>
-
-    <% end %>
+  </main>
 </div>

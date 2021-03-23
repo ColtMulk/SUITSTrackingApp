@@ -1,28 +1,14 @@
-<html>
-  <head>
-    <title>My Profile</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <%= render 'shared/sidebar' %>
-      <div class="main">
-
-        <p id="notice"><%= notice %></p>
-
-        <h1>Edit Profile</h1>
-
-        <%= render 'form' %>
-
-        <%= link_to 'Cancel', user_profile_path(current_user) %> 
-      </div>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-4 center-items'>
+      <div class='card center-items'>
+        <div class='card-body'>
+            <h1>Editing User Info</h1>
+            <%= render 'form', user_info: @user_info %>
+            <%= link_to 'Show', @user_info %> |
+            <%= link_to 'Back', user_infos_path %>
+        </div>
+     </div>
     </div>
-  </body>
-</html>
+  </main>
+</div>

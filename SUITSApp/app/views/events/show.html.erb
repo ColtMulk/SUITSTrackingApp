@@ -1,19 +1,21 @@
 
-  <div>
-
-    <br>
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-6 center-items'>
       <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode_hash: @event.passcode_hash, users_id: current_user.id )) %>
-    <br>
 
     <% if !current_user.gen_member? %>
       <p><%= link_to("Admin add attendance", select_user_path(@event)) %></p>
     <% end %>
 
     <% if !current_user.gen_member? %>
-    <h1> Attendances for event <%= @event.event_name %></h1>
-
-        <table>
-          <tr>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <h1> Attendances for event <%= @event.event_name %></h1>
+        </div>
+      </div>
+        <table class=" table table-responsive table-hover">
+          <tr class="header">
             <th>User Name</th>
             <th>User Email</th>
             <th>User ID</th>
@@ -31,4 +33,7 @@
           <% end %>
           </table>
       <% end %>
-  </div>
+    </div>
+  </main>
+</div>
+

@@ -20,7 +20,7 @@ RSpec.describe Event, :type => :model do
       expect(subject).to_not be_valid
     end
     it 'is not valid without a description' do
-      subject.event_descripition = nil
+      subject.event_description = nil
       expect(subject).to_not be_valid
     end
     it 'is valid without a passcode' do

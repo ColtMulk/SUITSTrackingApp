@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 events_list =[
   ["test", "This is test", "02/01/2000", 1]
 ]
@@ -31,6 +32,8 @@ events_list.each do |name, desc, date|
   a = Attendance.create(users_id: user.id, events_id: event.id )
   p a.users_id
 end
+
+
 
 #attendance_list.each do |user_id, event_id|
 #  Attendance.create(users_id: user_id, events_id: event_id)

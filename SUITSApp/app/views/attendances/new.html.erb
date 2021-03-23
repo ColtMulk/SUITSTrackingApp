@@ -8,18 +8,20 @@
     <table>
       <tr>
         <th>Event Passcode</th>
-        <td><%= a.text_field(:passcode)%></td>
+        <td><%= a.text_field(:user_passcode)%></td>
       </tr>
     </table>
 
-    <div class="form-buttons">
-      <%= a.submit("Submit Attendance") %>
-    </div>
+    
 
     <div>
       <%= a.hidden_field :users_id, :value => current_user.id %>
       <%= a.hidden_field :events_id, :value => @attendance.events_id %>
-      <%= a.hidden_field :events_passcode, :value => @attendance.events_passcode %>
+      <%= a.hidden_field :events_passcode_hash, :value => @attendance.events_passcode_hash %>
+    </div>
+    
+    <div class="form-buttons">
+      <%= a.submit("Submit Attendance") %>
     </div>
 
     <% end %>

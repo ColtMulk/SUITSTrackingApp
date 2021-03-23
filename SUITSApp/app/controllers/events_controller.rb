@@ -16,10 +16,13 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
+    @event.encrypt_passcode
     if @event.save
       flash[:notice] = 'Event added successfully'
-      redirect_to({ action: 'index' })
+      redirect_to(events_path(@event))
     else
+      flash[:notice] = 'Failure'
+      @event.errors.full_messages
       render('new')
     end
   end
@@ -30,7 +33,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
+    @event.encrypt_passcode
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
       redirect_to(events_path)
@@ -64,7 +67,8 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_name, :location, :date, :event_descripition, :passcode,
-                                  :is_open)
+    params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
+                                  :passcode_hash, :passcode_salt, :is_open)
   end
+
 end

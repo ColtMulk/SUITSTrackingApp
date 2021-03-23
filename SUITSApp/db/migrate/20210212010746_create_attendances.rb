@@ -3,8 +3,7 @@ class CreateAttendances < ActiveRecord::Migration[6.1]
     create_table :attendances do |t|
       t.belongs_to :events
       t.belongs_to :users
-      t.string :events_passcode
-      t.string :passcode
+      # t.string :events_passcode_hash
       
       t.timestamps
     end

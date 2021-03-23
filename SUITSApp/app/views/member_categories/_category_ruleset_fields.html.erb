@@ -1,0 +1,9 @@
+<tr class="nested-fields">
+  <td><%= f.collection_select(:event_type_id, EventType.all, :id, :name)%></td>
+  <td><%= f.input :points, label: false %></td>
+  <td>
+    <%= f.input :_destroy, as: :hidden %>
+    <%= link_to_remove_association 'Delete', f, class: 'btn btn-primary btn-xs' %>
+  </td>
+
+</tr>

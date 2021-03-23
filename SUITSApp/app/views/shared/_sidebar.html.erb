@@ -26,6 +26,18 @@
         <%= link_to 'Attendance', user_attendance_path(current_user), class: "sidebar-link"%>
       </li>
 
+      <% if current_user.master? or current_user.admin?%>
+        <li class="sidebar-item">
+          <%= link_to 'Member Categories', member_categories_path, class: "sidebar-link"%>
+        </li>
+      <% end %>
+
+      <% if current_user.master? or current_user.admin?%>
+        <li class="sidebar-item">
+          <%= link_to 'Event Types', event_types_path, class: "sidebar-link"%>
+        </li>
+      <% end %>
+
       <% if current_user.master? %>
         <li class="sidebar-item">
         </li>

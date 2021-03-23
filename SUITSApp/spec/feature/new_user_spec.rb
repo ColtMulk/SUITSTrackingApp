@@ -4,7 +4,7 @@ RSpec.describe 'Verifying features', type: :feature do
   scenario 'for new user' do
     rand_num = rand(1..200).to_s
         visit new_user_session_path
-        page.driver.browser.manage.window.maximize
+        # page.driver.browser.manage.window.maximize
         #testing creating new user
         click_on 'Sign up'
         fill_in 'First name', with: 'John'

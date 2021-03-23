@@ -20,7 +20,7 @@ FactoryBot.define do
     event_name { 'TestingEvent'}
     location { 'TAMU' }
     date { '03/14/2021'}
-    event_descripition {'this is a test event'}
+    event_description {'this is a test event'}
     passcode { '123456' }
   end
 end

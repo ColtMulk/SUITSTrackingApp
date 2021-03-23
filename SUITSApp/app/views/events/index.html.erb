@@ -19,7 +19,7 @@
               <th>Event Name</th>
               <th>Event Location</th>
               <th>EventDate</th>
-              <th>Event Descripition</th>
+              <th>Event description</th>
               <th>Event Open</th>
               <th>Action</th>
             </tr>
@@ -29,7 +29,7 @@
             <td><%= event.event_name %></td>
             <td><%= event.location %></td>
             <td><%= event.date %></td>
-            <td><%= event.event_descripition %></td>
+            <td><%= event.event_description %></td>
             <td><%= event.is_open ? "Yes" : "No" %></td>
             <td class = actions>
               <% if !current_user.gen_member? %>

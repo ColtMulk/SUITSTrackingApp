@@ -1,10 +1,10 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe Users::RegistrationsController, :type => :controller do
-  login_user
+# RSpec.describe Users::RegistrationsController, :type => :controller do
+#   login_user
 
-  it 'should have a current user' do
-    expect(subject.current_user).to_not eq(nil)
-  end
+#   it 'should have a current user' do
+#     expect(subject.current_user).to_not eq(nil)
+#   end
 
-end
+# end

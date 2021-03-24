@@ -1,5 +1,13 @@
 <%= form_with(model: @event) do |e| %>
 
+
+<%
+et = Array.new
+@event_types.each do |e|
+  et.push(e.name)
+end
+%>
+
     <table>
       <tr>
         <th>Event Name</th>
@@ -24,6 +32,10 @@
       <tr>
         <th>Event Open</th>
         <td><%= e.check_box(:is_open) %></td>
+      </tr>
+      <tr>
+        <th>Event Type</th>
+        <td> <%= e.select :event_type, options_for_select(et)%></td>
       </tr>
     </table>
 

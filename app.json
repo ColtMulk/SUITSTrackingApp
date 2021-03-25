@@ -23,7 +23,7 @@
   },
 
   "scripts": {
-    "postdeploy": "rails db:create db:migrate db:seed"
+    "postdeploy": "rails db:migrate db:seed"
   }
 
 

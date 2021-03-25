@@ -20,5 +20,11 @@
   ],
   "env": {
     "PROJECT_PATH": "SUITSApp"
+  },
+
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   }
+
+
 }

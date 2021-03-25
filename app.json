@@ -23,7 +23,7 @@
   },
 
   "scripts": {
-    "postdeploy": "bundle exec rake db:schema:load db:seed"
+    "postdeploy": "rails db:create db:migrate db:seed"
   }
 
 

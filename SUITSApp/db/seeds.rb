@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+#attendance_list.each do |user_id, event_id|
+#  Attendance.create(users_id: user_id, events_id: event_id)
+#end
+
+
+
 user = User.new
 user.email = 'master@master.com'
 user.password = 'password'

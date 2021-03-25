@@ -5,7 +5,7 @@
       <p id="notice"><%= notice %></p>
         <div class='card-header'>
           <h1>User Infos</h1>
-          
+
           <%= if current_user.gen_member?
             redirect_to "dashboard", dashboard_index_path end
           %>

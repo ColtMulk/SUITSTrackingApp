@@ -2,8 +2,10 @@
 require 'spec_helper'
 #require 'factory_bot'
 require_relative 'support/controller_macros'
-require 'support/factory_bot'
-require 'factories/factories.rb'
+#require 'support/factory_bot'
+require 'setup/factories.rb'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)

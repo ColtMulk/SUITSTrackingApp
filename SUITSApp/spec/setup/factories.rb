@@ -25,14 +25,14 @@ FactoryBot.define do
   end
 end
 
-FactoryBot.define do
-  factory :attendance, :parent => :user, :parent => :event, class: 'Attendance' do
-    events_id { :events_id }
-    events_passcode { :events_passcode }
-    users_id { :users_id }
-    passcode { :password }
-    user
-    event
-
-  end
-end
+# FactoryBot.define do
+#   factory :attendance, :parent => :user, :parent => :event, class: 'Attendance' do
+#     events_id { :events_id }
+#     events_passcode { :events_passcode }
+#     users_id { :users_id }
+#     passcode { :password }
+#     user
+#     event
+#
+#   end
+# end

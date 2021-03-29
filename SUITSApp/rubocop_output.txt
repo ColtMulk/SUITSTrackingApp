@@ -1,0 +1,55 @@
+Inspecting 58 files
+.....C.W..................WCCC.....C.C....................
+
+Offenses:
+
+app/controllers/attendances_controller.rb:24:3: C: Metrics/AbcSize: Assignment Branch Condition size for create is too high. [<3, 17, 4> 17.72/17]
+  def create ...
+  ^^^^^^^^^^
+app/controllers/attendances_controller.rb:24:3: C: Metrics/MethodLength: Method has too many lines. [12/10]
+  def create ...
+  ^^^^^^^^^^
+app/controllers/attendances_controller.rb:26:5: C: Rails/Output: Do not write to stdout. Use Rails's logger if you want to log.
+    puts @attendance.inspect
+    ^^^^
+app/controllers/attendances_controller.rb:27:5: C: Rails/Output: Do not write to stdout. Use Rails's logger if you want to log.
+    p 'in create'
+    ^
+app/controllers/attendances_controller.rb:31:7: C: Rails/Output: Do not write to stdout. Use Rails's logger if you want to log.
+      p 'saved'
+      ^
+app/controllers/attendances_controller.rb:35:7: C: Rails/Output: Do not write to stdout. Use Rails's logger if you want to log.
+      p 'not saved'
+      ^
+app/controllers/events_controller.rb:54:3: W: Lint/DuplicateMethods: Method EventsController#destroy is defined at both app/controllers/events_controller.rb:48 and app/controllers/events_controller.rb:54.
+  def destroy
+  ^^^^^^^^^^^
+app/models/attendance.rb:4:3: C: Rails/InverseOf: Specify an :inverse_of option.
+  belongs_to :events, foreign_key: true, class_name: 'Event'
+  ^^^^^^^^^^
+app/models/attendance.rb:5:3: C: Rails/InverseOf: Specify an :inverse_of option.
+  belongs_to :user, foreign_key: true, foreign_key: 'users_id'
+  ^^^^^^^^^^
+app/models/attendance.rb:5:40: W: Lint/DuplicateHashKey: Duplicated key in hash literal.
+  belongs_to :user, foreign_key: true, foreign_key: 'users_id'
+                                       ^^^^^^^^^^^
+app/models/event.rb:4:3: C: Rails/InverseOf: Specify an :inverse_of option.
+  has_many :attendances, dependent: :delete_all, foreign_key: 'events_id'
+  ^^^^^^^^
+app/models/event_type.rb:4:3: C: Rails/HasManyOrHasOneDependent: Specify a :dependent option.
+  has_many :events
+  ^^^^^^^^
+app/models/user.rb:11:3: C: Rails/InverseOf: Specify an :inverse_of option.
+  has_many :attendances, dependent: :delete_all, foreign_key: 'users_id'
+  ^^^^^^^^
+spec/controllers/users/registrations_controller_spec.rb:9:12: C: RSpec/NamedSubject: Name your test subject if you need to reference it explicitly.
+    expect(subject.current_user).not_to eq(nil)
+           ^^^^^^^
+spec/feature/new_user_spec.rb:6:3: C: RSpec/ExampleLength: Example has too many lines [22/5].
+  it 'for new user' do ...
+  ^^^^^^^^^^^^^^^^^^^^
+spec/feature/new_user_spec.rb:6:3: C: RSpec/MultipleExpectations: Example has too many expectations [2/1].
+  it 'for new user' do
+  ^^^^^^^^^^^^^^^^^
+
+58 files inspected, 16 offenses detected

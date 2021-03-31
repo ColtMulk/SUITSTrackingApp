@@ -19,8 +19,20 @@
     </tbody>
   </table>
 
+  <div class="field">
+    <%= f.label "Default Category For: " %><br />
+    <%= f.label :default_for, "None", :value => :none, :checked => true %>
+    <%= f.radio_button :default_for, :none %>
+    <%= f.label :default_for, "New Members", :value => :new %>
+    <%= f.radio_button :default_for, :new%>
+    <%= f.label :default_for, "Old Members", :value => :old %>
+    <%= f.radio_button :default_for, :old%>
+  </div>
+
+  <p>Warning: If you set this category as a default while another category is currently the default for that set of users, then the other category will lose its default status</p>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit%>
     <%= link_to_add_association 'Add Event Type', f, :category_rulesets, class: 'btn btn-primary', data: { association_insertion_node: '.categories', association_insertion_method: :append } %>
   </div>
 <% end %> 

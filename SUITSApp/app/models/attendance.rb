@@ -10,7 +10,10 @@ class Attendance < ApplicationRecord
   validates_presence_of :events_id, :events_passcode_hash, :users_id, :user_passcode
 
   def authenticate(user_passcode, events_passcode_hash)
-    BCrypt::Password.new(events_passcode_hash) == user_passcode
+    p "authenticating"
+    p user_passcode
+    p events_passcode_hash
+    BCrypt::Password.new(events_passcode_hash) == user_passcode 
   end
 
 end

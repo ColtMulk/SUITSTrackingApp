@@ -31,6 +31,7 @@ class AttendancesController < ApplicationController
 
 
     if @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+      p "correct password"
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
         p 'saved'
@@ -41,6 +42,7 @@ class AttendancesController < ApplicationController
         render('new')
       end
     else
+      p "incorrect password"
       flash[:notice] = 'Incorrect Passcode'
       render('new')
     end

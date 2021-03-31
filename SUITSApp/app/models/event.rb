@@ -7,7 +7,7 @@ class Event < ApplicationRecord
 
   def encrypt_passcode
     self.passcode_salt = BCrypt::Engine.generate_salt
-    self.passcode_hash = BCrypt::Engine.hash_secret(passcode, passcode_salt)
+    self.passcode_hash = BCrypt::Password.create(passcode)
   end
 
 end

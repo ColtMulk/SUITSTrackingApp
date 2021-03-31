@@ -50,10 +50,12 @@ end
 
 default_new_cat = MemberCategory.new
 default_new_cat.name = "Ties (default)"
+default_new_cat.default_for = :new
 default_new_cat.save!
 
 default_old_cat = MemberCategory.new
 default_old_cat.name = "Members (default)"
+default_old_cat.default_for = :old
 default_old_cat.save!
 
 for event_type in default_event_type_objects do 

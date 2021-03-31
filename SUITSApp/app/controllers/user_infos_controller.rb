@@ -44,7 +44,7 @@ class UserInfosController < ApplicationController
   # PATCH/PUT /user_infos/1 or /user_infos/1.json
   def update
     respond_to do |format|
-      if UserInfo.update(user_info_params)
+      if @user_info.update(user_info_params)
         format.html { redirect_to user_profile_path, notice: 'User info was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_info }
       else

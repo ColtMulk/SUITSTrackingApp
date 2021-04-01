@@ -6,7 +6,8 @@
       <th>Name</th>
       <th>Event Types</th>
       <th>Required Points</th>
-      <th colspan="3"></th>
+      <th>Default?</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -23,7 +24,10 @@
           <% member_category.category_rulesets.each do |category_ruleset| %>
             <%= category_ruleset.points %><br>
           <% end %>
-          </td>
+        </td>
+        <td>
+          <%=member_category.default_for %>
+        </td>
         <td><%= link_to 'Edit', edit_member_category_path(member_category) %></td>
         <td><%= link_to 'Destroy', member_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

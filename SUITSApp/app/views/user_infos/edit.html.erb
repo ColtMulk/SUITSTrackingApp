@@ -3,11 +3,10 @@
     <div class='col-md-4 center-items'>
       <div class='card center-items'>
         <div class='card-body'>
-            <h1>Editing User Info</h1>
+            <h1>Edit My Profile</h1>
             <%= render 'form', user_info: @user_info %>
-            <%= link_to 'Change Email or Password', edit_registration_path(current_user) %> |
-            <%= link_to 'Show', @user_info %> |
-            <%= link_to 'Back', user_infos_path %>
+            <%= link_to 'Change Password', edit_registration_path(current_user) %> |
+            <%= link_to 'Back', user_infos_path(current_user) %>
         </div>
      </div>
     </div>

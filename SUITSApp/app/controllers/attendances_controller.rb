@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
   layout 'dashboard'
-  
+
   def index
     @attendances = Attendance.all
   end
@@ -29,8 +29,9 @@ class AttendancesController < ApplicationController
     puts @attendance.inspect
     p 'in create'
 
+    p @attendance.user_passcode;
 
-    if @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+    if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
       p "correct password"
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'

@@ -6,10 +6,10 @@
           <h2> Events </h2>
           <%= link_to("Dashboard", dashboard_index_path)%>
           <br>
-      
+
           <%= if current_user.gen_member?
             redirect_to "dashboard", dashboard_index_path
-          end 
+          end
           %>
         </div>
         <div class='table-responsive'>
@@ -32,10 +32,10 @@
               <td><%= event.event_description %></td>
               <td><%= event.is_open ? "Yes" : "No" %></td>
               <td class = actions>
-                <%= button_to("Log Attendance", attendances_path(:attendance => {:events_id => event.id, :users_id => @user_info.id, :events_passcode => event.passcode, :passcode => event.passcode}), :method => :post) %>
+                <%= button_to("Log Attendance", attendances_path(:attendance => {:events_id => event.id, :users_id => @user_info.id, :events_passcode_hash => "pass", :user_passcode => "pass"}), :method => :post) %>
               </td>
             </tr>
-      
+
             <% end %>
           </table>
         </div>

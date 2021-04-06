@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   # def link_to_add_row(name, f, association, **args)
   #   new_object = f.object.send(association).klass.new
@@ -6,6 +8,6 @@ module ApplicationHelper
   #     render(association.to_s.singularize, f: builder)
   #   end
   #   args[:class] ||= ""
-  #   link_to(name, '#', class: "add_fields " + args[:class], data: {id: id, fields: fields.gsub("\n", "")}) 
+  #   link_to(name, '#', class: "add_fields " + args[:class], data: {id: id, fields: fields.gsub("\n", "")})
   # end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MemberCategory < ApplicationRecord
   has_many :category_rulesets, dependent: :destroy
   has_many :event_types, through: :category_rulesets

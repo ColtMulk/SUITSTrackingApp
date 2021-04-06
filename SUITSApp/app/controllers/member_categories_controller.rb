@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MemberCategoriesController < ApplicationController
   layout 'dashboard'
 
@@ -5,8 +7,7 @@ class MemberCategoriesController < ApplicationController
     @member_categories = MemberCategory.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @member_category = MemberCategory.new
@@ -16,7 +17,8 @@ class MemberCategoriesController < ApplicationController
   def create
     @member_category = MemberCategory.new(member_category_params)
     if @member_category.save
-      redirect_to edit_member_category_path(@member_category), notice: "Member Category successfully created"
+      redirect_to edit_member_category_path(@member_category),
+                  notice: 'Member Category successfully created'
     else
       render :new
     end
@@ -29,7 +31,8 @@ class MemberCategoriesController < ApplicationController
   def update
     set_member_category
     if @member_category.update(member_category_params)
-      redirect_to edit_member_category_path(@member_category), notice: "Member Category successfully updated"
+      redirect_to edit_member_category_path(@member_category),
+                  notice: 'Member Category successfully updated'
     else
       render :edit
     end
@@ -41,11 +44,13 @@ class MemberCategoriesController < ApplicationController
   end
 
   private
-    def set_member_category
-      @member_category = MemberCategory.find(params[:id])
-    end
 
-    def member_category_params
-      params.require(:member_category).permit(:name, category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
-    end
+  def set_member_category
+    @member_category = MemberCategory.find(params[:id])
+  end
+
+  def member_category_params
+    params.require(:member_category).permit(:name,
+                                            category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end

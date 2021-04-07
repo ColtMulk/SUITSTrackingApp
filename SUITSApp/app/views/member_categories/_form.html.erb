@@ -4,21 +4,22 @@
   <div class="form-inputs">
     <%= f.input :name %>
   </div>
-
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Event Type</th>
-        <th>Number Required</th>
-      </tr>
-    </thead>
-    <tbody class='categories'>
-      <%= f.simple_fields_for :category_rulesets do |builder| %>
-        <%= render 'category_ruleset_fields', f: builder %>
-      <% end %>
-    </tbody>
-  </table>
-
+  <div class='table-responsive'>
+    <table class='table table-hover table-striped'>
+      <thead class='header'>
+        <tr>
+          <th>Event Type</th>
+          <th>Number Required</th>
+        </tr>
+      </thead>
+      <tbody class='categories'>
+        <%= f.simple_fields_for :category_rulesets do |builder| %>
+          <%= render 'category_ruleset_fields', f: builder %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
   <div class="field">
     <%= f.label "Default Category For: " %><br />
     <%= f.label :default_for, "None", :value => :none, :checked => true %>

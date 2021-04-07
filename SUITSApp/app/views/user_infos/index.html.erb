@@ -10,6 +10,9 @@
             controller.redirect_to dashboard_index_path end
           %>
         </div>
+        <div class='card-body'>
+          <%= link_to 'New User Info', new_user_info_path %>
+        </div>
         <div class='table-responsive'>
           <table class='table table-hover table-striped'>
             <thead class="header">
@@ -37,7 +40,6 @@
             </tbody>
           </table>
         </div>
-        <%= link_to 'New User Info', new_user_info_path %>
       </div>
     </div>
   </main>

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   layout 'dashboard'
 
@@ -19,13 +21,13 @@ class EventsController < ApplicationController
     et = EventType.find_by name: params[:event][:event_type]
     @event.event_type_id = et.id
     @event.encrypt_passcode
-    p @event
+    #  p @event
     if @event.save
       flash[:notice] = 'Event added successfully'
       redirect_to(events_path(@event))
     else
       flash[:notice] = 'Failure'
-      p @event.errors.full_messages
+      #  p @event.errors.full_messages
       render('new')
     end
   end
@@ -50,11 +52,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to(Events)
-  end
+  # def destroy
+  #   @event = Event.find(params[:id])
+  #   @event.destroy
+  #   redirect_to(Events)
+  # end
 
   def destroy
     @event = Event.find(params[:id])
@@ -74,5 +76,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
                                   :passcode_hash, :passcode_salt, :is_open)
   end
-
 end

@@ -1,4 +1,4 @@
-require: 
+require:
 - rubocop-performance
 - rubocop-rails
 - rubocop-rspec
@@ -17,7 +17,13 @@ AllCops:
     - 'vendor/**/*'
     - '.git/**/*'
 
+Metrics/AbcSize:
+  Max: 18
+  
 Metrics/LineLength:
+  Max: 200
+
+Metrics/MethodLength:
   Max: 100
 
 Metrics/BlockLength:

@@ -25,12 +25,14 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    #  puts attendance_params
-    #  puts @attendance.inspect
-    #  p 'in create'
+    # puts attendance_params
+    # puts @attendance.inspect
+    # p 'in create'
 
-    if @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
-      #  p 'correct password'
+    # p @attendance.user_passcode;
+
+    if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+     # p "correct password"
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
         #  p 'saved'

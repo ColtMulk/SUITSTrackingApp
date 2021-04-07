@@ -16,6 +16,12 @@
       <%= form.label :member_status %>
       <%= form.select  :member_status, UserInfo.member_statuses.map { |key, value| [key.humanize, key] }%>
     </div>
+
+    <div class="field">
+      <%= form.label :member_category %>
+      <%= form.collection_select  :member_category_id, MemberCategory.all, :id, :name%>
+    </div>
+
   <% end %>
 
   <div class="actions">

@@ -27,7 +27,7 @@
         <td><%= user_info.last_name %></td>
         <td><%= user_info.member_status %></td>
 
-        <td><%= button_to("Log Attendance", attendances_path(:attendance => {:events_id => @event.id, :users_id => user_info.id, :events_passcode => @event.passcode, :passcode => @event.passcode}), :method => :post) %></td>
+        <td><%= button_to("Log Attendance", attendances_path(:attendance => {:events_id => @event.id, :users_id => user_info.id, :events_passcode_hash => "something", :user_passcode => "something"}), :method => :post) %></td>
       </tr>
     <% end %>
   </tbody>

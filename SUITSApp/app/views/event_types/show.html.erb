@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_event_type_path(@event_type) %> |
-<%= link_to 'Back', event_types_path %>
+<div class='main'>
+    <main class='content'>
+        <div class='col-md-6 center-items'>
+            <div class='card center-items'>
+                <div class='card-body'>
+                    <p id="notice"><%= notice %></p>
+                    <%= link_to 'Edit', edit_event_type_path(@event_type) %> | <%= link_to 'Back', event_types_path %>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

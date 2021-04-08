@@ -47,8 +47,9 @@ class MemberCategoriesController < ApplicationController
   end
 
   def destroy
+    set_member_category
     @member_category.destroy
-    redirect_to member_category_url, notice: 'Member Category was successfully destroyed.'
+    redirect_to member_categories_url, notice: 'Member Category was successfully destroyed.'
   end
 
   private

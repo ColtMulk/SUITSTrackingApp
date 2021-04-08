@@ -11,7 +11,7 @@
 
           <%
           et = Array.new
-          @event_types.each do |e|
+          EventType.all.each do |e|
             et.push(e.name)
           end
           %>
@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                   <th>Event Type</th>
-                  <td> <%= e.select :event_type, options_for_select(et)%></td>
+                  <td> <%= e.collection_select(:event_type_id, EventType.all, :id, :name)%> </td>
                 </tr>
               </table>
 

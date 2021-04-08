@@ -18,8 +18,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    et = EventType.find_by name: params[:event][:event_type]
-    @event.event_type_id = et.id
+    #et = EventType.find_by name: params[:event][:event_type]
+    #@event.event_type_id = et.id
     @event.encrypt_passcode
     #  p @event
     if @event.save
@@ -74,6 +74,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
-                                  :passcode_hash, :passcode_salt, :is_open)
+                                  :passcode_hash, :passcode_salt, :is_open, :event_type_id)
   end
 end

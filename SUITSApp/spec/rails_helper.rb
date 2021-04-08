@@ -1,14 +1,18 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-#require 'factory_bot'
+# require 'factory_bot'
 require_relative 'support/controller_macros'
-require 'support/factory_bot'
-require 'factories/factories.rb'
+# require 'support/factory_bot'
+require 'setup/factories'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
 Rails.application.load_seed
@@ -69,12 +73,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.expect_with :rspec do |c|
-    c.syntax= :expect
+    c.syntax = :expect
   end
-  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Warden::Test::Helpers
-  config.extend ControllerMacros, :type => :controller
+  config.extend ControllerMacros, type: :controller
 end
 
 Capybara.default_driver = :selenium_chrome

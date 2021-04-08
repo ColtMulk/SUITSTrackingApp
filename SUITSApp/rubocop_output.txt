@@ -1,0 +1,22 @@
+Inspecting 93 files
+.............................................C.C..............C.....C........................
+
+Offenses:
+
+spec/controllers/member_categories_controller_spec.rb:6:3: C: RSpec/RepeatedExample: Don't repeat examples within an example group.
+  it 'only lets one category be default for new users' do ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/controllers/member_categories_controller_spec.rb:9:3: C: RSpec/RepeatedExample: Don't repeat examples within an example group.
+  it 'only lets one category be default for old users' do ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/controllers/users/registrations_controller_spec.rb:9:12: C: RSpec/NamedSubject: Name your test subject if you need to reference it explicitly.
+    expect(subject.current_user).not_to eq(nil)
+           ^^^^^^^
+spec/setup/factories.rb:40:6: C: [Correctable] Layout/TrailingEmptyLines: Final newline missing.
+# end
+     
+spec/views/event_types/edit.html.erb_spec.rb:13:63: C: RSpec/InstanceVariable: Avoid instance variables – use let, a method call, or a local variable (if possible).
+    assert_select 'form[action=?][method=?]', event_type_path(@event_type), 'post' do
+                                                              ^^^^^^^^^^^
+
+93 files inspected, 5 offenses detected, 1 offense auto-correctable

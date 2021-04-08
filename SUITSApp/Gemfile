@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -11,8 +13,8 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-#gem 'uglifier'
-#gem 'yui-compressor'
+# gem 'uglifier'
+# gem 'yui-compressor'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -34,8 +36,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
-
-gem 'rails_admin'#, git: 'git@github.com:sferik/rails_admin.git'
+gem 'rails_admin' # , git: 'git@github.com:sferik/rails_admin.git'
 
 gem 'cancancan'
 
@@ -43,13 +44,13 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 
-gem "cocoon"
+gem 'cocoon'
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'capybara', '>= 3.26'
+  gem 'factory_bot_rails', require: false
+  gem 'rspec-rails'
   gem 'webdrivers'
-  gem 'factory_bot_rails', :require => false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
@@ -76,6 +77,7 @@ group :test do
   # # Adds support for Capybara system testing and selenium driver
   # gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false, group: :test
   # Easy installation and use of web drivers to run system tests with browsers
   # gem 'webdrivers'
 end

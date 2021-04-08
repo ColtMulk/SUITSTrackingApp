@@ -3,7 +3,7 @@
     <div class='col-md-12 center-items'>
       <div class='card center-items'>
         <div class='card-header'>
-          <h2> Events </h2>
+          <h1> Events </h1>
         </div>
         <div class='card-body'>
           <%#= link_to("Dashboard", dashboard_index_path)%>
@@ -20,6 +20,7 @@
               <th>Event Location</th>
               <th>EventDate</th>
               <th>Event description</th>
+              <th>Event Type</th>
               <th>Event Open</th>
               <th>Action</th>
             </tr>
@@ -30,6 +31,7 @@
             <td><%= event.location %></td>
             <td><%= event.date %></td>
             <td><%= event.event_description %></td>
+            <td><%= event.event_type.name %></td>
             <td><%= event.is_open ? "Yes" : "No" %></td>
             <td class = actions>
               <% if !current_user.gen_member? %>

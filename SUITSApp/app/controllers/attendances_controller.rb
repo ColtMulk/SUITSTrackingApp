@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class AttendancesController < ApplicationController
   layout 'dashboard'
-  
+
   def index
     @attendances = Attendance.all
   end
@@ -10,9 +12,7 @@ class AttendancesController < ApplicationController
   end
 
   def user
-    if current_user.gen_member? && (current_user.id != params[:id].to_i)
-      redirect_to(controller: 'attendances', action: 'user', id: current_user)
-    end
+    redirect_to(controller: 'attendances', action: 'user', id: current_user) if current_user.gen_member? && (current_user.id != params[:id].to_i)
     @attendances = Attendance.where(users_id: params[:id])
   end
 
@@ -25,22 +25,25 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    puts attendance_params
-    puts @attendance.inspect
-    p 'in create'
+    # puts attendance_params
+    # puts @attendance.inspect
+    # p 'in create'
 
+    # p @attendance.user_passcode;
 
-    if @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+    if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+     # p "correct password"
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
-        p 'saved'
+        #  p 'saved'
         redirect_to(events_path)
       else
         flash[:notice] = 'Error: Not Saved'
-        p 'not saved'
+        #  p 'not saved'
         render('new')
       end
     else
+      #  p 'incorrect password'
       flash[:notice] = 'Incorrect Passcode'
       render('new')
     end

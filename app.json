@@ -1,0 +1,30 @@
+{
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "13"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/timanovsky/subdir-heroku-buildpack"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "PROJECT_PATH": "SUITSApp"
+  },
+
+  "scripts": {
+    "postdeploy": "rails db:migrate db:seed"
+  }
+
+
+}

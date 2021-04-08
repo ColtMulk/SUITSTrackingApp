@@ -1,6 +1,8 @@
-class EventType < ApplicationRecord
-  has_many :events
+# frozen_string_literal: true
 
-  has_many :category_rulesets
+class EventType < ApplicationRecord
+  has_many :events, dependent: :destroy
+
+  has_many :category_rulesets, dependent: :destroy
   has_many :member_category, through: :category_rulesets
 end

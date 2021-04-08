@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UserInfosController < ApplicationController
   layout 'dashboard'
-  
+
   before_action :set_user_info, only: %i[show edit update destroy]
 
   # GET /user_infos or /user_infos.json
@@ -10,9 +12,7 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/1 or /user_infos/1.json
   def show
-    if current_user.gen_member? && (current_user.id != params[:id].to_i)
-      redirect_to(controller: 'user_infos', action: 'show', id: current_user)
-    end
+    redirect_to(controller: 'user_infos', action: 'show', id: current_user) if current_user.gen_member? && (current_user.id != params[:id].to_i)
     @user_info = UserInfo.find_by(user: params[:id])
   end
 
@@ -44,7 +44,7 @@ class UserInfosController < ApplicationController
   # PATCH/PUT /user_infos/1 or /user_infos/1.json
   def update
     respond_to do |format|
-      if UserInfo.update(user_info_params)
+      if @user_info.update(user_info_params)
         format.html { redirect_to user_profile_path, notice: 'User info was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_info }
       else
@@ -77,6 +77,6 @@ class UserInfosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_info_params
-    params.require(:user_info).permit(:first_name, :last_name, :member_status)
+    params.require(:user_info).permit(:first_name, :last_name, :member_status, :member_category_id)
   end
 end

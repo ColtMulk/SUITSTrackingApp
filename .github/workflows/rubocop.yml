@@ -5,11 +5,13 @@ name: Rubocop
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Rubocop Linter Action
-      uses: andrewmcodes/rubocop-linter-action@v3.0.0.rc2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
+    - run: bundle install
+    - name: Rubocop
+      run: rubocop

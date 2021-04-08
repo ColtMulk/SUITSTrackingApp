@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @events = Event.all
+    if !params[:sort] or !params[:name]
+      @events = Event.order(:date)
+    else
+      @events = Event.order(event_name: params[:sort])
+    end
   end
 
   def show

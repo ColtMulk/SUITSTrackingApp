@@ -10,4 +10,7 @@ class Event < ApplicationRecord
     self.passcode_hash = BCrypt::Password.create(passcode)
   end
 
+  scope :desc, -> {order(event_name: :desc)}
+  scope :date, -> {order(date: :desc)}
+  scope :open, -> {order(is_open: :desc)}
 end

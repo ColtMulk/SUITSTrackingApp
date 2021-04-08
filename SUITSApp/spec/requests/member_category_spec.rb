@@ -30,7 +30,7 @@ RSpec.describe '/member_categories', category: :request do
   end
 
   before(:each) do
-    user = User.create(role: '0',password:'password',password_confirmation:'password',email:'master@master.com')
+    user = User.create(role: :master,password:'password',password_confirmation:'password',email:'master@master.com')
     sign_in user
   end
 

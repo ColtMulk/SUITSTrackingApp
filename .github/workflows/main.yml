@@ -1,7 +1,20 @@
 name: CI/CD
 on: [push, pull_request]
 jobs:
-  build:
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.x
+      - name: Check code
+        run: |
+          cd SUITSApp/
+          bundle install
+          rubocop
+  rspec:
     runs-on: ubuntu-latest
     
     services:
@@ -42,6 +55,6 @@ jobs:
           sudo apt-get -yqq install libpq-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
-          bundle exec rake db:create
-          bundle exec rake db:migrate
+          RAILS_ENV=test rake db:drop db:create db:migrate
+          RAILS_ENV=test bundle exec rails assets:precompile
           bundle exec rspec .

@@ -4,7 +4,7 @@ class EventTypesController < ApplicationController
 
   # GET /event_types or /event_types.json
   def index
-    @event_types = EventType.all
+    @event_types = EventType.order("name")
   end
 
   # GET /event_types/1 or /event_types/1.json

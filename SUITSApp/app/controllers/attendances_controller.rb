@@ -7,12 +7,8 @@ class AttendancesController < ApplicationController
       @attendances = Attendance.includes(:user_info).order("user_infos.last_name desc")
     elsif params[:name] == "EventName"
       @attendances = Attendance.includes(:events).order("events.event_name " + params[:sort])
-    elsif params[:name] == "location"
-      @attendances = Event.order(location: params[:sort])
-    elsif params[:name] == "date"
-      @attendances = Event.order(date: params[:sort])
     else
-      @attendances = Event.includes(:event_type).order("event_types.name " + params[:sort])
+      @attendances = Attendance.includes(:user_info).order("user_infos.last_name " + params[:sort] + ", user_infos.first_name " + params[:sort])
     end
   end
 

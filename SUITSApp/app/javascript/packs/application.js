@@ -15,10 +15,6 @@ require('jquery')
 
 global.toastr = require("toastr")
 
-$(".button").click(function(){
-$(".dropdown").slideToggle();
-});
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

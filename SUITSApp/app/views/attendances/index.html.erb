@@ -9,23 +9,19 @@
       <div class='table-responsive'>
         <table class="table table-hover">
           <tr class="header">
-            <th>User Name</th>
-            <th>User ID</th>
+            <th>Last Name, First Name<%= link_to "\u25BC", sort: "desc", name: "UserName" %> <%= link_to "\u25B2", sort: "asc", name: "UserName" %> </th>
             <th>Event name <%= link_to "\u25BC", sort: "desc", name: "EventName" %> <%= link_to "\u25B2", sort: "asc", name: "EventName" %> </th>
-            <th>Event ID</th>
-            <th>Action</th>
+            <th>Delete Attendance</th>
           </tr>
           <% @attendances.each do |attendance| %>
           <tr>
             <% puts @attendance.inspect %>
             <% if attendance.user_info then %>
-              <td><%= attendance.user_info.first_name + " " + attendance.user_info.last_name %></td>
+              <td><%= attendance.user_info.last_name + ", " + attendance.user_info.first_name %></td>
             <% else %>
               <td> No name found </td>
             <% end %>
-            <td><%= attendance.user.id %></td>
             <td><%= attendance.events.event_name  %></td>
-            <td><%= attendance.events_id %></td>
             <td class = actions>
               <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
             </td>

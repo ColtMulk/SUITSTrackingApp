@@ -11,6 +11,8 @@ class EventsController < ApplicationController
       @events = Event.order(location: params[:sort])
     elsif params[:name] == "date"
       @events = Event.order(date: params[:sort])
+    elsif params[:name] == "open"
+      @events = Event.order(is_open: params[:sort])
     else
       @events = Event.includes(:event_type).order("event_types.name " + params[:sort])
     end

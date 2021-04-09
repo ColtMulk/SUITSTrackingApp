@@ -16,32 +16,9 @@
         <%= link_to 'Events', events_path, class: "sidebar-link"%>
       </li>
 
-      <% if !current_user.gen_member? %>
-      <li class="sidebar-item">
-        <%= link_to 'Users', user_infos_path, class: "sidebar-link"%>
-      </li>
-      <% end %>
-
       <li class="sidebar-item">
         <%= link_to 'Attendance', user_attendance_path(current_user), class: "sidebar-link"%>
       </li>
-
-      <% if current_user.master? or current_user.admin?%>
-        <li class="sidebar-item">
-          <%= link_to 'Member Categories', member_categories_path, class: "sidebar-link"%>
-        </li>
-      <% end %>
-
-      <% if current_user.master? or current_user.admin?%>
-        <li class="sidebar-item">
-          <%= link_to 'Event Types', event_types_path, class: "sidebar-link"%>
-        </li>
-      <% end %>
-
-      <% if current_user.master? %>
-        <li class="sidebar-item">
-        </li>
-      <% end %>
 
       <li class="sidebar-item">
           <%= link_to 'My Profile', user_profile_path(current_user), class: "sidebar-link"%>
@@ -50,9 +27,7 @@
       <li class="sidebar-item">
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "sidebar-link" %>
       </li>
-    </ul>
   <% if current_user.master? or current_user.admin? %>
-    <ul class ="sidebar-nav">
       <li class="sidebar-header">
         Admin Tools
       </li>
@@ -61,6 +36,17 @@
           <%= link_to 'Attendance', attendances_path, class: "sidebar-link"%>
         </li>
 
+        <li class="sidebar-item">
+          <%= link_to 'Event Types', event_types_path, class: "sidebar-link"%>
+        </li>
+
+        <li class="sidebar-item">
+          <%= link_to 'Member Categories', member_categories_path, class: "sidebar-link"%>
+        </li>
+
+        <li class="sidebar-item">
+          <%= link_to 'Users', user_infos_path, class: "sidebar-link"%>
+        </li>
 
 
     </ul>

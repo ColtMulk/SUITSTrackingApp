@@ -5,7 +5,7 @@
       <%= link_to_if(@event.is_open, "Log Attendance", new_attendance_path(events_id: @event.id, events_passcode_hash: @event.passcode_hash, users_id: current_user.id )) %>
 
     <% if !current_user.gen_member? %>
-      <p><%= link_to("Admin add attendance", select_user_path(@event)) %></p>
+      <h3><%= link_to("Add User Attendance for this Event", select_user_path(@event)) %></h3>
     <% end %>
 
     <% if !current_user.gen_member? %>
@@ -19,6 +19,7 @@
             <th>User Name</th>
             <th>User Email</th>
             <th>User ID</th>
+            <th>Delete Attendance</th>
           </tr>
         <% @event.attendances.each do |attend| %>
           <tr>
@@ -29,6 +30,7 @@
             <% end %>
             <td><%= attend.user.email %></td>
             <td><%= attend.user.id %></td>
+            <td> <%= link_to("Delete", delete_attendance_path(attend), :class => 'action delete') %></td>
           </tr>
           <% end %>
           </table>
@@ -36,4 +38,3 @@
     </div>
   </main>
 </div>
-

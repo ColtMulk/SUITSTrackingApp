@@ -8,9 +8,6 @@
         <div class='card-body'>
           <%= form_with(model: @event) do |e| %>
 
-
-  
-
               <table>
                 <tr>
                   <th>Event Name</th>
@@ -38,7 +35,7 @@
                 </tr>
                 <tr>
                   <th>Event Type</th>
-                  <td> <%= e.collection_select(:event_type_id, EventType.all, :id, :name)%></td>
+                  <td> <%= e.collection_select(:event_type_id, EventType.all, :id, :name)%> </td>
                 </tr>
               </table>
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserInfo < ApplicationRecord
   belongs_to :user, inverse_of: :user_info
   belongs_to :member_category, optional: true

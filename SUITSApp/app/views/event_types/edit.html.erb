@@ -1,5 +1,15 @@
-<h1>Editing Event Type</h1>
-
-<%= render 'form', event_type: @event_type %>
-
-<%= link_to 'Back', event_types_path %>
+<div class='main'>
+    <main class='content'>
+        <div class='col-md-6 center-items'>
+            <div class='card'>
+                <div class='card-header'>
+                    <h1>Editing Event Type</h1>
+                </div>
+                <div class='card-body'>
+                    <%= render 'form', event_type: @event_type %>
+                    <%= link_to 'Back', event_types_path %>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

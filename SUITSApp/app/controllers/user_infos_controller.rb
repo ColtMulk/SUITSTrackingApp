@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserInfosController < ApplicationController
   layout 'dashboard'
 
@@ -10,9 +12,7 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/1 or /user_infos/1.json
   def show
-    if current_user.gen_member? && (current_user.id != params[:id].to_i)
-      redirect_to(controller: 'user_infos', action: 'show', id: current_user)
-    end
+    redirect_to(controller: 'user_infos', action: 'show', id: current_user) if current_user.gen_member? && (current_user.id != params[:id].to_i)
     @user_info = UserInfo.find_by(user: params[:id])
   end
 

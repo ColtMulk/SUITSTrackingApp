@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   # get 'events/new'
   # get 'events/index'
   #get 'events/:id/attendances'
+  get 'help', to:'help#index'
 
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MemberCategoriesController < ApplicationController
   layout 'dashboard'
 
@@ -5,8 +7,7 @@ class MemberCategoriesController < ApplicationController
     @member_categories = MemberCategory.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @member_category = MemberCategory.new
@@ -20,7 +21,8 @@ class MemberCategoriesController < ApplicationController
     old_default.update(default_for: :none) if !old_default.nil?
 
     if @member_category.save
-      redirect_to edit_member_category_path(@member_category), notice: "Member Category successfully created"
+      redirect_to edit_member_category_path(@member_category),
+                  notice: 'Member Category successfully created'
     else
       render :new
     end
@@ -37,23 +39,27 @@ class MemberCategoriesController < ApplicationController
     old_default.update(default_for: :none) if !old_default.nil?
 
     if @member_category.update(member_category_params)
-      redirect_to edit_member_category_path(@member_category), notice: "Member Category successfully updated"
+      redirect_to edit_member_category_path(@member_category),
+                  notice: 'Member Category successfully updated'
     else
       render :edit
     end
   end
 
   def destroy
+    set_member_category
     @member_category.destroy
-    redirect_to member_category_url, notice: 'Member Category was successfully destroyed.'
+    redirect_to member_categories_url, notice: 'Member Category was successfully destroyed.'
   end
 
   private
-    def set_member_category
-      @member_category = MemberCategory.find(params[:id])
-    end
 
-    def member_category_params
-      params.require(:member_category).permit(:name, :default_for, category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
-    end
+  def set_member_category
+    @member_category = MemberCategory.find(params[:id])
+  end
+
+  def member_category_params
+    params.require(:member_category).permit(:name,
+                                            category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end

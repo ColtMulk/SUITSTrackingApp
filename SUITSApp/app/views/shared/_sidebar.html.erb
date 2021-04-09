@@ -23,6 +23,10 @@
       <li class="sidebar-item">
           <%= link_to 'My Profile', user_profile_path(current_user), class: "sidebar-link"%>
       </li>
+      
+      <li class="sidebar-item">
+        <%= link_to 'Help Page', help_path, class: "sidebar-link"%>
+      </li>
 
       <li class="sidebar-item">
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "sidebar-link" %>
@@ -47,7 +51,6 @@
         <li class="sidebar-item">
           <%= link_to 'Users', user_infos_path, class: "sidebar-link"%>
         </li>
-
 
     </ul>
   <% end %>

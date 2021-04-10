@@ -8,14 +8,6 @@
         <div class='card-body'>
           <%= form_with(model: @event) do |e| %>
 
-
-          <%
-          et = Array.new
-          EventType.all.each do |e|
-            et.push(e.name)
-          end
-          %>
-
               <table>
                 <tr>
                   <th>Event Name</th>

@@ -4,7 +4,14 @@ class AttendancesController < ApplicationController
   layout 'dashboard'
 
   def index
-    @attendances = Attendance.all
+    p params[:name]
+    if !params[:sort] or !params[:name]
+      @attendances = Attendance.includes(:user_info).order("user_infos.last_name desc")
+    elsif params[:name] == "EventName"
+      @attendances = Attendance.includes(:events).order("events.event_name " + params[:sort])
+    else
+      @attendances = Attendance.includes(:user_info).order("user_infos.last_name " + params[:sort] + ", user_infos.first_name " + params[:sort])
+    end
   end
 
   def show

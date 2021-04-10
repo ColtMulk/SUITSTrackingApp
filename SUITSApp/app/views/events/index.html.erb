@@ -19,10 +19,10 @@
             <tr>
               <th>Event Name <%= link_to "\u25BC", sort: :desc, name: "name" %> <%= link_to "\u25B2", sort: :asc, name: "name" %> </th>
               <th>Event Location <%= link_to "\u25BC", sort: :desc, name: "location" %> <%= link_to "\u25B2", sort: :asc, name: "location" %> </th>
-              <th>EventDate <%= link_to "\u25BC", sort: :desc, name: "date" %> <%= link_to "\u25B2", sort: :asc, name: "date" %> </th>
+              <th>Event Date <%= link_to "\u25BC", sort: :desc, name: "date" %> <%= link_to "\u25B2", sort: :asc, name: "date" %> </th>
               <th>Event Type <%= link_to "\u25BC", sort: "desc", name: "type" %> <%= link_to "\u25B2", sort: "asc", name: "type" %>  </th>
               <th>Event Open <%= link_to "\u25BC", sort: "desc", name: "open" %> <%= link_to "\u25B2", sort: "asc", name: "open" %> </th>
-              <th>Event description</th>
+              <th>Event Description</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -30,7 +30,7 @@
           <tr>
             <td><%= event.event_name %> </td>
             <td><%= event.location %></td>
-            <td><%= event.date %></td>
+            <td><%= event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
             <td><%= event.event_type.name %></td>
             <td><%= event.is_open ? "Yes" : "No" %></td>
             <td><%= event.event_description %></td>

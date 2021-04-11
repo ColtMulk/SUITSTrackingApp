@@ -5,30 +5,30 @@
         <div class='card-header'>
           <h2> Attendances </h2>
         </div>
-      </div>
-      <div class='table-responsive'>
-        <table class="table table-hover">
-          <tr class="header">
-            <th>Last Name, First Name<%= link_to "\u25BC", sort: "desc", name: "UserName" %> <%= link_to "\u25B2", sort: "asc", name: "UserName" %> </th>
-            <th>Event name <%= link_to "\u25BC", sort: "desc", name: "EventName" %> <%= link_to "\u25B2", sort: "asc", name: "EventName" %> </th>
-            <th>Delete Attendance</th>
-          </tr>
-          <% @attendances.each do |attendance| %>
-          <tr>
-            <% puts @attendance.inspect %>
-            <% if attendance.user_info then %>
-              <td><%= attendance.user_info.last_name + ", " + attendance.user_info.first_name %></td>
-            <% else %>
-              <td> No name found </td>
+        <div class='table-responsive'>
+          <table class="table table-hover">
+            <tr class="header">
+              <th>Last Name, First Name<%= link_to "\u25BC", sort: "desc", name: "UserName" %> <%= link_to "\u25B2", sort: "asc", name: "UserName" %> </th>
+              <th>Event name <%= link_to "\u25BC", sort: "desc", name: "EventName" %> <%= link_to "\u25B2", sort: "asc", name: "EventName" %> </th>
+              <th>Delete Attendance</th>
+            </tr>
+            <% @attendances.each do |attendance| %>
+            <tr>
+              <% puts @attendance.inspect %>
+              <% if attendance.user_info then %>
+                <td><%= attendance.user_info.last_name + ", " + attendance.user_info.first_name %></td>
+              <% else %>
+                <td> No name found </td>
+              <% end %>
+              <td><%= attendance.events.event_name  %></td>
+              <td class = actions>
+                <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
+              </td>
+            </tr>
+  
             <% end %>
-            <td><%= attendance.events.event_name  %></td>
-            <td class = actions>
-              <%= link_to("Delete", delete_attendance_path(attendance), :class => 'action delete') %>
-            </td>
-          </tr>
-
-          <% end %>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   </main>

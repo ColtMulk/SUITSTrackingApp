@@ -15,6 +15,12 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/event_types', type: :request do
+
+  before(:each) do
+    user = User.create(id: 1, role: :master, password:'password', password_confirmation:'password', email:'master@master.com')
+    sign_in user
+  end
+  
   # EventType. As you add validations to EventType, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
@@ -43,7 +49,7 @@ RSpec.describe '/event_types', type: :request do
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_event_type_url
+      get new_event_type_path
       expect(response).to be_successful
     end
   end

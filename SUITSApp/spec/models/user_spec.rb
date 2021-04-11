@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject(:test_user) do
-    described_class.new(email: 'test@email.com', password: 'password',
+    described_class.new(id: 1, email: 'test@email.com', password: 'password',
                         password_confirmation: 'password')
   end
 

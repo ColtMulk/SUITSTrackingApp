@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'event_types/edit', type: :view do
   before do
-    @event_type = assign(:event_type, EventType.create!)
+    @event_type = assign(:event_type, EventType.create(name: 'test_event_type'))
   end
 
   it 'renders the edit event_type form' do

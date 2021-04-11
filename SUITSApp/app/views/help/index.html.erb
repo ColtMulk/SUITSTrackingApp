@@ -13,17 +13,53 @@
                 </div>
             </div>
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
                     <h1>Events</h1>
                 </div>
                 <div class='card-body'>
-                    <h3>Add Header 3</h3>
-                    <p>Add text here.</p>
+                  <p>The Events Page shows all SUITS events and allows users to Log Attendance for open events. </p>
+                  <%= image_tag "EventsUserIndex.png", class:'card-img-top' %>
+                    <h3>Ordering</h3>
+                    <p>To sort the events click one of the blue arrows(as seen above)
+                       to sort by that column (ascending or descending depending on the arrow). </p>
+                    <h3>Logging Attendance</h3>
+                    <p>To log your attendance click the Log Attendance button Next to an event (only works when the event is open). </p>
+                    <%= image_tag "Log User Attendance.png", class:'card-img-top' %>
+                    <p>To log attendance simply enter the password for the event and click submit attendance as seen above. </p>
                 </div>
             </div>
         </div>
+        <% if !current_user.gen_member? %>
+        <div class='col-md-12'>
+            <div class='card'>
+                <div class='card-header'>
+                    <h1>Admin Events</h1>
+                </div>
+                <div class='card-body'>
+                    <h3>Admin’s Features</h3>
+                      <%= image_tag "AdminEventView.png", class:'card-img-top' %>
+                      <h3>Adding a New Event</h3>
+                      <p>To add a new event simply click Add New Event as seen above and then fill out the event form as seen
+                         below. Once you click submit event the event will be added. </p>
+                      <%= image_tag "CreateEvent.PNG", class:'card-img-top' %>
+                      <h3>Adding Attendances/Deleting Attendances(from events)</h3>
+                      <p>This is the Attendances view for events. Here you can see the names and emails of everyone who has
+                         attended an event. Here you can delete attendance if you choose to do so.</p>
+                      <%= image_tag "EventAttendances.png", class:'card-img-top' %>
+                      <p>You may also add an attendance for an event by clicking the Add Attendance for this Event link. You then can
+                         click Log Attendance for the specific user and the attendance will be added.  </p>
+                        <%= image_tag "LogAttendance.PNG", class:'card-img-top' %>
+                         <h3>Editing an Event</h3>
+                         <p>To edit an event click edit on the Events page and then make any changes necessary to the form and the event will be updated with them.</p>
+                         <h3>Deleting an event</h3>
+                         <p>To delete an event click Delete on the Events page and then confirm your Deletion. </p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
         <div class='col-md-6'>
             <div class='card'>
                 <div class='card-header'>

@@ -4,13 +4,13 @@
     <div class='col-md-6 center-items'>
 
     <% if !current_user.gen_member? %>
-      <h3><%= link_to("Add User Attendance for this Event", select_user_path(@event)) %></h3>
+      <h3><%= link_to("Add Attendance for this Event", select_user_path(@event)) %></h3>
     <% end %>
 
     <% if !current_user.gen_member? %>
       <div class='card center-items'>
         <div class='card-header'>
-          <h1> Attendances for event <%= @event.event_name %></h1>
+          <h1> Attendances for Event: <%= @event.event_name %></h1>
         </div>
       </div>
         <table class=" table table-responsive table-hover">

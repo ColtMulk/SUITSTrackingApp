@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                   <th>Event Date</th>
-                  <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+                  <td><%= e.datetime_select(:date, {ampm: true, minute_step: 15, order: [:month, :day, :year, :hour, :minute]}) %></td>
                 </tr>
                 <tr>
                   <th>Event Description</th>

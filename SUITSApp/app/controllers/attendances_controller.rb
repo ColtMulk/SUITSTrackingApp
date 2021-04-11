@@ -32,16 +32,14 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    # puts attendance_params
-    # puts @attendance.inspect
-    # p 'in create'
+    puts attendance_params
+    puts @attendance.inspect
+    p 'in create'
 
     # p @attendance.user_passcode;
     if Attendance.exists?(:users_id => current_user, :events_id => @attendance.events_id)
-      
       render('duplicate')
     else
-
       if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
       # p "correct password"
         if @attendance.save!

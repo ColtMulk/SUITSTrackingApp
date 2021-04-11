@@ -10,13 +10,13 @@ class UserInfo < ApplicationRecord
 
   after_initialize :init
 
-  def init 
-    return if !new_record?
-    if self.status_new?
+  def init
+    return unless new_record?
+
+    if status_new?
       self.member_category = MemberCategory.where(default_for: :new)[0]
-    elsif self.status_old?
+    elsif status_old?
       self.member_category = MemberCategory.where(default_for: :old)[0]
     end
   end
-
 end

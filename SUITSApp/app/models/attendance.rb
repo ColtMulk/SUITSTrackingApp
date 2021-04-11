@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Attendance < ApplicationRecord
-  belongs_to :events, foreign_key: true, class_name: 'Event', inverse_of: :attendances
-  belongs_to :user, foreign_key: true, inverse_of: :attendances # , foreign_key: 'users_id'
+  belongs_to :events, foreign_key: true, class_name: 'Event', inverse_of: :attendances, optional: true
+  belongs_to :user, foreign_key: true, inverse_of: :attendances, optional: true # , foreign_key: 'users_id'
   has_one :user_info, through: :user
 
   attr_accessor :user_passcode, :events_passcode_hash

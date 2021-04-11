@@ -3,12 +3,12 @@
 require 'rails_helper'
 RSpec.describe Event, type: :model do
   subject(:test_event) do
+    event_type = EventType.create(name: 'test_event_type')
     described_class.new(id: 1, event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
-                        event_description: 'this is a test event', passcode: '1234', event_type_id: 1,
+                        event_description: 'this is a test event', passcode: '1234', event_type_id: event_type.id,
                         passcode_hash: 'ABC', passcode_salt: 'XYZ')
   end
 
-  #test_event = FactoryBot.build(:event)
   describe 'Validations' do
 
     it 'is valid with valid attributes' do

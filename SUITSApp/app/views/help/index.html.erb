@@ -100,19 +100,38 @@
                 </div>
             </div>
         </div>
+        <% end %>
 
-
-        <div class='col-md-6'>
+        <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
-                    <h1>Member Categories</h1>
+                    <h1>Member Categories (Admins Only)</h1>
                 </div>
                 <div class='card-body'>
-                    <h3>Add Header 3</h3>
-                    <p>Add text here.</p>
+                    <h3>Overview</h3>
+                    <p>Member Categories are the way you assign the number of required points for each member. You will assign a specific number of points for any existing event types. You will then assign each member a member category and they will see
+                    their respective point requirements when logged in. A new user will be given a default category upon account creation, but can be changed by going to their profile.</p>
+                    <h3>Creating New Member Category</h3>
+                    <p>To create a new Member Category, you will navigate to the Member Category page found under Admin Tools in the side bar. There you will see all of the existing Member Categories. Above those you will see a button labelled
+                    "New Member Category" which when clicked will take you to the New Member Category form. There you will first give the new category a name. You will also see one row with an event type drop down allowing you to select an existing event type, 
+                    a field for assigning the required points for that event type, and a button to delete that row. In order to add another event type, you will click the button labelled "Add Event Type" which will generate a new row. Finally, there are options
+                    to set the Member Category as a default, which will be explained in more extent below. Once you have finished you will click the button labelled "Create Member category" which will save the Member Category.
+                    <h3>Editing Existing Member Categories</h3>
+                    <p>To edit a Member Category, you will go to the Member Category page again, but instead of clicking "New Member Category", you will click "Edit" next to the Member Category you wish to edit. This will take you to a form very similar to the New Member Category
+                    form, just with the existing settings filled in. You will interact with this form in the same way.</p>
+                    <h3>Default Category for</h3>
+                    <p>On the new and edit Member Category forms, there is the option to set the Member Category as a default category for either new or old members. When one of those options are selected, new users to the website who stated they are new or old will
+                    be automatically assigned these member categories. By default, one is set up for each member type with the default event types all set to 1 point. You can either edit these Member Categories or create a new one and assign it to be default. One last
+                    thing to note is that only one Member Category can be default for each of the user types. If you assign a Member Category to be default and another one already was, then the other one will be changed to not be a default.</p>
+                    </p>
+                    <h3>Assigning Member Category to Users</h3>
+                    In order to assign a user to a Member Category, you will navigate to the Users page under Admin Tools. There you will click "Edit" next to the desired user and select the desired Member Category from the drop down
+
+                    <%= image_tag "create_new_mem_cat.gif", class:'card-img-top' %>
                 </div>
             </div>
         </div>
+
         <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
@@ -126,7 +145,6 @@
                 </div>
             </div>
         </div>
-        <% end %>
         </div>
     </main>
 </div>

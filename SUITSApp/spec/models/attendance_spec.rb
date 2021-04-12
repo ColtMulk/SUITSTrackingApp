@@ -11,10 +11,10 @@ RSpec.describe Attendance, :type => :model do
   describe 'Validation' do
     subject(:test_attendance) do
       user = User.create(id: 1, role: :master, password:'password', password_confirmation:'password', email:'master@master.com')
-      event = Event.create(id: 1, event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
+      event = Event.create(event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
                           event_description: 'this is a test event', passcode: '1234', event_type_id: 1,
                           passcode_hash: 'ABC', passcode_salt: 'XYZ')
-      described_class.new(id: 1, events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: user.id, user_passcode: user.password)
+      described_class.new(events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: user.id, user_passcode: user.password)
     end
 
     it 'is valid with valid attributes' do

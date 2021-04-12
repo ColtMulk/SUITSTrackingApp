@@ -60,6 +60,7 @@ class MemberCategoriesController < ApplicationController
 
   def member_category_params
     params.require(:member_category).permit(:name,
+                                            :default_for, 
                                             category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end

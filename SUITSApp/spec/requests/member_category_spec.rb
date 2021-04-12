@@ -100,7 +100,7 @@ RSpec.describe '/member_categories', category: :request do
       let(:new_attributes) do
         {
           name: 'new_name',
-          default_for: 0
+          default_for: :none
         }
       end
 

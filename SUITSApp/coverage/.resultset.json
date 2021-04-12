@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/user.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -20,7 +20,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/application_record.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -29,7 +29,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/application_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -46,7 +46,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/attendance_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/attendance_helper.rb": {
         "lines": [
           null,
           null,
@@ -54,7 +54,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/dashboard_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/dashboard_helper.rb": {
         "lines": [
           null,
           null,
@@ -62,7 +62,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/event_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/event_helper.rb": {
         "lines": [
           null,
           null,
@@ -70,7 +70,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/event_types_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/event_types_helper.rb": {
         "lines": [
           null,
           null,
@@ -78,21 +78,13 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/help_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/help_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/home_helper.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/member_category_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/home_helper.rb": {
         "lines": [
           null,
           null,
@@ -100,7 +92,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/user_infos_helper.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/member_category_helper.rb": {
         "lines": [
           null,
           null,
@@ -108,7 +100,15 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/member_category.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/helpers/user_infos_helper.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/member_category.rb": {
         "lines": [
           null,
           null,
@@ -124,7 +124,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/member_categories_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/member_categories_controller.rb": {
         "lines": [
           null,
           null,
@@ -193,7 +193,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/application_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -215,7 +215,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/registrations_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -291,15 +291,17 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/attendance.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/attendance.rb": {
         "lines": [
           null,
           null,
           1,
-          1,
+          null,
           1,
           1,
           null,
+          1,
+          1,
           1,
           null,
           1,
@@ -313,7 +315,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/event.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/event.rb": {
         "lines": [
           null,
           null,
@@ -332,7 +334,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/user_info.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/user_info.rb": {
         "lines": [
           null,
           null,
@@ -358,7 +360,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/event_types_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/event_types_controller.rb": {
         "lines": [
           null,
           null,
@@ -433,7 +435,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/event_type.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/event_type.rb": {
         "lines": [
           null,
           null,
@@ -447,7 +449,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/category_ruleset.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/category_ruleset.rb": {
         "lines": [
           null,
           null,
@@ -457,7 +459,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/help_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/help_controller.rb": {
         "lines": [
           1,
           1,
@@ -466,7 +468,7 @@
           null
         ]
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/mailers/application_mailer.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -478,139 +480,10 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/models/ability.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
           null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/jobs/application_job.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/events_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
           0,
           0,
           0,
@@ -619,7 +492,7 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/attendances_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/attendances_controller.rb": {
         "lines": [
           null,
           null,
@@ -629,36 +502,10 @@
           0,
           0,
           0,
-          null,
-          0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
           0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -670,6 +517,44 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
           0,
           null,
           0,
@@ -696,7 +581,120 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/home_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/dashboard_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/events_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/home_controller.rb": {
         "lines": [
           null,
           null,
@@ -710,122 +708,7 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/omniauth_callbacks_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/passwords_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/sessions_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/unlocks_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/confirmations_controller.rb": {
         "lines": [
           null,
           null,
@@ -863,7 +746,7 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/confirmations_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/omniauth_callbacks_controller.rb": {
         "lines": [
           null,
           null,
@@ -901,7 +784,122 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/user_infos_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/passwords_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/sessions_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/users/unlocks_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/user_infos_controller.rb": {
         "lines": [
           null,
           null,
@@ -927,6 +925,7 @@
           0,
           null,
           null,
+          0,
           0,
           0,
           0,
@@ -989,37 +988,68 @@
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/controllers/dashboard_controller.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/jobs/application_job.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
           0,
           0,
-          null,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/channels/application_cable/connection.rb": {
+      "/mnt/c/Users/camer/Documents/CSCE431/SUITS-Member-Point-Tracking/SUITSApp/app/models/ability.rb": {
         "lines": [
           null,
           null,
           0,
           0,
+          null,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/calebginn/Documents/GitHub/SUITS-Member-Point-Tracking/SUITSApp/app/channels/application_cable/channel.rb": {
-        "lines": [
           null,
           null,
           0,
+          null,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           0,
           0
         ],
@@ -1027,6 +1057,6 @@
         }
       }
     },
-    "timestamp": 1618188750
+    "timestamp": 1618189560
   }
 }

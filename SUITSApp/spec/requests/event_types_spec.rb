@@ -15,19 +15,18 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/event_types', type: :request do
-
   # EventType. As you add validations to EventType, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    {name: 'test_event_type'}
+    { name: 'test_event_type' }
   end
 
   let(:invalid_attributes) do
-    {name: ''}
+    { name: '' }
   end
 
-  before(:each) do
-    user = User.create(id: 1, role: :master, password:'password', password_confirmation:'password', email:'master@master.com')
+  before do
+    user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
     sign_in user
   end
 
@@ -83,7 +82,7 @@ RSpec.describe '/event_types', type: :request do
         end.to change(EventType, :count).by(0)
       end
 
-      it "returns 422 status code" do
+      it 'returns 422 status code' do
         post event_types_url, params: { event_type: invalid_attributes }
         expect(response.status).to eq(422)
       end
@@ -93,7 +92,7 @@ RSpec.describe '/event_types', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        {name: 'new_test_event_type'}
+        { name: 'new_test_event_type' }
       end
 
       it 'updates the requested event_type' do
@@ -112,7 +111,7 @@ RSpec.describe '/event_types', type: :request do
     end
 
     context 'with invalid parameters' do
-      it "returns 422 status code" do
+      it 'returns 422 status code' do
         event_type = EventType.create! valid_attributes
         patch event_type_url(event_type), params: { event_type: invalid_attributes }
         expect(response.status).to eq(422)

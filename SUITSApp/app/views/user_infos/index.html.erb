@@ -2,7 +2,6 @@
   <main class='content'>
     <div class='col-md-12 center-items'>
       <div class='card center-items'>
-      <p id="notice"><%= notice %></p>
         <div class='card-header'>
           <h1>User Infos</h1>
 
@@ -17,8 +16,9 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Member status</th>
+                <th>Member category</th>
                 <th>User Attendance</th>
-                <th colspan="3"></th>
+                <th colspan="2"></th>
                 <th>Log Attendance</th>
               </tr>
             </thead>
@@ -29,10 +29,10 @@
                   <td><%= user_info.first_name %></td>
                   <td><%= user_info.last_name %></td>
                   <td><%= user_info.member_status %></td>
+                  <td><%= user_info.member_category.name %></td>
                   <td><%= link_to 'View Attendance', user_attendance_path(user_info) %></td>
                   <td><%= link_to 'Show', user_info %></td>
                   <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
-                  <td><%= link_to 'Destroy', user_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   <td><%= link_to 'Add Attendance', select_event_path(user_info) %></td>
                 </tr>
               <% end %>

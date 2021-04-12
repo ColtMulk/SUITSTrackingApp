@@ -7,44 +7,44 @@
         </div>
         <div class='card-body'>
           <%#= link_to("Dashboard", dashboard_index_path)%>
-          <br>
           <% if !current_user.gen_member? %>
-          <%= link_to("Add New Event", new_event_path)%>
+            <h3> <%= link_to("Add New Event", new_event_path)%> </h3>
           <% end %>
         </div>
-        <div class='table-responsive'>
-        <table class="table table-hover table-striped">
-          <thead class='header'>
-            <tr>
-              <th>Event Name</th>
-              <th>Event Location</th>
-              <th>EventDate</th>
-              <th>Event description</th>
-              <th>Event Type</th>
-              <th>Event Open</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <% @events.each do |event| %>
-          <tr>
-            <td><%= event.event_name %></td>
-            <td><%= event.location %></td>
-            <td><%= event.date %></td>
-            <td><%= event.event_description %></td>
-            <td><%= event.event_type.name %></td>
-            <td><%= event.is_open ? "Yes" : "No" %></td>
-            <td class = actions>
-              <% if !current_user.gen_member? %>
-                <%= link_to("View", event_path(event), :class => 'action view' ) %>
-                <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
-                <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
-              <% end %>
-              <%= link_to_if(event.is_open, "Log Attendance", new_attendance_path(events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: current_user.id )) %>
-            </td>
-          </tr>
 
-          <% end %>
-        </table>
+        <div class='table-responsive'>
+          <table class="table table-hover table-striped">
+            <thead class='header'>
+              <tr>
+                <th>Event Name <%= link_to "\u25BC", sort: :desc, name: "name" %> <%= link_to "\u25B2", sort: :asc, name: "name" %> </th>
+                <th>Event Location <%= link_to "\u25BC", sort: :desc, name: "location" %> <%= link_to "\u25B2", sort: :asc, name: "location" %> </th>
+                <th>Event Date <%= link_to "\u25BC", sort: :desc, name: "date" %> <%= link_to "\u25B2", sort: :asc, name: "date" %> </th>
+                <th>Event Type <%= link_to "\u25BC", sort: "desc", name: "type" %> <%= link_to "\u25B2", sort: "asc", name: "type" %>  </th>
+                <th>Event Open <%= link_to "\u25BC", sort: "desc", name: "open" %> <%= link_to "\u25B2", sort: "asc", name: "open" %> </th>
+                <th>Event Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <% @events.each do |event| %>
+            <tr>
+              <td><%= event.event_name %> </td>
+              <td><%= event.location %></td>
+              <td><%= event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
+              <td><%= event.event_type.name %></td>
+              <td><%= event.is_open ? "Yes" : "No" %></td>
+              <td><%= event.event_description %></td>
+              <td class = actions>
+                <% if !current_user.gen_member? %>
+                  <%= link_to("Event Attendances", event_path(event), :class => 'action view' ) %> -
+                  <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %> -
+                  <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %> -
+                <% end %>
+                <%= link_to_if(event.is_open, "Log Attendance", new_attendance_path(events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: current_user.id )) %>
+              </td>
+            </tr>
+
+            <% end %>
+          </table>
         </div>
       </div>
     </div>

@@ -8,14 +8,6 @@
         <div class='card-body'>
           <%= form_with(model: @event) do |e| %>
 
-
-          <%
-          et = Array.new
-          EventType.all.each do |e|
-            et.push(e.name)
-          end
-          %>
-
               <table>
                 <tr>
                   <th>Event Name</th>
@@ -27,7 +19,7 @@
                 </tr>
                 <tr>
                   <th>Event Date</th>
-                  <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+                  <td><%= e.datetime_select(:date, {ampm: true, minute_step: 15, order: [:month, :day, :year, :hour, :minute]}) %></td>
                 </tr>
                 <tr>
                   <th>Event Description</th>

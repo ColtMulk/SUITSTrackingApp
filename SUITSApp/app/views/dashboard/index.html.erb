@@ -1,238 +1,52 @@
-
-	<main class="content">
-	<div class="container-fluid p-0">
-
-	  <h1 class="h3 mb-3">Chart.js</h1>
-
-	  <div class="row">
-		<div class="col-12 col-lg-6">
-		  <div class="card flex-fill w-100">
-			<div class="card-header">
-			  <h5 class="card-title">Line Chart</h5>
-			  <h6 class="card-subtitle text-muted">A line chart is a way of plotting data points on a line.</h6>
+<div class='main'>
+	<main class='content'>
+		<div class='col-md-12'>
+			<div class='card'>
+				<div class='card-header'>
+					<h1> Upcoming Events </h1>
+				</div>
+				<div class='table-responsive'>
+					<table class="table table-hover table-striped">
+						<thead class='header'>
+							<tr>
+								<th>Event Name </th>
+								<th>Event Location </th>
+								<th>Event Date </th>
+								<th>Event Type </th>
+								<th>Event Open </th>
+								<th>Event Description</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<% @events.each do |event| %>
+						<tr>
+							<td><%= event.event_name %> </td>
+							<td><%= event.location %></td>
+							<td><%= event.date.strftime("%m/%d/%Y %I:%M %p") %></td>
+							<td><%= event.event_type.name %></td>
+							<td><%= event.is_open ? "Yes" : "No" %></td>
+							<td><%= event.event_description %></td>
+							<td class = actions>
+								<% if !current_user.gen_member? %>
+									<%= link_to("Event Attendances", event_path(event), :class => 'action view' ) %> -
+									<%= link_to("Edit", edit_event_path(event), :class => 'action edit') %> -
+									<%= link_to("Delete", delete_event_path(event), :class => 'action delete') %> -
+								<% end %>
+								<%= link_to_if(event.is_open, "Log Attendance", new_attendance_path(events_id: event.id, events_passcode_hash: event.passcode_hash, users_id: current_user.id )) %>
+							</td>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+				<div class="card-header">
+					<h5 class="card-title">My Points Chart</h5>
+				</div>
+				<div class='card-body'>
+					<%= render 'shared/graph' %>
+				</div>
 			</div>
-			<div class="card-body">
-			  <div class="chart">
-				<canvas id="chartjs-line"></canvas>
-			  </div>
-			</div>
-		  </div>
 		</div>
-		<script>
-		//  document.addEventListener("DOMContentLoaded", function() {
-			// Line chart
-			new Chart(document.getElementById("chartjs-line"), {
-			  type: "line",
-			  data: {
-				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-				datasets: [{
-				  label: "Sales ($)",
-				  fill: true,
-				  backgroundColor: "transparent",
-				  borderColor: window.theme,
-				  data: [2115, 1562, 1584, 1892, 1487, 2223, 2966, 2448, 2905, 3838, 2917, 3327]
-				}, {
-				  label: "Orders",
-				  fill: true,
-				  backgroundColor: "transparent",
-				  borderColor: "#adb5bd",
-				  borderDash: [4, 4],
-				  data: [958, 724, 629, 883, 915, 1214, 1476, 1212, 1554, 2128, 1466, 1827]
-				}]
-			  },
-			  options: {
-				maintainAspectRatio: false,
-				legend: {
-				  display: false
-				},
-				tooltips: {
-				  intersect: false
-				},
-				hover: {
-				  intersect: true
-				},
-				plugins: {
-				  filler: {
-					propagate: false
-				  }
-				},
-				scales: {
-				  xAxes: [{
-					reverse: true,
-					gridLines: {
-					  color: "rgba(0,0,0,0.05)"
-					}
-				  }],
-				  yAxes: [{
-					ticks: {
-					  stepSize: 500
-					},
-					display: true,
-					borderDash: [5, 5],
-					gridLines: {
-					  color: "rgba(0,0,0,0)",
-					  fontColor: "#fff"
-					}
-				  }]
-				}
-			  }
-			});
-		  //});
-		</script>
-
-		<div class="col-12 col-lg-6">
-		  <div class="card">
-			<div class="card-header">
-			  <h5 class="card-title">Bar Chart</h5>
-			  <h6 class="card-subtitle text-muted">A bar chart provides a way of showing data values represented as vertical bars.</h6>
-			</div>
-			<div class="card-body">
-			  <div class="chart">
-				<canvas id="chartjs-bar"></canvas>
-			  </div>
-			</div>
-		  </div>
-		</div>
-
-		<script>
-		 // document.addEventListener("DOMContentLoaded", function() {
-			// Bar chart
-			new Chart(document.getElementById("chartjs-bar"), {
-			  type: "bar",
-			  data: {
-				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-				datasets: [{
-				  label: "Last year",
-				  backgroundColor: window.theme,
-				  borderColor: window.theme,
-				  hoverBackgroundColor: window.theme,
-				  hoverBorderColor: window.theme,
-				  data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-				  barPercentage: .75,
-				  categoryPercentage: .5
-				}, {
-				  label: "This year",
-				  backgroundColor: "#dee2e6",
-				  borderColor: "#dee2e6",
-				  hoverBackgroundColor: "#dee2e6",
-				  hoverBorderColor: "#dee2e6",
-				  data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
-				  barPercentage: .75,
-				  categoryPercentage: .5
-				}]
-			  },
-			  options: {
-				maintainAspectRatio: false,
-				legend: {
-				  display: false
-				},
-				scales: {
-				  yAxes: [{
-					gridLines: {
-					  display: false
-					},
-					stacked: false,
-					ticks: {
-					  stepSize: 20
-					}
-				  }],
-				  xAxes: [{
-					stacked: false,
-					gridLines: {
-					  color: "transparent"
-					}
-				  }]
-				}
-			  }
-			});
-		  //});
-		</script>
+	</main>
+</div>
 
 
-		<div class="col-12 col-lg-6">
-		  <div class="card">
-			<div class="card-header">
-			  <h5 class="card-title">Doughnut Chart</h5>
-			  <h6 class="card-subtitle text-muted">Doughnut charts are excellent at showing the relational proportions between data.</h6>
-			</div>
-			<div class="card-body">
-			  <div class="chart chart-sm">
-				<canvas id="chartjs-doughnut"></canvas>
-			  </div>
-			</div>
-		  </div>
-		</div>
-
-		<div class="col-12 col-lg-6">
-		  <div class="card">
-			<div class="card-header">
-			  <h5 class="card-title">Pie Chart</h5>
-			  <h6 class="card-subtitle text-muted">Pie charts are excellent at showing the relational proportions between data.</h6>
-			</div>
-			<div class="card-body">
-			  <div class="chart chart-sm">
-				<canvas id="chartjs-pie"></canvas>
-			  </div>
-			</div>
-		  </div>
-		</div>
-
-		<div class="col-12 col-lg-6">
-		  <div class="card">
-			<div class="card-header">
-			  <h5 class="card-title">Radar Chart</h5>
-			  <h6 class="card-subtitle text-muted">A radar chart is a way of showing multiple data points and the variation between them.</h6>
-			</div>
-			<div class="card-body">
-			  <div class="chart">
-				<canvas id="chartjs-radar"></canvas>
-			  </div>
-			</div>
-		  </div>
-		</div>
-
-		<div class="col-12 col-lg-6">
-		  <div class="card">
-			<div class="card-header">
-			  <h5 class="card-title">Polar Area Chart</h5>
-			  <h6 class="card-subtitle text-muted">Polar area charts are similar to pie charts, but each segment has the same angle.</h6>
-			</div>
-			<div class="card-body">
-			  <div class="chart">
-				<canvas id="chartjs-polar-area"></canvas>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-
-	</div>
-  </main>
-
-  <footer class="footer">
-	<div class="container-fluid">
-	  <div class="row text-muted">
-		<div class="col-6 text-left">
-		  <p class="mb-0">
-			<a href="index.html" class="text-muted"><strong>SUITS App</strong></a> &copy;
-		  </p>
-		</div>
-		<div class="col-6 text-right">
-		  <ul class="list-inline">
-			<li class="list-inline-item">
-			  <a class="text-muted" href="#">Support</a>
-			</li>
-			<li class="list-inline-item">
-			  <a class="text-muted" href="#">Help Center</a>
-			</li>
-			<li class="list-inline-item">
-			  <a class="text-muted" href="#">Privacy</a>
-			</li>
-			<li class="list-inline-item">
-			  <a class="text-muted" href="#">Terms</a>
-			</li>
-		  </ul>
-		</div>
-	  </div>
-	</div>
-  </footer>

@@ -4,7 +4,14 @@ class AttendancesController < ApplicationController
   layout 'dashboard'
 
   def index
-    @attendances = Attendance.all
+    p params[:name]
+    if !params[:sort] or !params[:name]
+      @attendances = Attendance.includes(:user_info).order("user_infos.last_name desc")
+    elsif params[:name] == "EventName"
+      @attendances = Attendance.includes(:events).order("events.event_name " + params[:sort])
+    else
+      @attendances = Attendance.includes(:user_info).order("user_infos.last_name " + params[:sort] + ", user_infos.first_name " + params[:sort])
+    end
   end
 
   def show
@@ -25,29 +32,34 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    # puts attendance_params
-    # puts @attendance.inspect
-    # p 'in create'
+    puts attendance_params
+    puts @attendance.inspect
+    p 'in create'
 
     # p @attendance.user_passcode;
-
-    if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
-     # p "correct password"
-      if @attendance.save!
-        flash[:notice] = 'attendance added successfully'
-        #  p 'saved'
-        redirect_to(events_path)
+    if Attendance.exists?(:users_id => current_user, :events_id => @attendance.events_id)
+      render('duplicate')
+    else
+      if !current_user.gen_member? or @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+      # p "correct password"
+        if @attendance.save!
+          flash[:notice] = 'attendance added successfully'
+          #  p 'saved'
+          redirect_to(dashboard_index_path)
+        else
+          flash[:notice] = 'Error: Not Saved'
+          #  p 'not saved'
+          render('new')
+        end
       else
-        flash[:notice] = 'Error: Not Saved'
-        #  p 'not saved'
+        #  p 'incorrect password'
+        flash[:notice] = 'Incorrect Passcode'
         render('new')
       end
-    else
-      #  p 'incorrect password'
-      flash[:notice] = 'Incorrect Passcode'
-      render('new')
     end
   end
+
+  def duplicate; end
 
   def edit; end
 

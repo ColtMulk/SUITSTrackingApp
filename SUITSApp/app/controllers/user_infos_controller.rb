@@ -7,7 +7,7 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos or /user_infos.json
   def index
-    @user_infos = UserInfo.all
+    @user_infos = UserInfo.order("last_name ASC, first_name")
   end
 
   # GET /user_infos/1 or /user_infos/1.json
@@ -24,6 +24,7 @@ class UserInfosController < ApplicationController
   # GET /user_infos/1/edit
   def edit
     @user_info = UserInfo.find(params[:id])
+    @user = User.find_by(user_info: @user_info)
   end
 
   # POST /user_infos or /user_infos.json

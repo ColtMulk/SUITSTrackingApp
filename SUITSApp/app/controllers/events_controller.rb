@@ -4,7 +4,20 @@ class EventsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @events = Event.all
+    p params[:name]
+    if !params[:sort] or !params[:name]
+      @events = Event.order(:date)
+    elsif params[:name] == "name"
+      @events = Event.order(event_name: params[:sort])
+    elsif params[:name] == "location"
+      @events = Event.order(location: params[:sort])
+    elsif params[:name] == "date"
+      @events = Event.order(date: params[:sort])
+    elsif params[:name] == "open"
+      @events = Event.order(is_open: params[:sort])
+    else
+      @events = Event.includes(:event_type).order("event_types.name " + params[:sort])
+    end
   end
 
   def show
@@ -18,8 +31,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    #et = EventType.find_by name: params[:event][:event_type]
-    #@event.event_type_id = et.id
     @event.encrypt_passcode
     #  p @event
     if @event.save

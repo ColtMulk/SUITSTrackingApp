@@ -18,7 +18,7 @@ class MemberCategoriesController < ApplicationController
     @member_category = MemberCategory.new(member_category_params)
 
     old_default = MemberCategory.where(default_for: member_category_params[:default_for])
-    old_default.update(default_for: :none) if !old_default.nil?
+    old_default&.update(default_for: :none)
 
     if @member_category.save
       redirect_to edit_member_category_path(@member_category),
@@ -36,7 +36,7 @@ class MemberCategoriesController < ApplicationController
     set_member_category
 
     old_default = MemberCategory.where(default_for: member_category_params[:default_for])
-    old_default.update(default_for: :none) if !old_default.nil?
+    old_default&.update(default_for: :none)
 
     if @member_category.update(member_category_params)
       redirect_to edit_member_category_path(@member_category),

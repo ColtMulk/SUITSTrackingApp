@@ -4,20 +4,20 @@ class EventsController < ApplicationController
   layout 'dashboard'
 
   def index
-    p params[:name]
-    if !params[:sort] or !params[:name]
-      @events = Event.order(:date)
-    elsif params[:name] == "name"
-      @events = Event.order(event_name: params[:sort])
-    elsif params[:name] == "location"
-      @events = Event.order(location: params[:sort])
-    elsif params[:name] == "date"
-      @events = Event.order(date: params[:sort])
-    elsif params[:name] == "open"
-      @events = Event.order(is_open: params[:sort])
-    else
-      @events = Event.includes(:event_type).order("event_types.name " + params[:sort])
-    end
+    # p params[:name]
+    @events = if !params[:sort] || !params[:name]
+                Event.order(:date)
+              elsif params[:name] == 'name'
+                Event.order(event_name: params[:sort])
+              elsif params[:name] == 'location'
+                Event.order(location: params[:sort])
+              elsif params[:name] == 'date'
+                Event.order(date: params[:sort])
+              elsif params[:name] == 'open'
+                Event.order(is_open: params[:sort])
+              else
+                Event.includes(:event_type).order("event_types.name #{params[:sort]}")
+              end
   end
 
   def show

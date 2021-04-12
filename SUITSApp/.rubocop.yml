@@ -18,8 +18,8 @@ AllCops:
     - '.git/**/*'
 
 Metrics/AbcSize:
-  Max: 18
-  
+  Max: 33
+
 Metrics/LineLength:
   Max: 200
 

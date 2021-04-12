@@ -20,14 +20,14 @@ RSpec.describe '/member_categories', category: :request do
   let(:valid_attributes) do
     {
       name: 'good_test',
-      default_for: 0
+      default_for: :none
     }
   end
 
   let(:invalid_attributes) do
     {
       name: nil,
-      default_for: 0
+      default_for: :none
     }
   end
 

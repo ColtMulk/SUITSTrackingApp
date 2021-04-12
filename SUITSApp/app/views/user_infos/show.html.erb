@@ -37,6 +37,10 @@
           </p>
 
           <%= link_to 'Edit', edit_user_info_path(@user_info) %> 
+          <% if !current_user.gen_member? %>
+            <%= link_to 'Back', user_infos_path%> 
+            <%= link_to 'Destroy', @user_info, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       </div>
     </div>

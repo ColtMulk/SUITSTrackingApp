@@ -2,14 +2,19 @@
     <main class='content'>
         <h1>Help Page</h1>
         <div class='row'>
-        <div class='col-md-6'>
+        <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
                     <h1>Dashboard</h1>
                 </div>
                 <div class='card-body'>
-                    <h3>Add Header 3</h3>
-                    <p>Add text here.</p>
+                    <p>The Dashboard Page will shows upcoming events that SUITS members can log their attendance. Also, the graph will represent the type of events the member must attend and it tracks the amount of events the member attended.</p>
+                    <h3>Log Attendance from Dashboard</h3>
+                    <p>Members can also log attendance for the upcoming events from this page.</p>
+                    <%= image_tag "UpcomingEventDashboard.PNG", class:'card-img-top' %>
+                    <h3>Member Point Tracker</h3>
+                    <p>A Bar Graph is used here to track a members progress and compares it to the required amount of points. In the maroon it displays the amount of points a member has earned per event type and the gray is the required amoutn of points per event type.</p>
+                    <%= image_tag "MyPointsGraph.PNG", class:'card-img-top' %>
                 </div>
             </div>
         </div>

@@ -71,17 +71,25 @@
                 </div>
             </div>
         </div>
-        <div class='col-md-6'>
+        <% if !current_user.gen_member? %>
+        <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
-                    <h1>Attendance</h1>
+                    <h1>Admin Attendance</h1>
                 </div>
                 <div class='card-body'>
-                    <h3>Add Header 3</h3>
-                    <p>Add text here.</p>
+                    <h3>View Tools</h3>
+                    <p>This view shows all Attendances that have been logged. You can sort by Name or the Event Name using the blue arrows highlighted below. </p>
+                    <%= image_tag "AdminAttendances.png", class:'card-img-top' %>
+                    <p>Should you decide to delete an attendance click the Delete Link for the specific attendance and then confirm your deletion. </p>
+
+                    <h3>Adding Attendances</h3>
+                    <p>There are two ways to add attendances. See the events help page to add to a specfic event and see the Users help page to add for a specfic user</p>
                 </div>
             </div>
         </div>
+        <% end %>
+
         <div class='col-md-6'>
             <div class='card'>
                 <div class='card-header'>

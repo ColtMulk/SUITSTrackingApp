@@ -16,6 +16,9 @@ class EventsController < ApplicationController
               elsif params[:name] == 'open'
                 Event.order(is_open: params[:sort])
               else
+                if params[:sort] != "asc" and params[:sort] != "desc"
+                  params[:sort] = "asc"
+                end
                 Event.includes(:event_type).order("event_types.name #{params[:sort]}")
               end
   end

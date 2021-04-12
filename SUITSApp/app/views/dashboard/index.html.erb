@@ -39,14 +39,16 @@
 					</table>
 				</div>
 				<div class="card-header">
-					<h5 class="card-title">My Points Chart</h5>
+					<h1>My Points Chart</h1>
 				</div>
 				<div class='card-body'>
-					<%= render 'shared/graph' %>
+					<% if current_user.user_info.member_category != nil %>
+						<%= render 'shared/graph' %>
+					<% else %>
+						<p>No Member Category Found for Points</p>
+					<% end %>
 				</div>
 			</div>
 		</div>
 	</main>
 </div>
-
-

@@ -29,7 +29,11 @@
                   <td><%= user_info.first_name %></td>
                   <td><%= user_info.last_name %></td>
                   <td><%= user_info.member_status %></td>
-                  <td><%= user_info.member_category.name %></td>
+                  <% if user_info.member_category == nil %>
+                    <td>N/A</td>
+                  <% else %>
+                    <td><%= user_info.member_category.name %></td>
+                  <% end %>
                   <td><%= link_to 'View Attendance', user_attendance_path(user_info) %></td>
                   <td><%= link_to 'Show', user_info %></td>
                   <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>

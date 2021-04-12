@@ -5,6 +5,8 @@ class AttendancesController < ApplicationController
 
   def index
     # p params[:name]
+    params[:sort] = nil if params[:sort] != 'desc' && params[:sort] != 'asc'
+
     @attendances = if !params[:sort] || !params[:name]
                      Attendance.includes(:user_info).order('user_infos.last_name desc')
                    elsif params[:name] == 'EventName'

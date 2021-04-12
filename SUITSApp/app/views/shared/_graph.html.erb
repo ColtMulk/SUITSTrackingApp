@@ -11,13 +11,10 @@
     <% event_user_points.push(Attendance.includes(:event_type).where("event_types.name = ? and users_id = ?" , EventType.find(category_ruleset.event_type_id).name, current_user).references(:event_types).count) %>
 <% end %>
 
-<% p event_user_points %>
-
 <script>
 var xlabels = JSON.parse('<%= raw event_type_list %>');
 var ylabels = JSON.parse('<%= raw event_type_points %>');
 var yUserPoints = JSON.parse('<%= raw event_user_points %>');
-console.log(yUserPoints);
 // Bar chart
 new Chart(document.getElementById("chartjs-bar"), {
 	type: "bar",
@@ -55,6 +52,7 @@ new Chart(document.getElementById("chartjs-bar"), {
 				},
 				stacked: false,
 				ticks: {
+					beginAtZero: true,
 					stepSize: 1
 				}
 			}],

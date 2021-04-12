@@ -16,7 +16,9 @@ class EventsController < ApplicationController
               elsif params[:name] == 'open'
                 Event.order(is_open: params[:sort])
               else
-                params[:sort] = 'asc' if (params[:sort] != 'asc') && (params[:sort] != 'desc')
+                if params[:sort] != "asc" and params[:sort] != "desc"
+                  params[:sort] = "asc"
+                end
                 Event.includes(:event_type).order("event_types.name #{params[:sort]}")
               end
   end
@@ -50,8 +52,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
-    @event.encrypt_passcode
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
       redirect_to(events_path)

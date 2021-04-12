@@ -45,7 +45,7 @@ class AttendancesController < ApplicationController
         if @attendance.save!
           flash[:notice] = 'attendance added successfully'
           #  p 'saved'
-          redirect_to(events_path)
+          redirect_to(dashboard_index_path)
         else
           flash[:notice] = 'Error: Not Saved'
           #  p 'not saved'

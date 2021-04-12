@@ -5,7 +5,7 @@ class Attendance < ApplicationRecord
   belongs_to :user, foreign_key: 'users_id', inverse_of: :attendances # , foreign_key: 'users_id'
 
   has_one :user_info, through: :user
-
+  has_one :event_type, :through => :events
   attr_accessor :user_passcode, :events_passcode_hash
 
   validates :events_id, :events_passcode_hash, :users_id, :user_passcode, presence: true

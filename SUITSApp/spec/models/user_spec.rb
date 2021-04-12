@@ -4,8 +4,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject(:test_user) do
+    user_info = UserInfo.create(id: 1, first_name: 'fname', last_name: 'lname', member_status: 'new', member_category_id: 1)
     described_class.new(id: 1, email: 'test@email.com', password: 'password',
-                        password_confirmation: 'password')
+                        password_confirmation: 'password', user_infos_id: user_info.id)
   end
 
   describe 'Validations' do

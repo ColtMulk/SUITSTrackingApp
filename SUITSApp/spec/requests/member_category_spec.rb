@@ -20,13 +20,13 @@ RSpec.describe '/member_categories', category: :request do
   let(:valid_attributes) do {
     name: "good_test",
     default_for: 0
-  } 
+  }
   end
 
   let(:invalid_attributes) do {
     name: nil,
     default_for: 0
-  } 
+  }
   end
 
   before(:each) do
@@ -98,14 +98,14 @@ RSpec.describe '/member_categories', category: :request do
       let(:new_attributes) do {
         name: "new_name",
         default_for: 0
-      } 
+      }
       end
 
       it 'updates the requested member_category' do
         member_category = MemberCategory.create! valid_attributes
         patch member_category_url(member_category), params: { member_category: new_attributes }
         member_category.reload
-        skip('Add assertions for updated state')
+        expect(member_category.name).to include('new')
       end
 
       it 'redirects to the member_category edit page' do

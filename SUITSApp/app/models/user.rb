@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :delete_all, foreign_key: 'users_id', inverse_of: :user
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :email, :password, :password_confirmation, :user_info, presence: true
+  validates :email, :password, :password_confirmation, presence: true
 end

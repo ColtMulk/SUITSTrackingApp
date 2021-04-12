@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe 'event_types/index', type: :view do
   before do
     assign(:event_types, [
-             EventType.create!,
-             EventType.create!
+             EventType.create(name: 'test_event_type'),
+             EventType.create(name: 'test_event_type')
            ])
   end
 

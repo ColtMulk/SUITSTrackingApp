@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Attendance < ApplicationRecord
+
   belongs_to :events, foreign_key: 'events_id', class_name: 'Event', inverse_of: :attendances
   belongs_to :user, foreign_key: 'users_id', inverse_of: :attendances # , foreign_key: 'users_id'
 

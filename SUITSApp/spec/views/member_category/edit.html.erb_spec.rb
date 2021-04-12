@@ -9,7 +9,7 @@ RSpec.describe 'member_categories/edit.html.erb', type: :view do
 
   it 'renders the edit member_category form' do
     render
-  
+
     assert_select 'form[action=?][method=?]', member_category_path(@member_category), 'post' do
     end
   end

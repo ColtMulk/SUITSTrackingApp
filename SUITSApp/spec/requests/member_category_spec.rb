@@ -17,20 +17,22 @@ require 'rails_helper'
 RSpec.describe '/member_categories', category: :request do
   # MemberCategory. As you add validations to MemberCategory, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) do {
-    name: "good_test",
-    default_for: 0
-  }
+  let(:valid_attributes) do
+    {
+      name: 'good_test',
+      default_for: 0
+    }
   end
 
-  let(:invalid_attributes) do {
-    name: nil,
-    default_for: 0
-  }
+  let(:invalid_attributes) do
+    {
+      name: nil,
+      default_for: 0
+    }
   end
 
-  before(:each) do
-    user = User.create(id: 1, role: :master, password:'password', password_confirmation:'password', email:'master@master.com')
+  before do
+    user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
     sign_in user
   end
 
@@ -95,10 +97,11 @@ RSpec.describe '/member_categories', category: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) do {
-        name: "new_name",
-        default_for: 0
-      }
+      let(:new_attributes) do
+        {
+          name: 'new_name',
+          default_for: 0
+        }
       end
 
       it 'updates the requested member_category' do

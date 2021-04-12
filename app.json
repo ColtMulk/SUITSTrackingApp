@@ -23,7 +23,8 @@
   },
 
   "scripts": {
-    "postdeploy": "rails db:migrate db:seed"
+    "postdeploy": "rails db:migrate db:seed",
+    "pr-predestroy": "heroku pg:reset DATABASE"
   }
 
 

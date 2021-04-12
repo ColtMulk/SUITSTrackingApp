@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Users::RegistrationsController, type: :controller do
-  login_admin
-  # subject(:registrations) do end
   it 'has a current user' do
-    expect(subject.current_user).not_to eq(nil)
+    user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
+    sign_in user
+    expect(user).not_to eq(nil)
   end
 end

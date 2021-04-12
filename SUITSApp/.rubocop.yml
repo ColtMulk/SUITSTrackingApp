@@ -18,13 +18,19 @@ AllCops:
     - '.git/**/*'
 
 Metrics/AbcSize:
-  Max: 18
-  
+  Max: 40
+
 Metrics/LineLength:
   Max: 200
 
 Metrics/MethodLength:
   Max: 100
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 20
 
 Metrics/BlockLength:
   Exclude:

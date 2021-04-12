@@ -3,8 +3,10 @@
 require 'rails_helper'
 RSpec.describe Event, type: :model do
   subject(:test_event) do
-    described_class.new(event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
-                        event_description: 'this is a test event', passcode: '1234', event_type_id: 1)
+    event_type = EventType.create(name: 'test_event_type')
+    described_class.new(id: 1, event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
+                        event_description: 'this is a test event', passcode: '1234', event_type_id: event_type.id,
+                        passcode_hash: 'ABC', passcode_salt: 'XYZ')
   end
 
   describe 'Validations' do
@@ -17,9 +19,9 @@ RSpec.describe Event, type: :model do
       expect(test_event).not_to be_valid
     end
 
-    it 'is valid without a location' do
+    it 'is not valid without a location' do
       test_event.location = nil
-      expect(test_event).to be_valid
+      expect(test_event).not_to be_valid
     end
 
     it 'is not valid without a date' do
@@ -32,9 +34,9 @@ RSpec.describe Event, type: :model do
       expect(test_event).not_to be_valid
     end
 
-    it 'is valid without a passcode' do
-      test_event.passcode = nil
-      expect(test_event).to be_valid
+    it 'is not valid without a passcode' do
+      test_event.passcode_hash = nil
+      expect(test_event).not_to be_valid
     end
   end
 end

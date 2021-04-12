@@ -4,7 +4,23 @@ class EventsController < ApplicationController
   layout 'dashboard'
 
   def index
-    @events = Event.all
+    # p params[:name]
+    @events = if !params[:sort] || !params[:name]
+                Event.order(:date)
+              elsif params[:name] == 'name'
+                Event.order(event_name: params[:sort])
+              elsif params[:name] == 'location'
+                Event.order(location: params[:sort])
+              elsif params[:name] == 'date'
+                Event.order(date: params[:sort])
+              elsif params[:name] == 'open'
+                Event.order(is_open: params[:sort])
+              else
+                if params[:sort] != "asc" and params[:sort] != "desc"
+                  params[:sort] = "asc"
+                end
+                Event.includes(:event_type).order("event_types.name #{params[:sort]}")
+              end
   end
 
   def show
@@ -18,8 +34,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    et = EventType.find_by name: params[:event][:event_type]
-    @event.event_type_id = et.id
     @event.encrypt_passcode
     #  p @event
     if @event.save
@@ -38,8 +52,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-
-    @event.encrypt_passcode
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
       redirect_to(events_path)
@@ -74,6 +86,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
-                                  :passcode_hash, :passcode_salt, :is_open)
+                                  :passcode_hash, :passcode_salt, :is_open, :event_type_id)
   end
 end

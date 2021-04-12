@@ -13,17 +13,17 @@
           </p>
 
           <p>
-            <strong>First name:</strong>
+            <strong>First Name:</strong>
             <%= @user_info.first_name %>
           </p>
 
           <p>
-            <strong>Last name:</strong>
+            <strong>Last Name:</strong>
             <%= @user_info.last_name %>
           </p>
 
           <p>
-            <strong>Member status:</strong>
+            <strong>Member Status:</strong>
             <%= @user_info.member_status %>
           </p>
 
@@ -37,6 +37,10 @@
           </p>
 
           <%= link_to 'Edit', edit_user_info_path(@user_info) %> 
+          <% if !current_user.gen_member? %>
+            <%= link_to 'Back', user_infos_path%> 
+            <%= link_to 'Destroy', @user_info, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       </div>
     </div>

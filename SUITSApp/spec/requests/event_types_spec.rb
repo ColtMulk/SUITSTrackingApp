@@ -18,11 +18,16 @@ RSpec.describe '/event_types', type: :request do
   # EventType. As you add validations to EventType, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { name: 'test_event_type' }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { name: '' }
+  end
+
+  before do
+    user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
+    sign_in user
   end
 
   describe 'GET /index' do
@@ -43,7 +48,7 @@ RSpec.describe '/event_types', type: :request do
 
   describe 'GET /new' do
     it 'renders a successful response' do
-      get new_event_type_url
+      get new_event_type_path
       expect(response).to be_successful
     end
   end
@@ -77,9 +82,9 @@ RSpec.describe '/event_types', type: :request do
         end.to change(EventType, :count).by(0)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
+      it 'returns 422 status code' do
         post event_types_url, params: { event_type: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
       end
     end
   end
@@ -87,14 +92,14 @@ RSpec.describe '/event_types', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        { name: 'new_test_event_type' }
       end
 
       it 'updates the requested event_type' do
         event_type = EventType.create! valid_attributes
         patch event_type_url(event_type), params: { event_type: new_attributes }
         event_type.reload
-        skip('Add assertions for updated state')
+        expect(event_type.name).to include('new')
       end
 
       it 'redirects to the event_type' do
@@ -106,10 +111,10 @@ RSpec.describe '/event_types', type: :request do
     end
 
     context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
+      it 'returns 422 status code' do
         event_type = EventType.create! valid_attributes
         patch event_type_url(event_type), params: { event_type: invalid_attributes }
-        expect(response).to be_successful
+        expect(response.status).to eq(422)
       end
     end
   end

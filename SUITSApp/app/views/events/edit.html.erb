@@ -18,19 +18,19 @@
               </tr>
               <tr>
                 <th>Event Date</th>
-                <td><%= e.date_select(:date, :order =>[:month,:day,:year]) %></td>
+                <td><%= e.datetime_select(:date, {ampm: true, minute_step: 15, order: [:month, :day, :year, :hour, :minute]}) %></td>
               </tr>
               <tr>
                 <th>Event description</th>
                 <td><%= e.text_field(:event_description)%></td>
               </tr>
               <tr>
-                <th>Event Passcode</th>
-                <td><%= e.text_field(:passcode)%></td>
-              </tr>
-              <tr>
                 <th>Event Open</th>
                 <td><%= e.check_box(:is_open) %></td>
+              </tr>
+              <tr>
+                <th>Event Type</th>
+                <td> <%= e.collection_select(:event_type_id, EventType.all, :id, :name)%> </td>
               </tr>
             </table>
 

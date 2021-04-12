@@ -5,4 +5,6 @@ class EventType < ApplicationRecord
 
   has_many :category_rulesets, dependent: :destroy
   has_many :member_category, through: :category_rulesets
+
+  validates :name, presence: true
 end

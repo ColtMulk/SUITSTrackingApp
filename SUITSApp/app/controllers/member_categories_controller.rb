@@ -18,7 +18,7 @@ class MemberCategoriesController < ApplicationController
     @member_category = MemberCategory.new(member_category_params)
 
     old_default = MemberCategory.where(default_for: member_category_params[:default_for])
-    old_default.update(default_for: :none) if !old_default.nil?
+    old_default&.update(default_for: :none)
 
     if @member_category.save
       redirect_to edit_member_category_path(@member_category),
@@ -36,7 +36,7 @@ class MemberCategoriesController < ApplicationController
     set_member_category
 
     old_default = MemberCategory.where(default_for: member_category_params[:default_for])
-    old_default.update(default_for: :none) if !old_default.nil?
+    old_default&.update(default_for: :none)
 
     if @member_category.update(member_category_params)
       redirect_to edit_member_category_path(@member_category),
@@ -47,8 +47,9 @@ class MemberCategoriesController < ApplicationController
   end
 
   def destroy
+    set_member_category
     @member_category.destroy
-    redirect_to member_category_url, notice: 'Member Category was successfully destroyed.'
+    redirect_to member_categories_url, notice: 'Member Category was successfully destroyed.'
   end
 
   private
@@ -59,6 +60,7 @@ class MemberCategoriesController < ApplicationController
 
   def member_category_params
     params.require(:member_category).permit(:name,
+                                            :default_for, 
                                             category_rulesets_attributes: CategoryRuleset.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end

@@ -59,18 +59,23 @@
             </div>
         </div>
         <% end %>
-
-        <div class='col-md-6'>
+        <% if !current_user.gen_member? %>
+        <div class='col-md-12'>
             <div class='card'>
                 <div class='card-header'>
                     <h1>Users</h1>
                 </div>
                 <div class='card-body'>
-                    <h3>Add Header 3</h3>
-                    <p>Add text here.</p>
+                    <p>This view shows all the users of the app. For each user you can show, edit or delete their user info. In addition,
+                      you can view their attendance record as shown below.</p>
+                      <%= image_tag "UsersPage.png", class:'card-img-top' %>
+                      <h3>Adding Attendance for User</h3>
+                      <p>An Admin can also add an attendance for a specific user by clicking Add Attendance as shown above and then clicking Log Attendance for the specific event as seen below. </p>
+                      <%= image_tag "SelectEventAttendance.png", class:'card-img-top' %>
                 </div>
             </div>
         </div>
+        <% end %>
         <% if !current_user.gen_member? %>
         <div class='col-md-12'>
             <div class='card'>

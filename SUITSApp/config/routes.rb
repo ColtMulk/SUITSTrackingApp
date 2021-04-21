@@ -34,7 +34,8 @@ Rails.application.routes.draw do
 
   get 'admins', to: 'user_infos#admins', as: 'admins'
   get 'admins/remove/:id', to: 'user_infos#remove_admin', as: 'remove_admin'
-  get 'admins/add/:id', to: 'user_infos#add_admin', as: 'add_admin'
+  get 'admins/add', to: 'user_infos#add_admins', as: 'add_admins'
+  get 'admins/promote/:id', to: 'user_infos#promote_to_admin', as: 'promote_to_admin'
 
   get 'events/select_event/:id', to: 'events#select_event', as: 'select_event'
 

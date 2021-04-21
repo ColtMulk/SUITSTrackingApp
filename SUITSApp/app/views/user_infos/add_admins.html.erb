@@ -3,7 +3,7 @@
     <div class='col-md-12 center-items'>
       <div class='card center-items'>
         <div class='card-header'>
-          <h1>Admins</h1>
+          <h1>Add Admins</h1>
 
           <%= if current_user.user_info.gen_member?
             controller.redirect_to dashboard_index_path end
@@ -20,15 +20,19 @@
             </thead>
 
             <tbody>
-              <% @admins.each do |user_info| %>
+              <% @user_infos.each do |user_info| %>
                 <tr>
                   <td><%= user_info.first_name %></td>
                   <td><%= user_info.last_name %></td>
-                  <td><%= link_to 'Remove Admin', remove_admin_path(user_info) %></td>              
+                  <% if !user_info.admin? %>
+                    <td><%= link_to 'Add Admin', promote_to_admin_path(user_info) %></td>
+                  <% else %>
+                    <td>Current Admin</td>       
+                  <% end %>       
                 </tr>
               <% end %>
             </tbody>
-            <%= link_to 'Add Admin', add_admins_path, class: "btn btn-primary"%>
+             <%= link_to 'Back', admins_path, class: 'btn btn-primary'%>
           </table>
         </div>
       </div>

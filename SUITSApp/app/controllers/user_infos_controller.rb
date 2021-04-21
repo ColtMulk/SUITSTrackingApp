@@ -74,9 +74,14 @@ class UserInfosController < ApplicationController
     redirect_to :admins
   end
 
-  def add_admin
+  def add_admins
+    @user_infos = UserInfo.order('last_name ASC, first_name')
+  end
+
+  def promote_to_admin
     set_user_info
-    @user_info.user.role = :admin
+    @user_info.update(role: :admin)
+    redirect_to :add_admins
   end
 
   def select_user

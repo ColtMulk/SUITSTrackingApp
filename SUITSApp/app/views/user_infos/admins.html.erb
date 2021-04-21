@@ -1,0 +1,48 @@
+<div class='main'>
+  <main class='content'>
+    <div class='col-md-12 center-items'>
+      <div class='card center-items'>
+        <div class='card-header'>
+          <h1>Admins</h1>
+
+          <%= if current_user.gen_member?
+            controller.redirect_to dashboard_index_path end
+          %>
+        </div>
+        <div class='table-responsive'>
+          <table class='table table-hover table-striped'>
+            <thead class="header">
+              <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @admins.each do |user_info| %>
+                <tr>
+                  <td><%= user_info.first_name %></td>
+                  <td><%= user_info.last_name %></td>
+                  <%
+=begin%>
+ <td><%= link_to 'Remove Admin', change_role_path(user_info, role: :gen_member) %></td>               
+<%
+=end%>
+                  <td>
+                  <%= form_with model: user_info.user, url: change_role_path(user_info.user), html: { method: :put } do |f| %>
+                    <%= f.hidden_field :role, value: :gen_member %>
+                    <div class="actions">
+                      <%= f.submit "Remove Admin" %>
+                    </div>
+                  <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

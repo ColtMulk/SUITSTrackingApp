@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'home/index'
   devise_for :users, controllers: {registrations: 'users/registrations'}
 
+  devise_scope :user do
+    put 'admins/:id', to: 'users/registrations#update', as: 'change_role'
+  end
+    
   resources :events do
     member do
       get :delete
@@ -27,6 +31,11 @@ Rails.application.routes.draw do
   end
 
   get 'user_infos/select_user/:id', to: 'user_infos#select_user', as: 'select_user'
+
+  get 'admins', to: 'user_infos#admins', as: 'admins'
+  get 'admins/remove/:id', to: 'user_infos#remove_admin', as: 'remove_admin'
+  get 'admins/add/:id', to: 'user_infos#add_admin', as: 'add_admin'
+
   get 'events/select_event/:id', to: 'events#select_event', as: 'select_event'
 
 

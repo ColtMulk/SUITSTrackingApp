@@ -24,9 +24,22 @@ module Users
     # end
 
     # PUT /resource
-    # def update
-    #   super
-    # end
+    def update
+      # configure_account_update_params
+      # if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      #   params[:user].delete(:password)
+      #   params[:user].delete(:password_confirmation)
+      # end
+      # @user = User.find(params[:id])
+
+      # if update_resource(resource, account_update_params)
+      #   puts 'the user info successfully updated' #add whatever you want
+      # else
+      #   puts 'failed'
+      # end
+      # redirect_to admins_path
+      super
+    end
 
     # DELETE /resource
     # def destroy
@@ -42,22 +55,45 @@ module Users
     #   super
     # end
 
+    def update_role
+      configure_account_update_params
+      @user = User.find(params[:id])
+      # @user.role = params[:role]
+      # @user.password = nil
+      # @user.password_confirmation = nil
+      # @user.save!
+      if @user.update(params.except(:id))
+        puts 'the user info successfully updated' #add whatever you want
+      else
+        puts 'failed'
+      end
+      redirect_to admins_path
+    end
+
     protected
+
+    def update_resource(resource, params)
+      if current_user.master?
+        resource.update_without_password(params.except("current_password"))
+      else
+        resource.update_with_password(params)
+      end
+    end
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up,
-                                        keys: [:email, :password, :password_confirmation,
+                                        keys: [:email, :password, :password_confirmation, :role,
                                                { user_info_attributes: %i[first_name last_name member_status] }])
       devise_parameter_sanitizer.permit(:account_update,
-                                        keys: [:email, :password, :password_confirmation,
+                                        keys: [:email, :password, :password_confirmation, :role,
                                                { user_info_attributes: %i[first_name last_name member_status] }])
     end
 
     # If you have extra params to permit, append them to the sanitizer.
-    # def configure_account_update_params
-    #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-    # end
+    def configure_account_update_params
+      devise_parameter_sanitizer.permit(:account_update, keys: [:role])
+    end
 
     # The path used after sign up.
     # def after_sign_up_path_for(resource)

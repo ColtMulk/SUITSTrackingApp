@@ -64,6 +64,22 @@ class UserInfosController < ApplicationController
     end
   end
 
+  def admins
+    @admins = UserInfo.joins(:user).where(user: {role: :admin})
+  end
+
+  def remove_admin
+    # set_user_info
+    # @user_info.user.update(role: :gen_member)
+    p User.update(params[:id], role: :gen_member)
+    redirect_to :admins
+  end
+
+  def add_admin
+    set_user_info
+    @user_info.user.role = :admin
+  end
+
   def select_user
     @event = Event.find(params[:id])
     @user_infos = UserInfo.all

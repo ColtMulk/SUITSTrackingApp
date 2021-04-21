@@ -18,7 +18,6 @@
 <% event_user_points = [] %>
 <% current_user.user_info.member_category.category_rulesets.each do |category_ruleset| %>
 
-	<% event = EventType.find(category_ruleset.event_type_id) %>
 	<% event_type_list.push(EventType.find(category_ruleset.event_type_id).name) %>
 	<% event_type_points.push(category_ruleset.points) %>
     <% event_user_points.push(Attendance.includes(:event_type, :events).where("event_types.name = ? and users_id = ? and events.date <= ? and events.date >= ?" ,

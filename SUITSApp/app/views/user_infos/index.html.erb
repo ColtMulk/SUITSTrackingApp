@@ -5,7 +5,7 @@
         <div class='card-header'>
           <h1>User Infos</h1>
 
-          <%= if current_user.gen_member?
+          <%= if current_user.user_info.gen_member?
             controller.redirect_to dashboard_index_path end
           %>
         </div>

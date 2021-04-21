@@ -18,8 +18,8 @@ if User.count == 0
   user.email = 'master@master.com'
   user.password = 'password'
   user.password_confirmation = 'password'
-  user.role = 0
   user.user_info = UserInfo.new
+  user.user_info.role = 0
   user.user_info.first_name = 'master'
   user.user_info.last_name = 'master'
   user.user_info.member_status = 0
@@ -30,8 +30,8 @@ if User.count == 0
   user2.email = 'test@test.com'
   user2.password = 'csce431'
   user2.password_confirmation = 'csce431'
-  user2.role = 2
   user2.user_info = UserInfo.new
+  user2.user_info.role = 2
   user2.user_info.first_name = 'test'
   user2.user_info.last_name = 'user'
   user2.user_info.member_status = 0

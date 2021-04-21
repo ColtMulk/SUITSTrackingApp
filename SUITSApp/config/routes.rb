@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get 'home/index'
   devise_for :users, controllers: {registrations: 'users/registrations'}
 
-  devise_scope :user do
-    put 'admins/:id', to: 'users/registrations#update', as: 'change_role'
-  end
+  # devise_scope :user do
+  #   put 'admins/:id', to: 'user_infos#remove_admin', as: 'remove_admin'
+  # end
     
   resources :events do
     member do

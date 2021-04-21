@@ -12,7 +12,7 @@ RSpec.describe 'Admin', type: :feature do
 
   scenario 'shows admin' do
     sign_in
-    admin = User.create(role: :admin, password: 'password', password_confirmation: 'password', email: 'admin@admin.com', user_info: UserInfo.create(first_name: "Test", last_name: "Admin123", member_status: :new))
+    admin = User.create(password: 'password', password_confirmation: 'password', email: 'admin@admin.com', user_info: UserInfo.create(first_name: "Test", last_name: "Admin123", member_status: :new, role: :admin))
 
     visit "admins"
 
@@ -21,11 +21,11 @@ RSpec.describe 'Admin', type: :feature do
 
   scenario 'removes admin' do
     sign_in
-    admin = User.create(role: :admin, password: 'password', password_confirmation: 'password', email: 'admin@admin.com', user_info: UserInfo.create(first_name: "Test", last_name: "Admin123", member_status: :new))
+    admin = User.create(role: :admin, password: 'password', password_confirmation: 'password', email: 'admin@admin.com', user_info: UserInfo.create(first_name: "Test", last_name: "Admin123", member_status: :new, role: :admin))
     visit "admins"
 
     click_on "Remove Admin"
 
-    expect(admin.role).to eq(:gen_member)
+    expect(admin.user_info.role).to eq(:gen_member)
   end
 end

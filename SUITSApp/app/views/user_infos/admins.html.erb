@@ -5,7 +5,7 @@
         <div class='card-header'>
           <h1>Admins</h1>
 
-          <%= if current_user.gen_member?
+          <%= if current_user.user_info.gen_member?
             controller.redirect_to dashboard_index_path end
           %>
         </div>
@@ -24,20 +24,11 @@
                 <tr>
                   <td><%= user_info.first_name %></td>
                   <td><%= user_info.last_name %></td>
-                  <%
-=begin%>
- <td><%= link_to 'Remove Admin', change_role_path(user_info, role: :gen_member) %></td>               
-<%
-=end%>
-                  <td>
-                  <%= form_with model: user_info.user, url: change_role_path(user_info.user), html: { method: :put } do |f| %>
-                    <%= f.hidden_field :role, value: :gen_member %>
-                    <div class="actions">
-                      <%= f.submit "Remove Admin" %>
-                    </div>
-                  <% end %>
-                  </td>
+                  <td><%= link_to 'Remove Admin', remove_admin_path(user_info, role: :gen_member) %></td>              
                 </tr>
+              <% end %>
+              <%= f.simple_fields_for :category_rulesets do |builder| %>
+                <%= render 'category_ruleset_fields', f: builder %>
               <% end %>
             </tbody>
           </table>

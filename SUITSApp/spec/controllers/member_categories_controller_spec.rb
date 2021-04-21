@@ -5,7 +5,7 @@
 # RSpec.describe MemberCategoriesController, type: :controller do
 
 #   before do 
-#     user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
+#     user = User.create(id: 1, password: 'password', password_confirmation: 'password', email: 'master@master.com', user_info: UserInfo.create(first_name: "master", last_name: "master", member_status: :new, role: :master))
 #     sign_in user
 #     # @new_default ||= MemberCategory.create!(name: "test2", default_for: 1)
 #     # @old_default ||= MemberCategory.create!(name: "test1", default_for: 2)

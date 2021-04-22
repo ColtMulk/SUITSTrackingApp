@@ -26,7 +26,7 @@ RSpec.describe '/event_types', type: :request do
   end
 
   before do
-    user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
+    user = User.create(id: 1, password: 'password', password_confirmation: 'password', email: 'master@master.com', user_info: UserInfo.create(first_name: "master", last_name: "master", member_status: :new, role: :master))
     sign_in user
   end
 

@@ -27,7 +27,7 @@
 							<td><%= event.is_open ? "Yes" : "No" %></td>
 							<td><%= event.event_description %></td>
 							<td class = actions>
-								<% if !current_user.gen_member? %>
+								<% if !current_user.user_info.gen_member? %>
 									<%= link_to("Event Attendances", event_path(event), :class => 'action view' ) %> -
 									<%= link_to("Edit", edit_event_path(event), :class => 'action edit') %> -
 									<%= link_to("Delete", delete_event_path(event), :class => 'action delete') %> -

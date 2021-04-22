@@ -21,7 +21,7 @@ class AttendancesController < ApplicationController
   end
 
   def user
-    redirect_to(controller: 'attendances', action: 'user', id: current_user) if current_user.gen_member? && (current_user.id != params[:id].to_i)
+    redirect_to(controller: 'attendances', action: 'user', id: current_user) if current_user.user_info.gen_member? && (current_user.id != params[:id].to_i)
     @attendances = Attendance.where(users_id: params[:id])
   end
 
@@ -41,7 +41,7 @@ class AttendancesController < ApplicationController
     # p @attendance.user_passcode;
     if Attendance.exists?(users_id: current_user, events_id: @attendance.events_id)
       render('duplicate')
-    elsif !current_user.gen_member? || @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
+    elsif !current_user.user_info.gen_member? || @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
         #  p 'saved'

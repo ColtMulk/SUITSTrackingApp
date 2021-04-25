@@ -1,6 +1,6 @@
 <div class='main'>
   <main class='content'>
-    <div class='col-md-4 center-items'>
+    <div class='col-md-12 center-items'>
       <div class='card center-items'>
         <div class='card-body'>
           <p id="notice"><%= notice %></p>
@@ -42,6 +42,16 @@
             <%= link_to 'Destroy', @user_info, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>
+        <div class="card-header">
+        <h1>My Points Chart</h1>
+      </div>
+      <div class='card-body'>
+        <% if current_user.user_info.member_category != nil %>
+          <%= render 'shared/graph' %>
+        <% else %>
+          <p>No Member Category Found for Points</p>
+        <% end %>
+      </div>
       </div>
     </div>
   </main>

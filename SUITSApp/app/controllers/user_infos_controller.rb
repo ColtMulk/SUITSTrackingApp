@@ -12,7 +12,7 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/1 or /user_infos/1.json
   def show
-    redirect_to(controller: 'user_infos', action: 'show', id: current_user) if current_user.gen_member? && (current_user.id != params[:id].to_i)
+    redirect_to(controller: 'user_infos', action: 'show', id: current_user) if current_user.user_info.gen_member? && (current_user.id != params[:id].to_i)
     @user_info = UserInfo.find_by(user: params[:id])
   end
 
@@ -62,6 +62,26 @@ class UserInfosController < ApplicationController
       format.html { redirect_to user_infos_url, notice: 'User info was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def admins
+    @admins = UserInfo.where(role: :admin)
+  end
+
+  def remove_admin
+    set_user_info
+    @user_info.update(role: :gen_member)
+    redirect_to :admins
+  end
+
+  def add_admins
+    @user_infos = UserInfo.order('last_name ASC, first_name')
+  end
+
+  def promote_to_admin
+    set_user_info
+    @user_info.update(role: :admin)
+    redirect_to :add_admins
   end
 
   def select_user

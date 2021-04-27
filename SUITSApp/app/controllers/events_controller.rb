@@ -35,14 +35,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.passcode_hash = BCrypt::Password.create(event_params[:passcode])
-    p @event
     if @event.save
-      p "saved"
       flash[:notice] = 'Event added successfully'
       redirect_to(events_path(@event))
     else
       flash[:notice] = 'Failure'
-      #  p @event.errors.full_messages
       render('new')
     end
   end
@@ -58,7 +55,6 @@ class EventsController < ApplicationController
     end
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
-      p 'event updated'
       redirect_to(events_path)
     else
       render('edit')

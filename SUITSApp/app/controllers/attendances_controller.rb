@@ -44,7 +44,7 @@ class AttendancesController < ApplicationController
     elsif !current_user.user_info.gen_member? || @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
-        #  p 'saved'
+        p 'saved'
         redirect_to(dashboard_index_path)
       else
         flash[:notice] = 'Error: Not Saved'
@@ -53,7 +53,7 @@ class AttendancesController < ApplicationController
       end
     # p "correct password"
     else
-      #  p 'incorrect password'
+      p 'incorrect password'
       flash[:notice] = 'Incorrect Passcode'
       render('new')
     end

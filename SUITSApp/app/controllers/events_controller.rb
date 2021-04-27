@@ -34,9 +34,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.encrypt_passcode
-    #  p @event
+    @event.passcode_hash = BCrypt::Password.create(event_params[:passcode])
+    p @event
     if @event.save
+      p "saved"
       flash[:notice] = 'Event added successfully'
       redirect_to(events_path(@event))
     else
@@ -52,8 +53,12 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    if event_params[:new_passcode] == "1"
+      event_params[:passcode_hash] = BCrypt::Password.create(event_params[:passcode])
+    end
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
+      p 'event updated'
       redirect_to(events_path)
     else
       render('edit')
@@ -63,12 +68,6 @@ class EventsController < ApplicationController
   def delete
     @event = Event.find(params[:id])
   end
-
-  # def destroy
-  #   @event = Event.find(params[:id])
-  #   @event.destroy
-  #   redirect_to(Events)
-  # end
 
   def destroy
     @event = Event.find(params[:id])
@@ -85,7 +84,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
-                                  :passcode_hash, :passcode_salt, :is_open, :event_type_id)
+    @event_params ||= params.require(:event).permit(:event_name, :location, :date, :event_description, :passcode,
+                                  :passcode_hash, :new_passcode, :is_open, :event_type_id)
   end
 end

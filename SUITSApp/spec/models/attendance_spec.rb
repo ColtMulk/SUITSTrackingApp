@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Attendance, type: :model do
   describe 'Validation' do
     subject(:test_attendance) do
-      user = User.create(id: 1, role: :master, password: 'password', password_confirmation: 'password', email: 'master@master.com')
+      user = User.create(id: 1, password: 'password', password_confirmation: 'password', email: 'master@master.com', user_info: UserInfo.create(first_name: "master", last_name: "master", member_status: :new, role: :master))
       event = Event.create(event_name: 'TestEvent', location: 'TAMU', date: '03/10/2021',
                            event_description: 'this is a test event', passcode: '1234', event_type_id: 1,
                            passcode_hash: 'ABC', passcode_salt: 'XYZ')

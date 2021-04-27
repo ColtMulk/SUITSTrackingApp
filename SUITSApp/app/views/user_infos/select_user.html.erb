@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= if current_user.gen_member?
+<%= if current_user.user_info.gen_member?
   redirect_to "dashboard", dashboard_index_path
   end
 %>

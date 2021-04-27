@@ -25,6 +25,14 @@
                 <td><%= e.text_field(:event_description)%></td>
               </tr>
               <tr>
+                <th>Change Passcode?</th>
+                <td><%= e.check_box(:new_passcode) %></td>
+              </tr>
+              <tr>
+                <th>New Passcode</th>
+                <td><%= e.text_field(:passcode) %></td>
+              </tr>
+              <tr>
                 <th>Event Open</th>
                 <td><%= e.check_box(:is_open) %></td>
               </tr>
@@ -33,6 +41,7 @@
                 <td> <%= e.collection_select(:event_type_id, EventType.all, :id, :name)%> </td>
               </tr>
             </table>
+            <%= e.hidden_field :passcode_hash %>
 
             <div class="form-buttons">
               <%= e.submit("Update Event") %>

@@ -3,7 +3,7 @@
     <div class='col-md-12 center-items'>
       <div class='card center-items'>
         <div class='card-header'>
-          <h1>User Infos</h1>
+          <h1>Add Admins</h1>
 
           <%= if current_user.user_info.gen_member?
             controller.redirect_to dashboard_index_path end
@@ -15,11 +15,7 @@
               <tr>
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Member status</th>
-                <th>Member category</th>
-                <th>User Attendance</th>
-                <th colspan="2"></th>
-                <th>Log Attendance</th>
+                <th colspan="1"></th>
               </tr>
             </thead>
 
@@ -28,19 +24,15 @@
                 <tr>
                   <td><%= user_info.first_name %></td>
                   <td><%= user_info.last_name %></td>
-                  <td><%= user_info.member_status %></td>
-                  <% if user_info.member_category == nil %>
-                    <td>N/A</td>
+                  <% if !user_info.admin? %>
+                    <td><%= link_to 'Add Admin', promote_to_admin_path(user_info) %></td>
                   <% else %>
-                    <td><%= user_info.member_category.name %></td>
-                  <% end %>
-                  <td><%= link_to 'View Attendance', user_attendance_path(user_info) %></td>
-                  <td><%= link_to 'Show', user_info %></td>
-                  <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
-                  <td><%= link_to 'Add Attendance', select_event_path(user_info) %></td>
+                    <td>Current Admin</td>       
+                  <% end %>       
                 </tr>
               <% end %>
             </tbody>
+             <%= link_to 'Back', admins_path, class: 'btn btn-primary'%>
           </table>
         </div>
       </div>

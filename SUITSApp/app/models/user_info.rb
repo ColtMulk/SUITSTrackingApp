@@ -5,6 +5,7 @@ class UserInfo < ApplicationRecord
   belongs_to :member_category, optional: true
 
   enum member_status: { new: 0, old: 1, alumni: 2 }, _prefix: :status
+  enum role: { master: 0, admin: 1, gen_member: 2 }
 
   validates :first_name, :last_name, :member_status, presence: true
 
@@ -12,7 +13,7 @@ class UserInfo < ApplicationRecord
 
   def init
     return unless new_record?
-
+    
     if status_new?
       self.member_category = MemberCategory.where(default_for: :new)[0]
     elsif status_old?

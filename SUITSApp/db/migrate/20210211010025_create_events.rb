@@ -6,7 +6,6 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.timestamp :date
       t.string :location
       t.string :passcode_hash
-      t.string :passcode_salt
       t.boolean :is_open
 
       t.timestamps

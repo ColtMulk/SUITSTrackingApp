@@ -4,6 +4,7 @@
 require 'spec_helper'
 # require 'factory_bot'
 require_relative 'support/controller_macros'
+require 'support/database_cleaner'
 # require 'support/factory_bot'
 require 'setup/factories'
 require 'simplecov'
@@ -15,7 +16,7 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
-Rails.application.load_seed
+# Rails.application.load_seed
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -81,4 +82,4 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
 end
 
-Capybara.default_driver = :selenium_chrome
+Capybara.default_driver = :selenium_chrome_headless

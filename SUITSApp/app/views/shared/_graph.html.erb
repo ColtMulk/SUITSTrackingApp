@@ -1,14 +1,29 @@
 <div class="chart">
 	<canvas id="chartjs-bar"></canvas>
 </div>
+<% require 'date' %>
+<% day = Date.today %>
+<%
+	if day.month <= 7
+		startM = Time.new(day.year, 1, 1)
+		endM = Time.new(day.year, 7, 31)
+	else
+		startM = Time.new(day.year, 8, 1)
+		endM = Time.new(day.year, 12, 31)
+	end
+%>
 
 <% event_type_list = [] %>
 <% event_type_points = [] %>
 <% event_user_points = [] %>
-<% current_user.user_info.member_category.category_rulesets.each do |category_ruleset| %>
+
+<% user_info = current_user.user_info if local_assigns[:user_info].nil? %>
+<% user_info.member_category.category_rulesets.each do |category_ruleset| %>
+
 	<% event_type_list.push(EventType.find(category_ruleset.event_type_id).name) %>
-	<% event_type_points.push(category_ruleset.points) %> 
-    <% event_user_points.push(Attendance.includes(:event_type).where("event_types.name = ? and users_id = ?" , EventType.find(category_ruleset.event_type_id).name, current_user).references(:event_types).count) %>
+	<% event_type_points.push(category_ruleset.points) %>
+    <% event_user_points.push(Attendance.includes(:event_type, :events).where("event_types.name = ? and users_id = ? and events.date <= ? and events.date >= ?" ,
+		EventType.find(category_ruleset.event_type_id).name, user_info , endM, startM).references(:event_types).count) %>
 <% end %>
 
 <script>
@@ -21,7 +36,7 @@ new Chart(document.getElementById("chartjs-bar"), {
 	data: {
 		labels: xlabels,
 		datasets: [{
-			label: "My Points",
+			label: "Points",
 			backgroundColor: "#800000",
 			borderColor: "#800000",
 			hoverBackgroundColor: "#800000",
@@ -65,4 +80,4 @@ new Chart(document.getElementById("chartjs-bar"), {
 		}
 	}
 });
-</script> 
+</script>

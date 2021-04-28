@@ -1,15 +1,19 @@
 <div class='main'>
   <main class='content'>
-    <div class='col-md-4 center-items'>
+    <div class='col-md-12 center-items'>
       <div class='card center-items'>
         <div class='card-body'>
           <p id="notice"><%= notice %></p>
 
-          <h1>My Profile</h1>
+          <% if  @user_info.id == current_user.user_info.id %>
+            <h1>My Profile</h1>
+          <% else %>
+            <h1> <%= @user_info.first_name %> 's Profile </h1>
+          <% end %>
 
           <p>
             <strong>Email:</strong>
-            <%= current_user.email %>
+            <%=  @user_info.user.email %>
           </p>
 
           <p>
@@ -42,6 +46,20 @@
             <%= link_to 'Destroy', @user_info, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>
+        <div class="card-header">
+        <% if  @user_info.id == current_user.user_info.id %>
+          <h1>My Points Chart</h1>
+        <% else %>
+          <h1> <%= @user_info.first_name %> 's Points Chart </h1>
+        <% end %>
+      </div>
+      <div class='card-body'>
+        <% if  @user_info.member_category != nil %>
+          <%= render :partial => "shared/graph", :locals => {:user_info => @user_info} %>
+        <% else %>
+          <p>No Member Category Found for Points</p>
+        <% end %>
+      </div>
       </div>
     </div>
   </main>

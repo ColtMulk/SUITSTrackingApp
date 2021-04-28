@@ -5,9 +5,12 @@
         <div class='card-header'>
           <h1>Admins</h1>
 
-          <%= if current_user.user_info.gen_member?
+          <%= if !current_user.user_info.master?
             controller.redirect_to dashboard_index_path end
           %>
+        </div>
+        <div class='card-body'>
+          <%= link_to 'Add Admin', add_admins_path, class: "btn btn-primary"%>
         </div>
         <div class='table-responsive'>
           <table class='table table-hover table-striped'>
@@ -28,7 +31,7 @@
                 </tr>
               <% end %>
             </tbody>
-            <%= link_to 'Add Admin', add_admins_path, class: "btn btn-primary"%>
+
           </table>
         </div>
       </div>

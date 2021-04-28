@@ -52,12 +52,15 @@
           <%= link_to 'Users', user_infos_path, class: "sidebar-link"%>
         </li>
 
+      <% end %>
+
+      <% if current_user.user_info.master? %>
         <li class="sidebar-item">
           <%= link_to 'Admins', admins_path, class: "sidebar-link"%>
         </li>
+      <% end %>
 
     </ul>
-  <% end %>
 
   </div>
 </nav>

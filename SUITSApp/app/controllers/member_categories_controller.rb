@@ -39,7 +39,7 @@ class MemberCategoriesController < ApplicationController
     old_default&.update(default_for: :none)
 
     if @member_category.update(member_category_params)
-      redirect_to edit_member_category_path(@member_category),
+      redirect_to action: 'index',
                   notice: 'Member Category successfully updated'
     else
       render :edit

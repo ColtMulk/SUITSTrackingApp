@@ -34,26 +34,18 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    # puts attendance_params
-    # puts @attendance.inspect
-    # p 'in create'
-
-    # p @attendance.user_passcode;
+    
     if Attendance.exists?(users_id: current_user, events_id: @attendance.events_id)
       render('duplicate')
     elsif !current_user.user_info.gen_member? || @attendance.authenticate(@attendance.user_passcode, @attendance.events_passcode_hash)
       if @attendance.save!
         flash[:notice] = 'attendance added successfully'
-        #  p 'saved'
         redirect_to(dashboard_index_path)
       else
         flash[:notice] = 'Error: Not Saved'
-        #  p 'not saved'
         render('new')
       end
-    # p "correct password"
     else
-      #  p 'incorrect password'
       flash[:notice] = 'Incorrect Passcode'
       render('new')
     end

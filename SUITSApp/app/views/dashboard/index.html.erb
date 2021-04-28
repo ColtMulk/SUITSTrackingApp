@@ -43,7 +43,7 @@
 				</div>
 				<div class='card-body'>
 					<% if current_user.user_info.member_category != nil %>
-						<%= render 'shared/graph' %>
+					  <%= render partial: 'shared/graph', locals: {user_info: @user_info} %>
 					<% else %>
 						<p>No Member Category Found for Points</p>
 					<% end %>

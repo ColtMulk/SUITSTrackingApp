@@ -1,26 +1,17 @@
 # SUITS Member Point Tracking
 
-
 For MacOS:
 
-Requirements: Ruby 3.0.0, rails gem, pg gem, and postgresql set up on your machinee
+Requirements: Ruby 2.7.2, rails gem, pg gem, and postgresql set up on your machinee
 
  
-To set up on your local machine, first create a postgres user called suitsapp with:
-
-```
-createuser -P -d -e suitsapp   
-```
-
-and give it a password of 'suitsapp'. If you would like to use a different password, you will need to change the development password in SUITSApp/config/database.yml.
-
-Next, create the database with:
+To set up on your local machine, first create a postgres database with
 
 ```
 createdb -U suitsapp suitsappdb
 ```
 
-Finally navigate to the app:
+Navigate to the app:
 
 ```
 cd SUITSApp  
@@ -38,15 +29,14 @@ Check to ensure everything worked by starting the rails server:
 rails server
 ```
 
-and visiting http://127.0.0.1:3000. You should be taken to a list of users where you can create a new one to verify the db setup was successful.
+and visiting http://127.0.0.1:3000
 
-
-For Unix (work in progress):
+For Unix:
 
 ```
 first mess with the database.yml in default if not there
-username: suitsapp
-password: suitsapp
+username: postgres
+password: postgres
 host: localhost
 port: 5432
 ```
@@ -86,3 +76,25 @@ rails server
 ```
 rails webpacker:install (if webpacker error run this command)
 ```
+
+Deploy to Heroku:
+
+Pushing changes to the master branch will automatically deploy to the staging app in https://dashboard.heroku.com/pipelines/880b5af4-f7e3-48c5-a568-11b23e2b3e04
+- This lets you test the changes before deploying to production
+
+In order to deploy to production app you will go to https://dashboard.heroku.com/apps/suits-point-tracking/deploy/github, scroll down to manual deploy, and click deploy branch with master selected
+
+If you add any new database migrations, you will need to migrate the database on heroku.
+- to do this click More in the top right corner then click run console. There you will type:
+
+```
+rails db:migrate
+```
+
+and allow it to run
+
+Github Actions:
+
+Whenever a change is made, 2 github actions will automatically run on the changed code, rubocop and rspec. Rubocop checks that your code adheres to ruby coding standards, and rspec runs the testing suite.
+
+The testing suite is found in SUITSApp/spec

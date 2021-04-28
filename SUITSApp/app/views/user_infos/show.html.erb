@@ -5,11 +5,15 @@
         <div class='card-body'>
           <p id="notice"><%= notice %></p>
 
-          <h1>My Profile</h1>
+          <% if  @user_info.id == current_user.user_info.id %>
+            <h1>My Profile</h1>
+          <% else %>
+            <h1> <%= @user_info.first_name %> 's Profile </h1>
+          <% end %>
 
           <p>
             <strong>Email:</strong>
-            <%= current_user.email %>
+            <%=  @user_info.user.email %>
           </p>
 
           <p>
@@ -43,10 +47,14 @@
           <% end %>
         </div>
         <div class="card-header">
-        <h1>My Points Chart</h1>
+        <% if  @user_info.id == current_user.user_info.id %>
+          <h1>My Points Chart</h1>
+        <% else %>
+          <h1> <%= @user_info.first_name %> 's Points Chart </h1>
+        <% end %>
       </div>
       <div class='card-body'>
-        <% if current_user.user_info.member_category != nil %>
+        <% if  @user_info.member_category != nil %>
           <%= render 'shared/graph' %>
         <% else %>
           <p>No Member Category Found for Points</p>

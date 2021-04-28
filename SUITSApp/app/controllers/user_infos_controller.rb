@@ -78,7 +78,7 @@ class UserInfosController < ApplicationController
   end
 
   def add_admins
-    @user_infos = UserInfo.order('last_name ASC, first_name')
+    @user_infos = UserInfo.order('last_name ASC, first_name').reject {|user_info| user_info.master?}
   end
 
   def promote_to_admin

@@ -33,7 +33,7 @@
   <p>Warning: If you set this category as a default while another category is currently the default for that set of users, then the other category will lose its default status</p>
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary'%>
-    <%= link_to_add_association 'Add Event Type', f, :category_rulesets, class: 'btn btn-primary', data: { association_insertion_node: '.categories', association_insertion_method: :append } %>
+    <%= f.button :submit, class: 'btn btn-primary'%>
+    <%= link_to_add_association 'Add Event Type', f, :category_rulesets, class: 'btn btn-secondary', data: { association_insertion_node: '.categories', association_insertion_method: :append } %>
   </div>
 <% end %> 

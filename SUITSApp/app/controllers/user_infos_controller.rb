@@ -12,7 +12,10 @@ class UserInfosController < ApplicationController
 
   # GET /user_infos/1 or /user_infos/1.json
   def show
-    redirect_to(controller: 'user_infos', action: 'show', id: current_user) if current_user.user_info.gen_member? && (current_user.id != params[:id].to_i)
+    
+    if current_user.user_info.gen_member?
+      redirect_to(controller: 'user_infos', action: 'show', id: current_user) 
+    end
     @user_info = UserInfo.find_by(user: params[:id])
   end
 

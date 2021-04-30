@@ -16,8 +16,8 @@
 if User.count == 0
   user = User.new
   user.email = 'master@master.com'
-  user.password = 'password'
-  user.password_confirmation = 'password'
+  user.password = 'AggieSUITS_2015'
+  user.password_confirmation = 'AggieSUITS_2015'
   user.user_info = UserInfo.new
   user.user_info.role = 0
   user.user_info.first_name = 'master'

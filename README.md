@@ -98,3 +98,10 @@ Github Actions:
 Whenever a change is made, 2 github actions will automatically run on the changed code, rubocop and rspec. Rubocop checks that your code adheres to ruby coding standards, and rspec runs the testing suite.
 
 The testing suite is found in SUITSApp/spec
+
+Tool Versions
+Ruby 2.7.2
+Rails 6.1.1
+Bootsnap 1.4.4
+Devise – 4.7.3 
+Capybara 3.26

@@ -1,5 +1,13 @@
 # SUITS Member Point Tracking
 
+# Summary
+
+Web Application designed for SUITS Organization. Keeps tracks of users attendance with meetings and events based on custom rulesets.
+Admins can create their own events, rulesets etc. 
+
+
+# Project Setup
+
 
 For MacOS:
 
